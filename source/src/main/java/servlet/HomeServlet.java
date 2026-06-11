@@ -31,7 +31,7 @@ public class HomeServlet extends HttpServlet {
 		}
 		
 		 // ホーム画面へ遷移
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home_mama.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
         dispatcher.forward(request, response);
 		}
 	}
