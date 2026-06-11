@@ -111,5 +111,9 @@
         </a>
     </div>
 </main>
+
+<!-- フッター -->
+<%@ include file="footer.jsp" %>
+
 </body>
 </html>
