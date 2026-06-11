@@ -10,25 +10,7 @@
 </head>
 <body>
 <!-- ヘッダー -->
-<header>
-    <div class="logo-area">
-        <h1>ふたりごと。</h1>
-        <p>
-            ふたりで育児・家事をもっとたのしく
-        </p>
-    </div>
-
-    <div class="user-area">
-    	<c:choose>
-            <c:when test="${sessionScope.couple_id == 0}">
-                ママ
-            </c:when>
-            <c:otherwise>
-                パパ
-            </c:otherwise>
-        </c:choose>
-    </div>
-</header>
+<%@ include file="header.jsp" %>
 
 <!-- メイン -->
 <main>
