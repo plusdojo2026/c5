@@ -1,10 +1,37 @@
 package servlet;
 
-public class HomeServlet {
+import java.io.IOException;
 
-	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+/**
+ * Servlet implementation class HomeServlet
+ */
+@WebServlet("/HomeServlet")
+public class HomeServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/c5/webapp/LoginServlet");
+			return;
+		}
+		
+		 // ホーム画面へ遷移
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home_mama.jsp");
+        dispatcher.forward(request, response);
+		}
 	}
-
-}
