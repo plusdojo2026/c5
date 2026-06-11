@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<header>
+<!-- ヘッダーをインクルード -->
+<%@ include file="header.jsp" %>
+</header>
+<main>
+</main>
+<footer>
+<!-- フッターをインクルード -->
+<%@ include file="footer.jsp" %>
+</footer>
 </body>
 </html>
