@@ -1,5 +1,7 @@
 package servlet;
 
+import java.io.IOException;
+
 public class TorisetuServlet {
 
 	public static void main(String[] args) {
