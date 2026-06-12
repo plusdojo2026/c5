@@ -1,8 +1,28 @@
 @charset "UTF-8";
 
+body{
+	margin:0 0 0 0;
+    background-color: #FFE4E1;
+}
+
+main{
+    margin-top: 120px;
+    margin-bottom: 170px;
+}
+
+/* アイコン配列 */
 .row{
     display:flex;
     justify-content:center;
     gap:30px;
     margin-bottom:30px;
+}
+
+
+/* 背景色 */
+.mama{
+    background-color:#FFE4E1;
+}
+.papa{
+    background-color:#AFEEEE;
 }
