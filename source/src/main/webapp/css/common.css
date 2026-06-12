@@ -1,1 +1,86 @@
 @charset "UTF-8";
+
+/* ヘッダー全体 */
+header{
+    height:120px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+
+    background:#fffafc;
+
+    border-bottom:1px solid #f5dce4;
+
+    box-sizing:border-box;
+}
+
+/* ロゴエリア */
+.logo-area{
+    display:flex;
+    align-items:center;
+}
+
+/* ロゴ画像 */
+.logo-image{
+    height:140px;
+    width:auto;
+
+    display:block;
+}
+
+/* ママ・パパ表示 */
+.user-area{
+    font-size:28px;
+    color:#555555;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+}
+
+/* body */
+body{
+	margin:0 0 0 0;
+	color:#555555;
+}
+
+
+
+
+
+/* フッター　*/
+.footer{
+    margin-top:60px;
+
+    padding:25px 0;
+
+    text-align:center;
+
+    border-top:1px solid #f5dede;
+
+    background:#ffffff;
+}
+
+/* ふたりごと。 */
+.footer-title{
+    margin:0;
+
+    color:#ff7f9f;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+/* © 2026 Dark Horse */
+.copyright{
+    margin-top:8px;
+
+    color:#999999;
+
+    font-size:13px;
+}
