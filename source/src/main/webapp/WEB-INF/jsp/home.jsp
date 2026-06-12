@@ -7,7 +7,9 @@
 <meta charset="UTF-8">
 <title>ふたりごと。</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 </head>
+
 <body>
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
@@ -16,15 +18,13 @@
 <main>
     <div class="menu-grid">
     
+    <div class="row">
     	<!-- おねだり -->
         <a href="${pageContext.request.contextPath}/OnedariServlet" class="home-icon">
             <div class="icon">
             	<img src="${pageContext.request.contextPath}/img/onedari.png"
         			 alt="おねだり">
 			</div>
-            <div class="title">
-                おねだり
-            </div>
         </a>
 
 		<!-- こんなことしてたよ -->
@@ -33,9 +33,6 @@
             	<img src="${pageContext.request.contextPath}/img/konnnakotositetayo.png"
         			 alt="こんなことしてたよ">
 			</div>
-            <div class="title">
-                こんなことしてたよ
-            </div>
         </a>
 
 		<!-- ふたりのバランス -->
@@ -44,20 +41,16 @@
             	<img src="${pageContext.request.contextPath}/img/futarinobalance.png"
         			 alt="ふたりのバランス">
 			</div>
-            <div class="title">
-                ふたりのバランス
-            </div>
         </a>
-
+	</div>
+	
+	<div class="row">
 		<!-- おもいでアルバム -->
         <a href="${pageContext.request.contextPath}/OmoidealbumlbumServlet" class="home-icon">
             <div class="icon">
             	<img src="${pageContext.request.contextPath}/img/omoidealbum.png"
         			 alt="おもいでアルバム">
 			</div>
-            <div class="title">
-                おもいでアルバム
-            </div>
         </a>
 
 		<!-- すくすく記録 -->
@@ -66,20 +59,16 @@
             	<img src="${pageContext.request.contextPath}/img/sukusukukiroku.png"
         			 alt="すくすく記録">
 			</div>
-            <div class="title">
-                すくすく記録
-            </div>
         </a>
+	</div>
 
+	<div class="row">
 		<!-- ママのようす -->
         <a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
             <div class="icon">
             	<img src="${pageContext.request.contextPath}/img/mamanoyousu.png"
         			 alt="ママのようす">
 			</div>
-            <div class="title">
-                ママのようす
-            </div>
             
            <!-- ママの場合 -->
             <c:if test="${sessionScope.couple_id == 0}">
@@ -102,13 +91,12 @@
 		<!-- ママのトリセツ -->
         <a href="${pageContext.request.contextPath}/TorisetsuServlet" class="home-icon">
             <div class="icon">
-            	<img src="${pageContext.request.contextPath}/img/mamanotorisetsu.png"
+            	<img src="${pageContext.request.contextPath}/img/torisetsu.png"
         			 alt="ママのトリセツ">
 			</div>
-            <div class="title">
-                ママのトリセツ
-            </div>
         </a>
+	</div>
+	
     </div>
 </main>
 
