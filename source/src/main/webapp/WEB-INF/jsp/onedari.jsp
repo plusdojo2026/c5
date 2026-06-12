@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,38 +22,58 @@
 	</div>
 	 <button id="add-btn">＋追加する</button>
 </div>
+
 <!-- おねだりリストのメインエリア -->
+<!-- 条件分岐：リストが空の場合 -->
+<c:if test="${empty onedariList}">
 <main class ="empty-list">
 <!--  真ん中のイラスト --> <!-- 後で画像のリンクちゃんと設定 -->
     <img src="/webapp/images/ ここにいれる" alt="空のカート" class="empty-image">
      <h2>おねだりリストは空です</h2>
      <p>右上の「＋追加する」から<br>お願いしたいものを追加してみましょう！</p>
 </main>
-
+</c:if>
 <!-- おねだりリストの一覧エリア（商品があるときに表示する箱） -->
+<!-- 条件分岐：リストに商品があるとき -->
+<c:if test="${not empty onedariList}">
 <div class="item-list-container">    
-    <!-- おねだり商品1つ分のカード（おむつの例） -->
-    <div class="item-card">
-        <div class="item-card-left">
-            <img src="/webapp/images/diaper-icon.png" alt="おむつ" class="item-cat-icon">
-            <div class="item-details">
-                <span class="item-brand">パンパース</span>
-                <span class="item-spec">テープタイプ</span>
-                <span class="item-size-badge">Mサイズ</span>
-            </div>
+   <c:forEach var="item" items="${onedariList}">
+                <div class="item-card ${not empty item.updatedAt ? 'is-purchased' : ''}">
+                    <div class="item-card-left">
+                        <img src="/webapp/images/${item.category}-icon.png" alt="${item.categoryName}" class="item-cat-icon">
+                        <div class="item-details">
+                        	<!-- product_name（パンパース等）を表示 -->
+                            <span class="item-brand"><c:out value="${item.productName}" /></span>
+                            <!-- categoryマスタの type（テープ型、缶 など）を表示 -->
+                            <span class="item-spec"><c:out value="${item.type}" /></span>
+                            <!-- categoryマスタの size（新生児、S などのサイズ）を表示 -->
+                            <span class="item-size"><c:out value="${item.size}" /></span>
+                        </div>
+                    </div>
+                    <div class="item-card-right">
+                        <img src="/webapp/images/${item.imagePath}" alt="添付写真" class="item-thumb">
+                        
+                        <!-- 購入したらチェックマーク -->
+					    <div class="check-wrapper">
+                            <input type="checkbox" 
+                                   id="check-${item.onedariId}" 
+                                   class="check-box" 
+                                   data-id="${item.onedariId}" 
+                                   ${not empty item.updatedAt ? 'checked' : ''}>
+                            <label for="check-${item.onedariId}" class="check-label"></label>
+                        </div>						
+                    </div>
+                </div>
+            </c:forEach>
         </div>
-        <div class="item-card-right">
-            <img src="/webapp/images/uploaded-diaper.jpg" alt="添付写真" class="item-thumb">
-            <button class="delete-btn">
-                <img src="/webapp/images/trash-icon.png" alt="削除" class="trash-icon">
-            </button>
-        </div>
-    </div>
-</div>
+    </c:if>
+</div>    <!-- ここで div class wrapper 閉じてる -->
 
 <!-- モーダル制御の画面構成1 -->
 <div class="modal-overlay" id="add-modal"> 
     <div class="modal-container">      <!-- ミルクオムツその他などの上にくるカードの部分 -->
+    <!-- 1つ前のページに戻るボタン（左上の>） -->
+    <button class="modal-back-btn">&lt;</button>
     <!-- 閉じるボタン（右上の×） -->
         <button class="modal-close-btn">&times;</button>  
         <!-- [&times;]  綺麗な「×」のバツ印を表示するための書き方 -->
@@ -60,17 +81,17 @@
 	<!-- おむつ・ミルク・その他　３つの選択肢を横並びにするための箱 -->
         <div class="select-options">
     <!-- おむつ選択 -->
-    	<button class="option-btn">
+    	<button class="option-btn" data-target="omutsu-modal">  <!-- data属性でオムツモーダルを開く -->
     	<img src="/webapp/images/ ここにいれる" alt="おむつ" class="option-icon">
                 <span>おむつ</span>
-        </button>
+        </button>  
     <!-- ミルク選択 -->
-    	<button class="option-btn">
+    	<button class="option-btn" data-target="milk-modal">  <!-- data属性でミルクモーダルを開く -->
     	<img src="/webapp/images/ ここにいれる" alt="ミルク" class="option-icon">
     			<span>ミルク</span>
     	</button>
     <!-- その他選択 -->
-    	<button class="option-btn">
+    	<button class="option-btn" data-target="other-modal">  <!-- data属性でその他モーダルを開く -->
     	<img src="/webapp/images/ ここにいれる" alt="その他" class="option-icon">
     			<span>その他</span>
     	</button>
@@ -81,6 +102,9 @@
 <!-- モーダル制御の画面構成２-1 おむつ -->
 <div class="modal-overlay" id="omutsu-modal"> 
     <div class="modal-container">
+    <!-- １つ前に戻るボタン -->
+    <button class="modal-back-btn">&lt;</button>
+    <!-- 閉じるボタン -->
     <button class="modal-close-btn">&times;</button>
         <h3>おむつを追加</h3>
         
@@ -90,7 +114,7 @@
             <!-- おむつのブランドを記述 -->
             <div class="form-group">
             <label>①なにを買ってきてほしいか教えてください</label>
-            <input type="text" name="memo" placeholder="例：パンパース、メリーズなど">
+            <input type="text" name="omutsu-brand" placeholder="例：パンパース、メリーズなど">
             </div>
             
             <!-- タイプ用の選択肢 -->
@@ -110,13 +134,13 @@
                     <label class="size-btn"><input type="radio" name="omutsu-size" value="S"> S</label>
                     <label class="size-btn"><input type="radio" name="omutsu-size" value="M"> M</label>
                     <label class="size-btn"><input type="radio" name="omutsu-size" value="L"> L</label>
-                    <label class="size-btn"><input type="radio" name="omutsu-size" value="ビッグ"> ビッグ</label>
+                    <label class="size-btn"><input type="radio" name="omutsu-size" value="BIG"> BIG</label>
                 </div>
             </div>
             
             <!--  写真添付（任意）-->
             <div class="form-group">
-                <label for="diaper-image">写真を添付（任意）</label>
+                <label for="omutsu-image">写真を添付（任意）</label>
                 <input type="file" id="omutsu-image" name="item-image" accept="image/*">
                 
                 <!-- 選択した画像をその場でパッと表示させるための空の枠 -->
@@ -136,6 +160,8 @@
 <!-- モーダル制御の画面構成２-２ ミルク -->
 <div class="modal-overlay" id="milk-modal"> 
     <div class="modal-container">
+    	<!-- １つ前に戻るボタン -->
+    	<button class="modal-back-btn">&lt;</button>
         <!-- 閉じるボタン -->
         <button class="modal-close-btn">&times;</button>
         <h3>ミルクを追加</h3>
@@ -182,6 +208,8 @@
 <!-- モーダル制御の画面構成2-3　その他 -->
 <div class="modal-overlay" id="other-modal"> 
     <div class="modal-container">
+    	<!-- １つ前に戻るボタン -->
+    	<button class="modal-back-btn">&lt;</button>
         <!-- 閉じるボタン -->
         <button class="modal-close-btn">&times;</button>
         <h3>その他を追加</h3>
@@ -207,7 +235,7 @@
                 </div>
             </div>
             
-            <!-- ③ 送信ボタン -->
+            <!-- 送信ボタン -->
             <div class="form-actions">
                 <button type="submit" class="submit-btn">追加する</button>
             </div>
@@ -228,8 +256,126 @@
         
     </div>
 </div>
-</div>    <!-- ここで div class wrapper 閉じてる -->
+
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
+
+<!-- JaveScript　ここから -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. モーダルの開閉・切り替え制御
+    const addBtn = document.getElementById("add-btn");
+    const addModal = document.getElementById("add-modal");
+    const allModals = document.querySelectorAll(".modal-overlay");
+    const optionBtns = document.querySelectorAll(".select-options .option-btn");
+    const closeBtns = document.querySelectorAll(".modal-close-btn");
+    const backBtns = document.querySelectorAll(".modal-back-btn");
+	
+    //追加ボタン押されたら、おむつ ミルク その他 を選択する1のモーダルを表示
+    if (addBtn && addModal) {
+        addBtn.addEventListener("click", () => { addModal.style.display = "flex"; });
+    }
+	
+    //選択された専用の各モーダルを表示 2-1 おむつ 2-2 ミルク  2-3 その他
+    optionBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const targetId = btn.getAttribute("data-target");
+            const targetModal = document.getElementById(targetId);
+            if (targetModal) {
+                if (addModal) addModal.style.display = "none";
+                targetModal.style.display = "flex";
+            }
+        });
+    });
+	
+    // > 戻るボタン押されたら一個前の選択画面に戻る
+    backBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const currentModal = btn.closest(".modal-overlay");
+            if (currentModal) currentModal.style.display = "none";
+            if (addModal) addModal.style.display = "flex";
+        });
+    });
+	
+    // × バツボタン押されたら開いているモーダルをすべて閉じておねだりリストの初期画面に戻る
+    closeBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            allModals.forEach(modal => modal.style.display = "none");
+        });
+    });
+
+    // 2. 画像のリアルタイムプレビュー処理
+    const setupPreview = (inputId, previewId) => {
+        const fileInput = document.getElementById(inputId);
+        const previewImg = document.getElementById(previewId);
+        if (!fileInput || !previewImg) return;
+
+        fileInput.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            } else {
+                previewImg.src = "";
+                previewImg.style.display = "none";
+            }
+        });
+    };
+
+    setupPreview("omutsu-image", "omutsu-preview");
+    setupPreview("milk-image", "milk-preview");
+    setupPreview("other-image", "other-preview");
+
+ 	// 3. 購入完了（チェックボックス）の制御
+
+    const container = document.querySelector(".item-list-container");
+    if (container) {
+        // changeイベント（チェックボックスのON/OFFが切り替わった瞬間）を監視します
+        container.addEventListener("change", async (event) => {
+            const checkbox = event.target.closest(".check-box");
+            if (!checkbox) return;
+
+            const onedariId = checkbox.getAttribute("data-id");
+            const card = checkbox.closest(".item-card");
+            
+            // チェックボックスが今「チェックされた(true)」か「外された(false)」かを取得
+            const isChecked = checkbox.checked;
+
+            try {
+                // チェックされたら complete、外されたら cancel をサーバーに送る
+                const action = isChecked ? "complete" : "cancel";
+                const response = await fetch(`update-status?id=${onedariId}&action=${action}`, { method: "POST" });
+
+                if (response.ok) {
+                    if (isChecked) {
+                        // 未購入 ➔ 購入済みにする処理
+                        if (card) {
+                            card.classList.add("is-purchased"); // gray（半透明）にする
+                            container.appendChild(card);        // リストの一番最後（下）へ移動
+                        }
+                    } else {
+                        // 購入済み ➔ 未購入に戻す処理
+                        if (card) {
+                            card.classList.remove("is-purchased"); // gray（半透明）を解除
+                            container.insertBefore(card, container.firstChild); // リストの一番上に戻す
+                        }
+                    }
+                } else {
+                    // 通信失敗時は、パパの画面のチェックボックスの見た目を元の状態に強制的に戻します
+                    checkbox.checked = !isChecked;
+                    alert("通信に失敗しました。");
+                }
+            } catch (error) {
+                checkbox.checked = !isChecked;
+                console.error("Error:", error);
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
