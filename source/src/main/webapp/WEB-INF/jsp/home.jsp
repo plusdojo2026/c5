@@ -10,7 +10,15 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 </head>
 
-<body>
+<c:choose>
+    <c:when test="${sessionScope.couple_id == 0}">
+        <body class="mama">
+    </c:when>
+    <c:otherwise>
+        <body class="papa">
+    </c:otherwise>
+</c:choose>
+
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
@@ -63,30 +71,29 @@
 	</div>
 
 	<div class="row">
+	
 		<!-- ママのようす -->
-        <a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
-            <div class="icon">
-            	<img src="${pageContext.request.contextPath}/img/mamanoyousu.png"
-        			 alt="ママのようす">
-			</div>
-            
-           <!-- ママの場合 -->
-            <c:if test="${sessionScope.couple_id == 0}">
-                <button type="button">
-                    記録する
-                </button>
-            </c:if>
+		<a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
+    	
+    	<c:choose>
+        <!-- ママ -->
+        <c:when test="${sessionScope.couple_id == 0}">
+            <img
+                src="${pageContext.request.contextPath}/img/mamanoyousu_mama.png"
+                alt="ママのようす">
+        </c:when>
 
-            <!-- パパの場合 -->
-            <c:if test="${sessionScope.couple_id == 1}">
-                <div class="condition-preview">
-                    メンタル： ${メソッド名.引数}
-                    <br>
-                    睡眠： ${メソッド名.引数}時間
-                </div>
-            </c:if>
-            
-        </a>
+        <!-- パパ -->
+        <c:otherwise>
+            <div class="condition-preview">
+                メンタル：${メソッド名.引数}
+                <br>
+                睡眠：${メソッド名.引数}時間
+            </div>
+        </c:otherwise>
+    	</c:choose>
+
+		</a>
 
 		<!-- ママのトリセツ -->
         <a href="${pageContext.request.contextPath}/TorisetsuServlet" class="home-icon">
