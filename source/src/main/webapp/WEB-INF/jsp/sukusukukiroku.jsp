@@ -8,10 +8,10 @@
 <meta charset="UTF-8">
 <title>すくすく記録</title>
 </head>
-<hr>
 
 <!-- ここからすくすく記録 -->
 <body>
+<hr>
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
