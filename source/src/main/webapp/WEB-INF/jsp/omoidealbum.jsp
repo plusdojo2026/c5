@@ -32,19 +32,41 @@
 	<!-- ソート機能保留ここまで -->
 	
 
-<!-- アルバムの追加が無い画面 -->
+
+<!-- アルバムの追加が無いときの画面 -->
+<c:if test="${empty albumList}">
 	<div class="empty_album">
 		<p>📷</p>
 		<p>まだ写真がありません</p>
 		<p>右上の追加ボタンから、新しいおもいでを記録しましょう</p>
 	</div>
+</c:if>
+
+<!-- タイムライン形式でのアルバム表示 -->
+<div class="album_list">
+	<c:forEach var="a" items="${albumList}">
+		<div class="album_item">
 		
+		<img src="${a.photoPath}" class="album_photo">
 		
-<!-- モーダル制御 『+写真を追加』ボタンを押下で表示する-->
+		<p class="album_message">${a.message}</p>
+		<p class="album_date">${a.createdAt}</p>
+		
+	<!-- 削除。OmoidealbumServletにポスト -->
+		<form method="POST" action="/webapp/OmoideAlbumServlet"></form>
+			<input type="hidden" name ="action" value="delete">
+			<input type="hidden" name ="album_id" value="${a.albumId}">
+			<button type="submit" class="delete_button">削除</button>
+		</div>
+	</c:forEach>
+</div>
+		
+<!-- モーダル制御 投稿画面-->
 <div id=album_modal class="album_modal">
 	<div class="photo_modal">
-		<button id="close">×</button>
-		
+		<button id="close">×</button>							<!-- enctype・・・写真を送るための処理 -->
+		<form method="POST" action="/webapp/OmoideAlbumServlet" enctype="multipart/form-data">
+		<input type="hidden">
 	<!-- 写真追加の枠 -->
 		<div class="photobox">
 			<label for ="album_photo">📸写真を追加</label>
@@ -60,7 +82,7 @@
 		
 		<button id="cancel">キャンセル</button>
 		<button id="regist">記録する</button>
-		<button id="delete">削除する</button>
+		</form>
 	
 	</div>
 	
