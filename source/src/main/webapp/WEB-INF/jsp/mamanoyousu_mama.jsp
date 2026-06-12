@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +8,10 @@
 <meta charset="UTF-8">
 <title>ママのようす</title>
 </head>
-<hr>
 
 <!--ここからママの様子記録 -->
 <body>
+<hr>
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
@@ -36,7 +37,7 @@
 				<input type="radio" name="mental_score" value="5">5
 			
 			<label>睡眠時間</label>
-				<input type="number" step="0.5" name="sleep_hours" required>
+				<input type="number" step="0.5" min="0" Max="24" name="sleep_hours" required>
 				
 			<label>ストレス</label>
 				<input type="radio" name="stress" value="1">1
