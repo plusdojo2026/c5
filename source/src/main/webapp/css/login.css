@@ -1,1 +1,246 @@
 @charset "UTF-8";
+
+
+/* 1. メインコンテンツ全体の配置構造 */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* 2. 白いカードの箱 (login-card) */
+.login-card {
+    background: #ffffff;
+    border-radius: 16px; /* 丸みのある角 */
+    box-shadow: 0 8px 24px rgba(255, 182, 193, 0.2); /* 柔らかいピンク系の影 */
+    width: 100%;
+    max-width: 480px; /* カードの最大横幅 */
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* ログインカード内のヘッダーイラストエリア */
+.login-icon {
+    margin-bottom: 12px;
+}
+.login-header-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.login-card h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0 0 12px 0;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.login-instruction {
+    font-size: 14px;
+    color: #888888;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+}
+
+/* 3. 各入力項目の並び (form-group) */
+.form-group {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #4a4a4a;
+    margin-bottom: 8px;
+}
+
+/* テキストボックス・パスワードボックスの共通デザイン */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, background-color 0.3s;
+    background-color: #fafafa;
+}
+
+/* 入力欄にカーソルが当たった時（フォーカス） */
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #ff5a79; /* イメージ通りの鮮やかなピンク */
+    outline: none;
+    background-color: #ffffff;
+}
+
+.form-help {
+    font-size: 12px;
+    color: #999999;
+    margin: 6px 0 0 0;
+}
+
+/* 4. パスワード入力欄と鍵アイコンを綺麗に配置するレイアウト */
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 鍵アイコンの位置固定（入力欄の左側に浮かせる） */
+.password-icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* アイコンと文字が重ならないよう、パスワードの入力欄だけ左余白を広くする */
+.password-input-wrapper input[type="password"] {
+    padding-left: 42px; 
+}
+
+/* 5. あなたは？（ママ/パパ選択の横並びボタン） */
+.user-type-options {
+    display: flex;
+    gap: 16px;
+}
+
+.user-type-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;		/* 中身を真ん中に寄せる */
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    background: #ffffff;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    user-select: none;
+}
+
+/* ラジオボタンのポインタを指マークにする */
+.user-type-btn input[type="radio"] {
+    cursor: pointer;
+    margin: 0;
+}
+
+/* ママ・パパのイラスト画像サイズ */
+.user-type-image {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* ラジオボタンにチェックが入ったら、親であるラベル（ボタン全体）の枠と背景をピンクにする */
+.user-type-btn:has(input[type="radio"]:checked) {
+    border-color: #ff5a79;
+    background-color: #fff5f7;
+    font-weight: bold;
+}
+
+/* 6. パスワード表示切り替えエリア */
+.show-password-wrapper {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.show-password-wrapper input[type="checkbox"] {
+    cursor: pointer;
+    margin: 0;
+}
+
+.show-password-label {
+    font-size: 13px;
+    color: #666666;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 7. ログイン / 登録 ボタン */
+.form-actions {
+    margin-top: 32px;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #ff5a79; /* メインカラーの鮮やかなピンク */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    letter-spacing: 0.1em;
+}
+
+.login-btn:hover {
+    background-color: #e04865; /* ホバー時に少し濃いピンク */
+}
+
+.login-btn:active {
+    transform: scale(0.98); /* クリックした瞬間に少し沈むアニメーション */
+}
+
+/* 8. 下部の画面切り替えリンク */
+.signup-link {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.signup-link a {
+    color: #ff5a79;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* 9. メッセージボックス */
+/* エラーメッセージ（赤色） */
+.login-error-msg {
+    background-color: #ffeef0;
+    border: 1px solid #ffccd3;
+    color: #d93838;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+/* 会員登録完了メッセージ（緑色） */
+.touroku-success-msg {
+    background-color: #e6f9f0;
+    border: 1px solid #b3f0d2;
+    color: #1da362;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
