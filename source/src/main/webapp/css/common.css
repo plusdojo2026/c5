@@ -8,9 +8,9 @@ header{
     justify-content:space-between;
     align-items:center;
 
-    padding:0 40px;
+    padding:70 20px;
 
-    background:#fffafc;
+    background:#fcf1f6;
 
     border-bottom:1px solid #f5dce4;
 
@@ -46,6 +46,7 @@ header{
 body{
 	margin:0 0 0 0;
 	color:#555555;
+	background-color:#FFF0F5;
 }
 
 
@@ -55,32 +56,22 @@ body{
 /* フッター　*/
 .footer{
     margin-top:60px;
-
-    padding:25px 0;
-
+    padding:30px 0;
     text-align:center;
-
-    border-top:1px solid #f5dede;
-
-    background:#ffffff;
+    background:#fcf1f6;
+    border-top:1px solid #f8dce4;
 }
 
-/* ふたりごと。 */
 .footer-title{
     margin:0;
-
-    color:#ff7f9f;
-
-    font-size:18px;
-
+    color:#ff6f9d;
+    font-size:20px;
     font-weight:bold;
+    letter-spacing:1px;
 }
 
-/* © 2026 Dark Horse */
 .copyright{
-    margin-top:8px;
-
-    color:#999999;
-
-    font-size:13px;
+    margin-top:10px;
+    color:#aaaaaa;
+    font-size:12px;
 }
