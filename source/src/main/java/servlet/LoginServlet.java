@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UsersDAO;
+import dao.UsersDao;
 import dto.Users;
 import util.SecurityUtil;
 
-@WebServlet("/login")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         
-        // リクエストパラメータを取得する（文字化け防止）
+        // リクエストパラメータを取得する
         request.setCharacterEncoding("UTF-8");
         String familyId = request.getParameter("family_id");
         String coupleIdStr = request.getParameter("couple_id");
@@ -49,13 +49,13 @@ public class LoginServlet extends HttpServlet {
         // パスワードを暗号化
         String hashedPassword = SecurityUtil.hashPassword(password);
 
-        // ★【変更点】Users DTO の箱を作って、そこに3つのデータを綺麗にまとめる！
+        //Users DTO の箱を作って、そこに3つのデータを綺麗にまとめる！
         Users user = new Users(familyId, coupleId, hashedPassword);
         
-        // 3. データベースに照合しに行く（引数を「user」という箱1つに変える）
-        UsersDAO dao = new UsersDAO();
+        // 3. データベース照合
+        UsersDao udao = new UsersDao();
         
-        if (dao.authenticate(user)) { // ログイン成功
+        if (udao.isLoginOK(user)) { // ログイン成功
             // セッションスコープにファミリーIDと区分を格納する
             HttpSession session = request.getSession();
             session.setAttribute("family_id", familyId);
