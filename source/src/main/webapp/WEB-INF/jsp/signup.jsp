@@ -30,7 +30,7 @@
         </c:if>
         
         <!-- サーバー（Servlet）へデータを送るフォーム -->
-        <form action="signup" method="post">
+        <form action="SignupServlet" method="post">
         
             <!-- ファミリーコード入力の箱（form-group） -->
             <div class="form-group">
@@ -87,7 +87,7 @@
     
     <!-- ログイン画面へのリンク -->
     <div class="signup-link">
-        アカウントをお持ちの方は <a href="login.jsp">ログインはこちら <span>&gt;</span></a>
+        アカウントをお持ちの方は <a href="LoginServlet">ログインはこちら <span>&gt;</span></a>
     </div>
 </div> <!-- wrapper の閉じタグ -->
 
