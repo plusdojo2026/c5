@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録</title>
-<link rel="stylesheet" href="/webapp/css/common.css">
-<link rel="stylesheet" href="/webapp/css/login.css">
+<link rel="stylesheet" href="/c5/css/common.css">
+<link rel="stylesheet" href="/c5/css/login.css">
 </head>
 <body>
 <!-- ヘッダー -->
@@ -17,7 +17,7 @@
     <!-- 白の四角い箱(login-card) -->
     <div class="login-card">    
         <div class="login-icon">
-            <img src="/webapp/images/ ここに入れる" alt="新規登録" class="login-header-icon">
+            <img src="/c5/images/ ここに入れる" alt="新規登録" class="login-header-icon">
         </div>
         <h1>新規登録</h1>
         <p class="login-instruction">以下の情報を入力してアカウントを作成してください</p>
@@ -30,7 +30,7 @@
         </c:if>
         
         <!-- サーバー（Servlet）へデータを送るフォーム -->
-        <form action="SignupServlet" method="post">
+        <form action="/c5/SignupServlet" method="post">
         
             <!-- ファミリーコード入力の箱（form-group） -->
             <div class="form-group">
@@ -47,13 +47,13 @@
                     <label class="user-type-btn">
                         <!-- 💡 ログイン画面と完全に同じ設定 -->
                         <input type="radio" name="couple_id" value="0" required>
-                        <img src="/webapp/images/ ここに入れる" alt="ママ" class="user-type-image">
+                        <img src="/c5/images/ ここに入れる" alt="ママ" class="user-type-image">
                         <span>ママ</span>
                     </label>
                     <label class="user-type-btn">
                         <!-- 💡 ログイン画面と完全に同じ設定 -->
                         <input type="radio" name="couple_id" value="1">
-                        <img src="/webapp/images/ ここに入れる" alt="パパ" class="user-type-image">
+                        <img src="/c5/images/ ここに入れる" alt="パパ" class="user-type-image">
                         <span>パパ</span>
                     </label>
                 </div>
@@ -66,7 +66,7 @@
                 <!--  左側の鍵イラストと入力欄をきれいに重ねるための箱 -->
                 <div class="password-input-wrapper">
                     <!-- 鍵のイラスト画像（後で画像のリンクちゃんと設定） -->
-                    <img src="/webapp/images/ 後で入れる" alt="鍵" class="password-icon">
+                    <img src="/c5/images/ 後で入れる" alt="鍵" class="password-icon">
                     <!-- パスワード入力欄 -->
                     <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required>
                 </div>
@@ -87,7 +87,7 @@
     
     <!-- ログイン画面へのリンク -->
     <div class="signup-link">
-        アカウントをお持ちの方は <a href="LoginServlet">ログインはこちら <span>&gt;</span></a>
+        アカウントをお持ちの方は <a href="/c5/LoginServlet">ログインはこちら <span>&gt;</span></a>
     </div>
 </div> <!-- wrapper の閉じタグ -->
 
