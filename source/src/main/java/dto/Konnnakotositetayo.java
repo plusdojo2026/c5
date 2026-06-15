@@ -4,7 +4,7 @@ package dto;
  * こんなことしてたよ テーブルのデータを保持するdto
  * konnnakotositetayo テーブルの1行分のデータを格納する
  */
-public class KonnnakotositetayoBean {
+public class Konnnakotositetayo {
 
     // こんなことしてたよID（主キー）
     private int konnnakotositetayoId;
