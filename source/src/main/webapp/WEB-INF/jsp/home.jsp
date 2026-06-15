@@ -110,5 +110,31 @@
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
 
+
+<!-- ポップアップ -->
+<div id="popupModal" class="popup-modal">
+	<div class="popup-content">
+		<h3>今日のひとこと</h3>
+		<p id="popupMessage">
+			${popup.message}
+		</p>
+		<button onclick="closePopup()">
+			閉じる
+		</button>
+	</div>
+</div>
+
+<script>
+use strict;
+
+window.onload = function() {
+	document.getElementById("popupModal").style.display = "flex";
+	};
+
+function closePopup() {
+	document.getElementById("popupModal").style.display = "none";
+	}
+</script>
+
 </body>
 </html>
