@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.HomeDao;
+import dto.Home;
+
 /**
  * Servlet implementation class HomeServlet
  */
@@ -25,10 +28,22 @@ public class HomeServlet extends HttpServlet {
 		throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("family_id") == null) {
 			response.sendRedirect("/c5/webapp/LoginServlet");
 			return;
 		}
+		
+		// ログイン中ユーザーの区分取得
+		int coupleId = (Integer) session.getAttribute("couple_id");
+
+		// ポップアップ取得
+		HomeDao dao = new HomeDao();
+
+		Home popup = dao.getRandomPopup(coupleId);
+
+		// JSPへ渡す
+		request.setAttribute("popup", popup);
+
 		
 		 // ホーム画面へ遷移
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
