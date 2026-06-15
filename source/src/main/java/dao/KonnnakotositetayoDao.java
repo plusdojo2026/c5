@@ -1,6 +1,6 @@
 package dao;
 
-import dto.KonnnakotositetayoBean;
+import dto.Konnnakotositetayo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,10 +26,10 @@ public class KonnnakotositetayoDao {
      * @param familyId ログイン中のfamily_id
      * @return タイムラインのリスト
      */
-    public List<KonnnakotositetayoBean> getTimelineList(String familyId) {
+    public List<Konnnakotositetayo> getTimelineList(String familyId) {
 
         // 結果を格納するリスト
-        List<KonnnakotositetayoBean> list = new ArrayList<KonnnakotositetayoBean>();
+        List<Konnnakotositetayo> list = new ArrayList<Konnnakotositetayo>();
 
         // DB接続に使う変数
         Connection conn        = null;
@@ -55,7 +55,7 @@ public class KonnnakotositetayoDao {
 
             // 結果をBeanに詰めてリストに追加
             while (rs.next()) {
-                KonnnakotositetayoBean bean = new KonnnakotositetayoBean();
+                Konnnakotositetayo bean = new Konnnakotositetayo();
 
                 bean.setKonnnakotositetayoId(rs.getInt("konnnakotositetayo_id"));
                 bean.setFamilyId(rs.getString("family_id"));
@@ -95,7 +95,7 @@ public class KonnnakotositetayoDao {
      * @param bean 追加するデータ
      * @return 成功:true / 失敗:false
      */
-    public boolean insert(KonnnakotositetayoBean bean) {
+    public boolean insert(Konnnakotositetayo bean) {
 
         Connection conn      = null;
         PreparedStatement ps = null;
