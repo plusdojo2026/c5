@@ -33,18 +33,18 @@ public class FutarinobalanceServlet extends HttpServlet {
         // セッションからfamily_idを取得
         HttpSession session = request.getSession();
 
-        // ===== 開発用：仮セッションデータ（テスト後に削除） =====
+     // ===== 開発用：仮セッションデータ（テスト後に削除） =====
         session.setAttribute("family_id", 1);
         session.setAttribute("couple_id", 0);
         // =====================================================
 
         // セッションのfamily_idをint型で取得する
-        // getAttribute()はObject型で返ってくるので、まずIntegerに変換してからintにする
-        Integer familyIdObj = (Integer) session.getAttribute("family_id");
-        int familyId = familyIdObj.intValue();
+        // getAttribute()でLoginServlet.javaでsessionに保存したファミリーIDを取得
+        String familyIdStr = (String) session.getAttribute("family_id");
+        int familyId = Integer.parseInt(familyIdStr);
 
         // ログインしていない場合はログイン画面に戻す
-        if (session.getAttribute("family_id") == null) {
+        if (familyIdStr == null) {
             response.sendRedirect("login.jsp");
             return;
         }
