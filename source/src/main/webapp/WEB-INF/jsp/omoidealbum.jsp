@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,17 +48,20 @@
 	<c:forEach var="a" items="${albumList}">
 		<div class="album_item">
 		
-		<img src="${a.photoPath}" class="album_photo">
+		<img src="${pageContext.request.contextPath}${a.photoPath}" class="album_photo">
 		
 		<p class="album_message">${a.message}</p>
-		<p class="album_date">${a.createdAt}</p>
+		<!-- 日付を表示(フォーマットを改善) -->
+		<p class="album_date"><fmt:formatDate value = "${a.createdAt}" pattern="yyyy/MM/dd"/></p>
 		
 	<!-- 削除。OmoidealbumServletにポスト -->
-		<form method="POST" action="/webapp/OmoideAlbumServlet"></form>
+		<form method="POST" action="/webapp/OmoideAlbumServlet">
 			<input type="hidden" name ="action" value="delete">
 			<input type="hidden" name ="album_id" value="${a.albumId}">
 			<button type="submit" class="delete_button">削除</button>
+		</form>
 		</div>
+		
 	</c:forEach>
 </div>
 		
@@ -66,24 +70,24 @@
 	<div class="photo_modal">
 		<button id="close">×</button>							<!-- enctype・・・写真を送るための処理 -->
 		<form method="POST" action="/webapp/OmoideAlbumServlet" enctype="multipart/form-data">
-		<input type="hidden">
+		<input type="hidden" name="action" value="insert">
+		
 	<!-- 写真追加の枠 -->
 		<div class="photobox">
 			<label for ="album_photo">📸写真を追加</label>
-			<input type="file" id="album_photo" style="display:none;">
+			<input type="file" id="album_photo" name="album_photo" style="display:none;">
 		</div>
 		
 		<p>コメント(任意)</p>
 	<!-- テキストエリアの文字数カウント -->
 		<div class=album_textarea>
-			<textarea id="album_text" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
+			<textarea id="album_text" name="message" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
 			<div id=count>0 / 200</div>
 		</div>
 		
-		<button id="cancel">キャンセル</button>
-		<button id="regist">記録する</button>
+		<button type="button" id="cancel">キャンセル</button>
+		<button type="submit" id="regist">記録する</button>
 		</form>
-	
 	</div>
 	
 	<!-- アルバム作成完了の表示 表示のみ完成。OK処理はまだ -->
@@ -93,10 +97,7 @@
 				<button id="ok">OK</button>
 			</div>
 		</div>
-	
-	
 </div>
-
 
 </main>
 <footer>
@@ -105,13 +106,20 @@
 </footer>
 
 <!-- JavaScriptここから -->
+<script>
 	'use strict';
-		<!-- テキストの文字数をカウントする -->
+		//テキストの文字数をカウントする
 		const textarea = document.getElementById("album_text");
 		const counter = document.getElementById("count");
 		
 		textarea.addEventListener("input",()=>{
 		counter.textContent = `${textarea.value.length} / 200`;});
 		
+		//モーダル制御
+		const modal = document.getElementById("album_modal");
+		ducument.getElementById("open_modal").onclick = () => modal.style.display = "block";
+		ducument.getElementById("close").onclick = () => modal.style.display = "none";
+		ducument.getElementById("cancel").onclick = () => modal.style.display = "none";
+</script>
 </body>
 </html>
