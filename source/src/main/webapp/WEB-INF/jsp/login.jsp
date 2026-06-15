@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<link rel="stylesheet" href="/webapp/css/common.css">
-<link rel="stylesheet" href="/webapp/css/login.css">
+<link rel="stylesheet" href="/c5/css/common.css">
+<link rel="stylesheet" href="/c5/css/login.css">
 </head>
 <body>
 <!-- ヘッダー -->
@@ -17,10 +17,10 @@
     <!-- 白の四角いログインの箱(login-card) -->
     <div class="login-card">    
         <div class="login-icon">
-            <img src="/webapp/images/ ここに入れる" alt="ログイン" class="login-header-icon">
+            <img src="/c5/images/ ここに入れる" alt="ログイン" class="login-header-icon">
         </div>
         <h1>ログイン</h1>
-        <p class="login-instruction">ファミリーコードとパスワードを入力してログインしてください</p>
+        <p class="login-instruction">ファミリーコードとパスワードを入力してしてください</p>
         
         <!-- エラーメッセージの設定 -->
         <c:if test="${not empty errorMsg}">
@@ -37,7 +37,7 @@
         </c:if>
         
         <!-- ログインServletへデータを送るフォーム -->
-        <form action="LoginServlet" method="post">
+        <form action="/c5/LoginServlet" method="post">
         
             <!-- ファミリーコード入力の箱（form-group） -->
             <div class="form-group">
@@ -53,12 +53,12 @@
                 <div class="user-type-options">
                     <label class="user-type-btn">
                         <input type="radio" name="couple_id" value="0" required>
-                        <img src="/webapp/images/ ここに入れる" alt="ママ" class="user-type-image">
+                        <img src="/c5/img/mama.png" alt="ママ" class="user-type-image">
                         <span>ママ</span>
                     </label>
                     <label class="user-type-btn">
                         <input type="radio" name="couple_id" value="1">
-                        <img src="/webapp/images/ ここに入れる" alt="パパ" class="user-type-image">
+                        <img src="/c5/img/papa.png" alt="パパ" class="user-type-image">
                         <span>パパ</span>
                     </label>
                 </div>
@@ -67,13 +67,13 @@
             
             <!-- パスワード入力の箱（form-group） -->
             <div class="form-group">
-                <label for="password">パスワード</label>    
+                <label for="password">パスワード（8桁以上）</label>    
                 <!--  左側の鍵イラストと入力欄をきれいに重ねるための箱 -->
                 <div class="password-input-wrapper">
                     <!-- 鍵のイラスト画像（後で画像のリンクちゃんと設定） -->
-                    <img src="/webapp/images/ 後で入れる" alt="鍵" class="password-icon">
+                    <img src="/c5/images/ 後で入れる" alt="鍵" class="password-icon">
                     <!-- パスワード入力欄 -->
-                    <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required>
+                    <input type="password" id="password" name="password" placeholder="パスワードを入力してください" maxlength="64" required>
                 </div>
                 <!-- パスワードを表示するボタン -->
                 <div class="show-password-wrapper">
@@ -91,7 +91,7 @@
     </div> <!--  login-card の閉じタグ -->
     <!-- 新規登録のリンク -->
     <div class="signup-link">
-        アカウントをお持ちでない方は <a href="signup.jsp">新規登録はこちら <span>&gt;</span></a>
+        アカウントをお持ちでない方は <a href="/c5/SignupServlet">新規登録はこちら <span>&gt;</span></a>
     </div>
 </div> <!-- wrapper の閉じタグ -->
 <!-- フッター -->
