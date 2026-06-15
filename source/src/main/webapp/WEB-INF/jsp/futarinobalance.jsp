@@ -3,8 +3,8 @@
 <%@ page import="dto.Futarinobalance" %>
 
 <%
-    // ===== Servletから各リストを受け取る =====
-    // → FutarinobalanceServlet.java の doGet() で request.setAttribute() したデータ
+    // ===== ServletからJSPにデータを受け渡している（今は受け取っている） =====
+    // → FutarinobalanceServlet.java(dto) の doGet() で request.setAttribute() したデータ
 
     // 妻担当リスト（couple_id=0のデータ）
     List<Futarinobalance> mamaList =
@@ -14,7 +14,7 @@
     List<Futarinobalance> papaList =
         (List<Futarinobalance>) request.getAttribute("papaList");
 
-    // 未割当リスト（couple_id=3のデータ）
+    // 未割当リスト（couple_id=２のデータ）
     List<Futarinobalance> unassignedList =
         (List<Futarinobalance>) request.getAttribute("unassignedList");
 
