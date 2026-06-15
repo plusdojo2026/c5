@@ -1,7 +1,7 @@
 package servlet;
 
 import dao.KonnnakotositetayoDao;
-import dto.KonnnakotositetayoBean;
+import dto.Konnnakotositetayo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +41,7 @@ public class KonnnakotositetayoServlet extends HttpServlet {
 
         // DAOを使ってタイムラインデータを取得
         KonnnakotositetayoDao dao = new KonnnakotositetayoDao();
-        List<KonnnakotositetayoBean> timelineList = dao.getTimelineList(familyId);
+        List<Konnnakotositetayo> timelineList = dao.getTimelineList(familyId);
 
         // JSPにデータを渡す
         request.setAttribute("timelineList", timelineList);
@@ -103,7 +103,7 @@ public class KonnnakotositetayoServlet extends HttpServlet {
         }
 
         // Beanにデータをセット
-        KonnnakotositetayoBean bean = new KonnnakotositetayoBean();
+        Konnnakotositetayo bean = new Konnnakotositetayo ();
         bean.setFamilyId(familyId);
         bean.setCoupleId(coupleId);
         bean.setTaskId(taskId);
