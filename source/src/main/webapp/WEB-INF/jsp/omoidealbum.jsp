@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/omoidealbum.css">
 <meta charset="UTF-8">
 <title>おもいでアルバム</title>
 </head>
@@ -48,7 +49,7 @@
 	<c:forEach var="a" items="${albumList}">
 		<div class="album_item">
 		
-		<img src="${pageContext.request.contextPath}${a.photoPath}" class="album_photo">
+		<img src="${pageContext.request.contextPath}/${a.photoPath}" class="album_photo">
 		
 		<p class="album_message">${a.message}</p>
 		<!-- 日付を表示(フォーマットを改善) -->
@@ -81,7 +82,7 @@
 		<p>コメント(任意)</p>
 	<!-- テキストエリアの文字数カウント -->
 		<div class=album_textarea>
-			<textarea id="album_text" name="message" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
+			<textarea id="album_text" name="comment" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
 			<div id=count>0 / 200</div>
 		</div>
 		
@@ -117,9 +118,9 @@
 		
 		//モーダル制御
 		const modal = document.getElementById("album_modal");
-		ducument.getElementById("open_modal").onclick = () => modal.style.display = "block";
-		ducument.getElementById("close").onclick = () => modal.style.display = "none";
-		ducument.getElementById("cancel").onclick = () => modal.style.display = "none";
+		document.getElementById("open_modal").onclick = () => modal.style.display = "block";
+		document.getElementById("close").onclick = () => modal.style.display = "none";
+		document.getElementById("cancel").onclick = () => modal.style.display = "none";
 </script>
 </body>
 </html>
