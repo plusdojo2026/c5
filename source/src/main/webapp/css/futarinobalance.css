@@ -1,1 +1,262 @@
-@charset "UTF-8";
+/* ========================================
+   futarinobalance.css
+   ふたりのバランス 画面専用スタイル
+   （common.cssの内容も含む）
+======================================== */
+
+
+/* ===== リセット ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ===== ヘッダー ===== */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-logo {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+
+/* ===== ページ全体のラッパー ===== */
+.balance-wrapper {
+    max-width: 1100px;   /* 3カラム表示のために広めに設定 */
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+
+/* ===== ページヘッダー ===== */
+.page-header {
+    margin-bottom: 8px;
+}
+
+.page-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.page-subtitle {
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* ===== 使い方ヒント ===== */
+.hint-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    background-color: #fffbe6;
+    border-radius: 8px;
+    border: 1px solid #ffe58f;
+    font-size: 13px;
+    color: #666;
+}
+
+
+/* ===== 3カラムエリア ===== */
+.columns-area {
+    display: flex;        /* 横並びにする */
+    gap: 16px;            /* カラム間の隙間 */
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+
+/* ===== 各カラム共通 ===== */
+.column {
+    flex: 1;              /* 3つが均等な幅になる */
+    background-color: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+
+/* ===== カラムヘッダー共通 ===== */
+.column-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* ママ担当カラムのヘッダー（ピンク系） */
+.column-header-mama {
+    background-color: #fff0f5;
+    border-bottom: 2px solid #ffb3cc;
+    color: #e05080;
+}
+
+/* 未割当カラムのヘッダー（グレー系） */
+.column-header-unassigned {
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+    color: #666;
+}
+
+/* パパ担当カラムのヘッダー（青系） */
+.column-header-papa {
+    background-color: #f0f5ff;
+    border-bottom: 2px solid #b3ccff;
+    color: #3060d0;
+}
+
+/* 件数バッジ */
+.column-count {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: rgba(0, 0, 0, 0.08);
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+
+/* ===== タスクゾーン（ドロップエリア） ===== */
+.task-zone {
+    padding: 12px;
+    min-height: 300px;      /* 空の時でもドロップできる高さを確保 */
+    transition: background-color 0.2s;
+}
+
+/* ドラッグしてきた時のハイライト */
+.task-zone.drag-over {
+    background-color: #f0f7ff;
+    border: 2px dashed #80b0ff;
+}
+
+
+/* ===== タスクカード ===== */
+.task-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    cursor: grab;           /* カーソルをグラブ（つかむ）に変える */
+    user-select: none;      /* テキストが選択されないようにする */
+    transition: box-shadow 0.15s;
+    font-size: 14px;
+    color: #333;
+}
+
+/* ホバー時（マウスを乗せた時） */
+.task-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: #ccc;
+}
+
+/* ドラッグ中 */
+.task-card:active {
+    cursor: grabbing;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* タスク名 */
+.task-name {
+    flex: 1;
+}
+
+/* ドラッグハンドル（右端の点々） */
+.drag-handle {
+    color: #ccc;
+    font-size: 16px;
+    margin-left: 8px;
+    cursor: grab;
+}
+
+
+/* ===== 空の時のメッセージ ===== */
+.empty-message {
+    text-align: center;
+    color: #bbb;
+    font-size: 13px;
+    padding: 24px 0;
+    line-height: 1.6;
+}
+
+/* 未割当が空の時のアイコン付きメッセージ */
+.empty-unassigned {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    gap: 8px;
+}
+
+.empty-icon {
+    font-size: 32px;
+    opacity: 0.4;
+}
+
+
+/* ===== 保存エリア ===== */
+.save-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+}
+
+.btn-save {
+    background-color: #e07;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-save:hover {
+    background-color: #c006;
+}
+
+.save-message {
+    font-size: 14px;
+    font-weight: bold;
+}
