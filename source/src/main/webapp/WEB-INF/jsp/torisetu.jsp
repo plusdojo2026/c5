@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/torisetu.css">
 <meta charset="UTF-8">
 <title>ママのトリセツ</title>
 </head>
