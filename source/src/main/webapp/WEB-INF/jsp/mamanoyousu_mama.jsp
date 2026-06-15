@@ -22,25 +22,25 @@
 		<form action="MamanoyousuServlet" method="post">
    		<h2>今日のママのコンディションを記録しましょう</h2>
 		
-			<label>体調</label>
-				<input type="radio" name="physical_score" value="1">1
+			<label>体調(1:悪い~5:良い)</label>
+				<input type="radio" name="physical_score" value="1" required>1
 				<input type="radio" name="physical_score" value="2">2
 				<input type="radio" name="physical_score" value="3">3
 				<input type="radio" name="physical_score" value="4">4
 				<input type="radio" name="physical_score" value="5">5
 		
-			<label>メンタル</label>
-				<input type="radio" name="mental_score" value="1">1
+			<label>メンタル(1:悪い~5:良い)</label>
+				<input type="radio" name="mental_score" value="1" required>1
 				<input type="radio" name="mental_score" value="2">2
 				<input type="radio" name="mental_score" value="3">3
 				<input type="radio" name="mental_score" value="4">4
 				<input type="radio" name="mental_score" value="5">5
 			
 			<label>睡眠時間</label>
-				<input type="number" step="0.5" min="0" Max="24" name="sleep_hours" required>
+				<input type="number" step="0.5" min="0" max="24" name="sleep_hours" required>
 				
-			<label>ストレス</label>
-				<input type="radio" name="stress" value="1">1
+			<label>ストレス(1:低い~5:高い)</label>
+				<input type="radio" name="stress" value="1" required>1
 				<input type="radio" name="stress" value="2">2
 				<input type="radio" name="stress" value="3">3
 				<input type="radio" name="stress" value="4">4
