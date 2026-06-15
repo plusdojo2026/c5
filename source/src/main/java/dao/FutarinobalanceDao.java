@@ -41,7 +41,7 @@ public class FutarinobalanceDao {
         ResultSet rs         = null;
 
         try {
-            // MySQLのドライバを読み込む
+            // MySQLのドライバを読み込む(そういう書き方）
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // DBに接続する
@@ -50,7 +50,10 @@ public class FutarinobalanceDao {
             // SQL文
             // futarinobalanceテーブルとtodoテーブルをJOINして
             // タスク名も一緒に取得する
-            // display_order の順番で並べる
+            // 担当者（couple_id）ごとに並べ、display_order の順番で並べる
+            //b=futarinobalanceテーブルの省略
+            //joinはb.todo_id　と　t.task_idを紐づけている。
+            
             String sql = "SELECT b.balance_id, b.family_id, b.couple_id, b.todo_id, "
                        + "b.display_order, t.task_name "
                        + "FROM futarinobalance b "
@@ -58,14 +61,14 @@ public class FutarinobalanceDao {
                        + "WHERE b.family_id = ? "
                        + "ORDER BY b.couple_id, b.display_order";
 
-            // SQLの ? に family_id をセット
+            // SQLの ? に family_id をセット（SQL文を実行する準備をする）
             ps = conn.prepareStatement(sql);
             ps.setInt(1, familyId);
 
             // SQL実行
-            rs = ps.executeQuery();
+            rs = ps.executeQuery();//excuteQuery=select
 
-            // 結果を1件ずつBeanに詰めてリストに追加
+            // 結果を1件ずつdtoに詰めてリストに追加
             while (rs.next()) {
                 Futarinobalance bean = new Futarinobalance();
 
@@ -164,9 +167,9 @@ public class FutarinobalanceDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
-            // todoテーブルの全タスクを未割当(couple_id=3)で登録するSQL
+            // todoテーブルの全タスクを未割当(couple_id=２)で登録するSQL
             String sql = "INSERT INTO futarinobalance (family_id, couple_id, todo_id, display_order) "
-                       + "SELECT ?, 3, task_id, task_id FROM todo";
+                       + "SELECT ?, 2, task_id, task_id FROM todo";
 
             ps = conn.prepareStatement(sql);
             ps.setInt(1, familyId);
