@@ -36,8 +36,8 @@
             </div>
         </c:if>
         
-        <!-- サーバー（Servlet）へデータを送るフォーム -->
-        <form action="login" method="post">
+        <!-- ログインServletへデータを送るフォーム -->
+        <form action="LoginServlet" method="post">
         
             <!-- ファミリーコード入力の箱（form-group） -->
             <div class="form-group">
