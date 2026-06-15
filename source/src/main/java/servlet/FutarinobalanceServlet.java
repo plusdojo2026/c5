@@ -34,8 +34,8 @@ public class FutarinobalanceServlet extends HttpServlet {
         HttpSession session = request.getSession();
 
      // ===== 開発用：仮セッションデータ（テスト後に削除） =====
-        session.setAttribute("family_id", 1);
-        session.setAttribute("couple_id", 0);
+        session.setAttribute("family_id", "1");
+        session.setAttribute("couple_id", "0");
         // =====================================================
 
         // セッションのfamily_idをint型で取得する
