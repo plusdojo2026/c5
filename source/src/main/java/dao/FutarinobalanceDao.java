@@ -17,7 +17,7 @@ public class FutarinobalanceDao {
     // DB接続情報
     // ※ futarigoto_db は futarigoto_db.sql で作成したデータベース名
     private static final String URL      = "jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8";
-    private static final String USER     = "root";
+    private static final String USER     = "root";//rootはMYSQLのユーザー名
     private static final String PASSWORD = "";
 
     /**
@@ -27,7 +27,10 @@ public class FutarinobalanceDao {
      * @param familyId セッションから取得したfamily_id
      * @return タスクのリスト（Futarinobalanceクラスのリスト）
      */
+    //sessionはservletの37.38行目のsession.setAttributeで作成してる。
+    
     public List<Futarinobalance> getTaskList(int familyId) {
+    //survlet43.44.60行目
 
         // 結果を入れるリストを用意する
         List<Futarinobalance> list = new ArrayList<Futarinobalance>();
