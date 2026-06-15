@@ -18,6 +18,10 @@ main{
     margin-bottom:30px;
 }
 
+img {
+    width: 200px;
+    height: 200px;
+}
 
 /* 背景色 */
 .mama{
