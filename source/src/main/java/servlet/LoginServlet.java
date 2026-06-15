@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("couple_id", coupleId);
             
             // ホームサーブレットにリダイレクトする
-            response.sendRedirect("/webapp/HomeServlet");
+            response.sendRedirect("/c5/HomeServlet");
             
         } else { // ログイン失敗（画面を移動せずその場でエラーを出す）
             // ログイン画面にある「errorMsg」という変数に、エラーメッセージを直接格納する
