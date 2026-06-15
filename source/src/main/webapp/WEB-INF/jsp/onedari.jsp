@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>おねだりリスト</title>
-<link rel="stylesheet" href="/webapp/css/common.css">
-<link rel="stylesheet" href="/webapp/css/onedari.css">
+<link rel="stylesheet" href="/c5/css/common.css">
+<link rel="stylesheet" href="/c5/css/onedari.css">
 </head>
 <body>
 <!-- ヘッダー -->
@@ -17,7 +17,7 @@
 <div class ="header-container">
 	<div class="header-left">
             <!--  買い物かごイラスト入れる --> <!-- 後で画像のリンクちゃんと設定 -->
-            <img src="/webapp/images/ ここにいれる" alt="買い物かご" class="cart-icon">
+            <img src="/c5/images/ ここにいれる" alt="買い物かご" class="cart-icon">
 	<h1>おねだりリスト</h1>
 	</div>
 	 <button id="add-btn">＋追加する</button>
@@ -28,7 +28,7 @@
 <c:if test="${empty onedariList}">
 <main class ="empty-list">
 <!--  真ん中のイラスト --> <!-- 後で画像のリンクちゃんと設定 -->
-    <img src="/webapp/images/ ここにいれる" alt="空のカート" class="empty-image">
+    <img src="/c5/images/ ここにいれる" alt="空のカート" class="empty-image">
      <h2>おねだりリストは空です</h2>
      <p>右上の「＋追加する」から<br>お願いしたいものを追加してみましょう！</p>
 </main>
@@ -40,7 +40,7 @@
    <c:forEach var="item" items="${onedariList}">
                 <div class="item-card ${not empty item.updatedAt ? 'is-purchased' : ''}">
                     <div class="item-card-left">
-                        <img src="/webapp/images/${item.category}-icon.png" alt="${item.categoryName}" class="item-cat-icon">
+                        <img src="/c5/images/${item.category}-icon.png" alt="${item.categoryName}" class="item-cat-icon">
                         <div class="item-details">
                         	<!-- product_name（パンパース等）を表示 -->
                             <span class="item-brand"><c:out value="${item.productName}" /></span>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     <div class="item-card-right">
-                        <img src="/webapp/images/${item.imagePath}" alt="添付写真" class="item-thumb">
+                        <img src="/c5/images/${item.imagePath}" alt="添付写真" class="item-thumb">
                         
                         <!-- 購入したらチェックマーク -->
 					    <div class="check-wrapper">
@@ -82,17 +82,17 @@
         <div class="select-options">
     <!-- おむつ選択 -->
     	<button class="option-btn" data-target="omutsu-modal">  <!-- data属性でオムツモーダルを開く -->
-    	<img src="/webapp/images/ ここにいれる" alt="おむつ" class="option-icon">
+    	<img src="/c5/images/ ここにいれる" alt="おむつ" class="option-icon">
                 <span>おむつ</span>
         </button>  
     <!-- ミルク選択 -->
     	<button class="option-btn" data-target="milk-modal">  <!-- data属性でミルクモーダルを開く -->
-    	<img src="/webapp/images/ ここにいれる" alt="ミルク" class="option-icon">
+    	<img src="/c5/images/ ここにいれる" alt="ミルク" class="option-icon">
     			<span>ミルク</span>
     	</button>
     <!-- その他選択 -->
     	<button class="option-btn" data-target="other-modal">  <!-- data属性でその他モーダルを開く -->
-    	<img src="/webapp/images/ ここにいれる" alt="その他" class="option-icon">
+    	<img src="/c5/images/ ここにいれる" alt="その他" class="option-icon">
     			<span>その他</span>
     	</button>
     	</div>
@@ -109,7 +109,7 @@
         <h3>おむつを追加</h3>
         
         <!-- 写真を送信するため enctype="multipart/form-data" を指定 -->
-        <form action="add-item" method="post" enctype="multipart/form-data">
+        <form action="/c5/OnedariServlet" method="post" enctype="multipart/form-data">
             <input type="hidden" name="item-category" value="おむつ">    
             <!-- おむつのブランドを記述 -->
             <div class="form-group">
@@ -167,7 +167,7 @@
         <h3>ミルクを追加</h3>
         
         <!-- 写真を送信するため enctype="multipart/form-data" を指定 -->
-        <form action="add-item" method="post" enctype="multipart/form-data">
+        <form action="/c5/OnedariServlet" method="post" enctype="multipart/form-data">
             <input type="hidden" name="item-category" value="ミルク">    
             
             <!-- ミルクのブランドを記述 -->
@@ -215,7 +215,7 @@
         <h3>その他を追加</h3>
         
         <!-- 写真やテキストを送信するため enctype="multipart/form-data" を指定 -->
-        <form action="add-item" method="post" enctype="multipart/form-data">
+        <form action="/c5/OnedariServlet" method="post" enctype="multipart/form-data">
             <input type="hidden" name="item-category" value="その他">    
             
             <!-- 何を買ってきてほしいか（自由記述・必須） -->
@@ -249,7 +249,7 @@
         
         <!-- 中央に表示されるチェックマークのイラスト -->
         <!-- 後で画像のリンクちゃんと設定 -->
-        <img src="/webapp/images/ ここに入れる" alt="追加完了マーク" class="success-image">
+        <img src="/c5/images/ ここに入れる" alt="追加完了マーク" class="success-image">
         <!-- メッセージ部分 -->
         <h2>追加しました！</h2>
         <p>おねだりリストに追加されました</p>
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 // チェックされたら complete、外されたら cancel をサーバーに送る
                 const action = isChecked ? "complete" : "cancel";
-                const response = await fetch(`update-status?id=${onedariId}&action=${action}`, { method: "POST" });
+                const response = await fetch(`/c5/OnedariServlet?id=${onedariId}&action=${action}`, { method: "POST" });
 
                 if (response.ok) {
                     if (isChecked) {
