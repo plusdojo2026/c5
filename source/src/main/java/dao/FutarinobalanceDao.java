@@ -106,7 +106,7 @@ public class FutarinobalanceDao {
      * ドラッグ&ドロップで担当が変わった時に呼ばれる
      *
      * @param balanceId    更新するレコードのbalance_id
-     * @param coupleId     新しい担当（0=妻, 1=夫, 3=未割当）
+     * @param coupleId     新しい担当（0=妻, 1=夫, 2=未割当）
      * @param displayOrder 新しい表示順
      * @return 成功:true / 失敗:false
      */
