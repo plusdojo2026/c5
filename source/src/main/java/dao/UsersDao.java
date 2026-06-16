@@ -19,9 +19,8 @@ public class UsersDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:mysql ://localhost:3306/ c5 ?useSSL= false&allowPublicKeyRetrieval =true&serve\r\n"
-					+ "rTimezone =Asia/ Tokyo&connectTimeout =30000;\r\n"
-					+ "xMN3sWVGp4WNhyCz");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "root", "xMN3sWVGp4WNhyCz");
+
 				
 			// SELECT文を準備する
             String sql = "SELECT count(*) FROM users WHERE family_id=? AND couple_id=? AND password=?";
@@ -71,9 +70,8 @@ public class UsersDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // データベースに接続する
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?"
-                    + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-                    "root", "Mikan0729");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "root", "xMN3sWVGp4WNhyCz");
+
             
             // INSERT文を準備する
             String sql = "INSERT INTO users (family_id, couple_id, password) VALUES (?, ?, ?)";
