@@ -42,7 +42,7 @@ public class Omoidealbum implements Serializable {
 		this.familyId = familyId;
 	}
 	
-	public int setCoupleId() {
+	public int getCoupleId() {
 		return coupleId;
 	}
 
