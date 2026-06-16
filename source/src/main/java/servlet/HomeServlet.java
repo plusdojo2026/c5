@@ -29,7 +29,7 @@ public class HomeServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("family_id") == null) {
-			response.sendRedirect("/c5/webapp/LoginServlet");
+			response.sendRedirect("/c5/LoginServlet");
 			return;
 		}
 		
