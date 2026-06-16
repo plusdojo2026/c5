@@ -21,8 +21,11 @@
 	</div>
 	
 	<div class="torisetu_banner">
-		<h2>ママのことを知ると、毎日がもっと楽しくなるよね。</h2>
-		<p>このトリセツは、パパと一緒にずっと共有していく大切なメモだよ。</p>
+		<img src="<%=request.getContextPath()%>/img/mama_pic.png">
+		<div class="banner_text">
+			<h2>ママのことを知ると、毎日がもっと楽しくなるよね。</h2>
+			<p>このトリセツは、パパと一緒にずっと共有していく大切なメモだよ。</p>
+		</div>
 		<!-- 最終更新日時を表示 -->
 		<p class="update_at">更新日<br>${update_at}</p>
 	</div>
@@ -33,31 +36,50 @@
 	<div class="grid">
 <!--各項目をそれぞれカードとする。つまり6枚のカード-->
 		<div class="card happy">
-			<h4>喜ぶこと</h4>
+			<div class="card-header">
+				<img src="<%=request.getContextPath()%>/img/よろこぶ.png">
+				<h4>喜ぶこと</h4>
+			</div>
 				<input type="text" name="happy1" value="${torisetu.happy1}">
 				<input type="text" name="happy2" value="${torisetu.happy2}">
 				<input type="text" name="happy3" value="${torisetu.happy3}">
 		</div>
+		
 		<div class="card angry">
-			<h4>怒ること</h4>
+			<div class="card-header">
+				<img src="<%=request.getContextPath()%>/img/怒る.png">
+				<h4>怒ること</h4>
+			</div>
 				<input type="text" name="angry1" value="${torisetu.angry1}">
 				<input type="text" name="angry2" value="${torisetu.angry2}">
 				<input type="text" name="angry3" value="${torisetu.angry3}">
 		</div>
+		
 		<div class="card fun">
-			<h4>楽しむこと</h4>
+			<div class="card-header">
+				<img src="<%=request.getContextPath()%>/img/楽しむ.png">
+				<h4>楽しむこと</h4>
+			</div>
 				<input type="text" name="fun1" value="${torisetu.fun1}">
 				<input type="text" name="fun2" value="${torisetu.fun2}">
 				<input type="text" name="fun3" value="${torisetu.fun3}">
 		</div>
+		
 		<div class="card sad">
-			<h4>悲しむこと</h4>
+			<div class="card-header">
+				<img src="<%=request.getContextPath()%>/img/悲しむ.png">
+				<h4>悲しむこと</h4>
+			</div>
 				<input type="text" name="sad1" value="${torisetu.sad1}">
 				<input type="text" name="sad2" value="${torisetu.sad2}">
 				<input type="text" name="sad3" value="${torisetu.sad3}">
-		</div>			
+		</div>	
+				
 		<div class="card charge">
-			<h4>充電方法</h4>
+			<div class="card-header">
+				<img src="<%=request.getContextPath()%>/img/充電方法.png">
+				<h4>充電方法</h4>
+			</div>
 				<input type="text" name="charge1" value="${torisetu.charge1}">
 				<input type="text" name="charge2" value="${torisetu.charge2}">
 				<input type="text" name="charge3" value="${torisetu.charge3}">
@@ -65,7 +87,10 @@
 	<!--『不機嫌かなと思ったら』は、テキストボックスを2列3行にする。-->
 	<!-- そのため、不機嫌カード内にグリッドを用意 -->
 		<div class="card bad" >
-			<h4>不機嫌かなと思ったら</h4>
+			<div class="card-header">
+				<img src="<%=request.getContextPath()%>/img/不機嫌.png">
+				<h4>不機嫌かなと思ったら</h4>
+			</div>
 			<div class="bad_grid">
 				<input type="text" name="bad1" value="${torisetu.bad1}">
 				<input type="text" name="bad2" value="${torisetu.bad2}">
