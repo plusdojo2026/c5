@@ -18,7 +18,7 @@
 	<div class="header-left">
             <!--  買い物かごイラスト入れる --> <!-- 後で画像のリンクちゃんと設定 -->
             <img src="/c5/images/ ここにいれる" alt="買い物かご" class="cart-icon">
-	<h1>おねだりリスト</h1>
+	<h1 class="page-title">おねだりリスト</h1>
 	</div>
 	 <button id="add-btn">＋追加する</button>
 </div>
