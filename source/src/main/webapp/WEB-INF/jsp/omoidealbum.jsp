@@ -18,7 +18,7 @@
 <main>
 
 		<div class="album_h1">
-			<h1>おもいでアルバム</h1>
+			<h1 class="page-title">おもいでアルバム</h1>
 			<!-- 登録追加ボタン -->
 			<button id="open_modal">+写真を追加</button>
 		</div>
