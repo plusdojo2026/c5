@@ -1,1 +1,132 @@
 @charset "UTF-8";
+
+/* ===== フォーム全体 ===== */
+form{
+	max-width:1200px;
+	margin:0 auto 50px;
+	background:#ffffff;
+	border:1px solid #f1e5e8;
+	border-radius:16px;
+	padding:40px;
+	box-sizing:border-box;
+}
+
+/* ===== 上部説明エリア ===== */
+form > img:first-of-type{
+	width:120px;
+	height:auto;
+	float:left;
+	margin-right:30px;
+}
+
+form > div:first-of-type{
+	min-height:120px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+form > div:first-of-type h2{
+	font-size:25px;
+	margin:0 0 10px;
+}
+
+form > div:first-of-type p{
+	font-size:18px;
+	color:#666;
+	margin:0;
+}
+
+/* ===== 各行 ===== */
+.condition-row{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding:30px 0;
+	border-top:1px solid #f0f0f0;
+}
+
+/* ===== 左側 ===== */
+.condition-label{
+	display:flex;
+	align-items:center;
+	gap:20px;
+	width:400px;
+}
+
+/* アイコン */
+.condition-label img{
+	width:90px;
+	height:90px;
+	object-fit:contain;
+}
+
+/* タイトル */
+.condition-label h3{
+	font-size:23px;
+	margin:0 0 8px;
+	font-weight:bold;
+}
+
+/* 説明文 */
+.condition-label p{
+	margin:0;
+	font-size:15px;
+	color:#666;
+}
+
+/* ===== ラジオボタン ===== */
+.condition-row input[type="radio"]{
+	transform:scale(1.4);
+	accent-color:#ff648c;
+	margin-left:20px;
+}
+
+.condition-row{
+	font-size:20px;
+}
+
+/* ===== 睡眠時間 ===== */
+input[type="number"]{
+	width:180px;
+	height:60px;
+	border:1px solid #ddd;
+	border-radius:10px;
+	font-size:25px;
+	text-align:center;
+}
+
+/* ===== メモ ===== */
+textarea{
+	width:500px;
+	height:120px;
+	border:1px solid #ddd;
+	border-radius:10px;
+	padding:15px;
+	font-size:18px;
+	resize:none;
+	background:#fff;
+}
+
+/* ===== ボタン ===== */
+button{
+	display:block;
+	margin:40px auto 0;
+	width:400px;
+	height:70px;
+	border:none;
+	border-radius:10px;
+	background:linear-gradient(
+		90deg,
+		#ff5f87,
+		#ff4d7f
+	);
+	color:white;
+	font-size:28px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+button:hover{
+	opacity:0.9;
+}
