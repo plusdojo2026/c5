@@ -21,10 +21,10 @@
 	</c:if>
 	
 	<!-- ママが入力時の表示処理 -->
-	<p>${message }</p>
+	<p>${message}</p>
 	<p>体調：${mama.physical_score}(1:悪い~5:良い)</p>
 	<p>メンタル：${mama.mental_score}(1:悪い~5:良い)</p>
-	<p>睡眠：${mama.sleep_hours}</p>
+	<p>睡眠：${mama.sleep_hours}時間</p>
 	<p>ストレス：${mama.stress}(1:低い~5:高い)</p>
 	<p>メモ：${mama.memo}</p>
 		
