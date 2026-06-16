@@ -1,9 +1,4 @@
-
--- 今作成した「c5」データベースに切り替える
-USE c5;
-
-
---  定義書の仕様に完全に合わせた「users」テーブルを作成する
+--  定義書の仕様に完全に合わせた「users」テーブルを作成するyo
 CREATE TABLE users (
     family_id VARCHAR(32) NOT NULL,   
     couple_id INT NOT NULL,          
