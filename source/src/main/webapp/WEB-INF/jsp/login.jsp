@@ -39,7 +39,7 @@
         <!-- ログインServletへデータを送るフォーム -->
         <form action="/c5/LoginServlet" method="post">
         
-            <!-- ファミリーコード入力の箱（form-group） -->
+            <!-- ファミリーコード入力の箱だよ（form-group） -->
             <div class="form-group">
                 <label for="family_id">ファミリーコード（8桁以上）</label>
                 <input type="text" id="family_id" name="family_id" placeholder="例）KATO123456" maxlength="32" required>
