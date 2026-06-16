@@ -15,7 +15,7 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
-<h1>ママのようす</h1>
+<h1 class="page-title">ママのようす</h1>
 	<div>
 		
 		<!-- ママのコンディションの入力項目 -->
