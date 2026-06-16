@@ -69,9 +69,9 @@
                         <!-- アイコン（妻か夫かで変える） -->
                         <div class="timeline-icon">
                             <% if (bean.getCoupleId() == 0) { %>
-                                <img src="images/icon_mama.png" alt="ママ" class="user-icon">
+                                <img src="img/mama_icon.png" alt="ママ" class="user-icon">
                             <% } else { %>
-                                <img src="images/icon_papa.png" alt="パパ" class="user-icon">
+                                <img src="img/papa_icon.png" alt="パパ" class="user-icon">
                             <% } %>
                         </div>
 
