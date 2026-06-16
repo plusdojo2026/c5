@@ -14,13 +14,13 @@ public class MamanoyousuDao {
 											      //⚠root は 管理者ユーザー
     private static final String PASSWORD = "";//上記ユーザーのパスワード
     
-    //データ登録
+    //データ登録、SQL準備
     public boolean insert(Mamanoyousu m) {
     	String sql="INSERT INTO mamanoyousu "
     	                + "(family_id, couple_id, physical_score, mental_score, sleep_hours, stress, memo, recorded_date) "
     	                + "VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
     	try(Connection conn= 
-    			DriverManager.getConnection(URL, USER, PASS);
+    			DriverManager.getConnection(URL, USER, PASSWORD);
                 PreparedStatement ps = conn.prepareStatement(sql)){
  
 
@@ -46,7 +46,7 @@ public class MamanoyousuDao {
          String sql = "SELECT * FROM mamanoyousu "
                     + "WHERE family_id=? ORDER BY recorded_date DESC LIMIT 1";
 
-         try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
+         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
               PreparedStatement ps = conn.prepareStatement(sql))
          {    
         	 ps.setString(1, familyId);
