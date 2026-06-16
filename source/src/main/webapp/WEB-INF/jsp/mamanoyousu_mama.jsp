@@ -5,13 +5,13 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/mamanoyousu_mama.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <meta charset="UTF-8">
 <title>ママのようす</title>
 </head>
 
 <!--ここからママの様子記録 -->
 <body>
-<hr>
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
