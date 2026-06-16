@@ -44,13 +44,13 @@
                     <label class="user-type-btn">
                         <!-- 💡 ログイン画面と完全に同じ設定 -->
                         <input type="radio" name="couple_id" value="0" required>
-                        <img src="/c5/images/ ここに入れる" alt="ママ" class="user-type-image">
+                        <img src="/c5/img/mama.png" alt="ママ" class="user-type-image">
                         <span>ママ</span>
                     </label>
                     <label class="user-type-btn">
                         <!-- 💡 ログイン画面と完全に同じ設定 -->
                         <input type="radio" name="couple_id" value="1">
-                        <img src="/c5/images/ ここに入れる" alt="パパ" class="user-type-image">
+                        <img src="/c5/img/papa.png" alt="パパ" class="user-type-image">
                         <span>パパ</span>
                     </label>
                 </div>
@@ -63,7 +63,7 @@
                 <!--  左側の鍵イラストと入力欄をきれいに重ねるための箱 -->
                 <div class="password-input-wrapper">
                     <!-- 鍵のイラスト画像（後で画像のリンクちゃんと設定） -->
-                    <img src="/c5/images/ 後で入れる" alt="鍵" class="password-icon">
+                    <img src="/c5/img/password.png" alt="鍵" class="password-icon">
                     <!-- パスワード入力欄 -->
                     <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required>
                 </div>
