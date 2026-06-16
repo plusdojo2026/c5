@@ -19,7 +19,7 @@ public class UsersDao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "root", "xMN3sWVGp4WNhyCz");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
 				
 			// SELECT文を準備する
@@ -70,7 +70,7 @@ public class UsersDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // データベースに接続する
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "root", "xMN3sWVGp4WNhyCz");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
             
             // INSERT文を準備する
