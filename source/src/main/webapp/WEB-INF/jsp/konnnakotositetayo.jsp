@@ -6,7 +6,7 @@
 
 
 
-    // セッションからfamily_idとcouple_idを取得
+    // セッションからfamily_idとcouple_idを取得!
     String familyId = (String) session.getAttribute("family_id");
     int coupleId    = (int)   session.getAttribute("couple_id");
 
