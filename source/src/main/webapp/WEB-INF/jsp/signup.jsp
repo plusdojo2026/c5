@@ -16,9 +16,6 @@
 <div class="wrapper">
     <!-- 白の四角い箱(login-card) -->
     <div class="login-card">    
-        <div class="login-icon">
-            <img src="/c5/images/ ここに入れる" alt="新規登録" class="login-header-icon">
-        </div>
         <h1>新規登録</h1>
         <p class="login-instruction">以下の情報を入力してアカウントを作成してください</p>
         
