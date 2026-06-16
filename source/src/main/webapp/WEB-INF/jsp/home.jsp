@@ -76,19 +76,18 @@
 		<a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
     	
     	<c:choose>
-        <!-- ママ -->
+
         <c:when test="${sessionScope.couple_id == 0}">
             <img
                 src="${pageContext.request.contextPath}/img/mamanoyousu_mama.png"
                 alt="ママのようす">
         </c:when>
 
-        <!-- パパ -->
         <c:otherwise>
             <div class="condition-preview">
-                メンタル：${メソッド名.引数}
+                メンタル：${mama.mental_score}
                 <br>
-                睡眠：${メソッド名.引数}時間
+                睡眠:${mama.sleep_hours}時間
             </div>
         </c:otherwise>
     	</c:choose>
