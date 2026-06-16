@@ -1,13 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
-	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Tomcat9 (Java17)">
-		<attributes>
-			<attribute name="owner.project.facets" value="jst.web"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="output" path="build/classes"/>
-</classpath>
+-- ============================================================
+--  7. todo (ふたりのバランス用タスクマスタ)
+--     家事育児21タスクを定義する表
+--     ※ tasks (6件) とは別物。家事育児のバランス可視化専用
+-- ============================================================
+CREATE TABLE todo (
+    task_id   INT         NOT NULL AUTO_INCREMENT,  -- タスクID (主キー)
+    task_name VARCHAR(50) NOT NULL,                 -- タスク名
+    PRIMARY KEY (task_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ▼ todo 初期データ (内部設計書より 21件)
+INSERT INTO todo (task_id, task_name) VALUES
+    ( 1, 'ミルク'),
+    ( 2, 'おむつ交換'),
+    ( 3, '沐浴・お風呂'),
+    ( 4, '寝かしつけ'),
+    ( 5, '夜泣き'),
+    ( 6, '歯磨き'),
+    ( 7, '哺乳瓶の洗浄・消毒'),
+    ( 8, '送り迎え'),
+    ( 9, '離乳食準備'),
+    (10, '病院対応'),
+    (11, 'ご飯を作る'),
+    (12, '洗い物をする'),
+    (13, '洗濯機を回す'),
+    (14, '洗濯物を干す'),
+    (15, '洗濯物を畳む'),
+    (16, '掃除機をかける'),
+    (17, 'ゴミ出し'),
+    (18, '買い物に行く'),
+    (19, '消耗品の補充・注文'),
+    (20, '風呂掃除'),
+    (21, 'トイレ掃除');
