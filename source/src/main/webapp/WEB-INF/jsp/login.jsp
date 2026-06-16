@@ -68,7 +68,7 @@
                 <!--  左側の鍵イラストと入力欄をきれいに重ねるための箱 -->
                 <div class="password-input-wrapper">
                     <!-- 鍵のイラスト画像（後で画像のリンクちゃんと設定） -->
-                    <img src="/c5/images/ 後で入れる" alt="鍵" class="password-icon">
+                    <img src="/c5/img/password.png" alt="鍵" class="password-icon">
                     <!-- パスワード入力欄 -->
                     <input type="password" id="password" name="password" placeholder="パスワードを入力してください" maxlength="64" required>
                 </div>
