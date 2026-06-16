@@ -1,1 +1,279 @@
 @charset "UTF-8";
+
+/* ==========================
+   全体
+========================== */
+main{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+body{
+    background: #fff;
+    color: #333;
+    font-family: "Yu Gothic", sans-serif;
+}
+
+/* ==========================
+   タイトル
+========================== */
+.torisetu_h1{
+    margin-bottom: 30px;
+}
+
+.mama_pic {
+    width: 200px;
+    height: auto;
+}
+
+.page-title{
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.torisetu_h1 p{
+    font-size: 22px;
+    color: #666;
+}
+
+/* ==========================
+   上部バナー
+========================== */
+.torisetu_banner{
+    background: #fff8f9;
+    border: 1px solid #ffd7df;
+    border-radius: 20px;
+
+    padding: 35px 45px;
+    margin-bottom: 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.torisetu_banner h2{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.torisetu_banner p{
+    font-size: 20px;
+    color: #555;
+}
+
+.banner_text{
+    display: flex;
+    flex-direction: column;
+}
+
+.banner_text h2{
+    margin: 0 0 15px 0;
+}
+
+.banner_text p{
+    margin: 0;
+}
+
+.update_at{
+    min-width: 180px;
+    text-align: center;
+
+    background: white;
+    border-radius: 15px;
+
+    padding: 25px;
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+/* ==========================
+   グリッド
+========================== */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* ==========================
+   カード
+========================== */
+.card{
+    background: white;
+    border-radius: 18px;
+
+    padding: 25px;
+
+    min-height: 330px;
+
+    border: 2px solid #eee;
+}
+
+/* ==========================
+   ヘッダー
+========================== */
+.card-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.card-header img{
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.card-header h4{
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* ==========================
+   各カード色
+========================== */
+
+.happy{
+    border-color:#ffd4df;
+}
+
+.happy h4{
+    color:#ff5f8d;
+}
+
+.angry{
+    border-color:#ffd8c0;
+}
+
+.angry h4{
+    color:#ff7b22;
+}
+
+.fun{
+    border-color:#ffe5b3;
+}
+
+.fun h4{
+    color:#f5a300;
+}
+
+.sad{
+    border-color:#cfe3ff;
+}
+
+.sad h4{
+    color:#4a90ff;
+}
+
+.charge{
+    border-color:#ccecc9;
+}
+
+.charge h4{
+    color:#4caf50;
+}
+
+.bad{
+    border-color:#e6d3ff;
+}
+
+.bad h4{
+    color:#8f62d9;
+}
+
+/* ==========================
+   入力欄
+========================== */
+
+.card input[type="text"]{
+    width: 100%;
+    height: 48px;
+
+    margin-bottom: 12px;
+
+    padding: 0 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+}
+
+.card input[type="text"]:focus{
+    outline: none;
+    border-color: #ff7ea8;
+}
+
+/* ==========================
+   不機嫌グリッド
+========================== */
+
+.bad_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.bad_grid input{
+    margin-bottom: 0;
+}
+
+/* ==========================
+   保存ボタン
+========================== */
+
+button[type="submit"]{
+    display: block;
+
+    width: 300px;
+    height: 65px;
+
+    margin: 40px auto;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #ff7ea8,
+        #ff5f8d
+    );
+
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button[type="submit"]:hover{
+    opacity: 0.9;
+}
+
+/* ==========================
+   下部メッセージ
+========================== */
+
+main > p:last-of-type{
+    text-align: center;
+
+    background: #fff7f8;
+
+    border: 1px solid #ffd7df;
+    border-radius: 15px;
+
+    padding: 20px;
+
+    font-size: 22px;
+    color: #555;
+
+    margin-top: 20px;
+}
