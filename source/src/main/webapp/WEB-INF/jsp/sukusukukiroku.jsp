@@ -15,7 +15,7 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
-<h1>すくすく記録</h1>
+<h1 class="page-title">すくすく記録</h1>
 	
 	<!-- メッセージ -->
 	<c:if test="${not empty message}">
