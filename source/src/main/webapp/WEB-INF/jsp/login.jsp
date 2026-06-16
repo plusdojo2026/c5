@@ -16,9 +16,6 @@
 <div class="wrapper">
     <!-- 白の四角いログインの箱(login-card) -->
     <div class="login-card">    
-        <div class="login-icon">
-            <img src="/c5/images/ ここに入れる" alt="ログイン" class="login-header-icon">
-        </div>
         <h1>ログイン</h1>
         <p class="login-instruction">ファミリーコードとパスワードを入力してしてください</p>
         
