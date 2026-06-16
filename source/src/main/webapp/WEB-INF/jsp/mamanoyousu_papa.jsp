@@ -13,7 +13,7 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
-<h1>ママのようす</h1>
+<h1 class="page-title">ママのようす</h1>
 
 	<!-- ママが未入力時の時の処理 -->
 	<c:if test="${empty mama}">
