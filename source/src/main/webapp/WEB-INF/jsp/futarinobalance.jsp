@@ -37,6 +37,7 @@
     <title>ふたりのバランス | ふたりごと。</title>
     <!-- このページ専用CSS（common.cssの内容も含む） -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/futarinobalance.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
 
