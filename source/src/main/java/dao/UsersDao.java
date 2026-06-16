@@ -18,7 +18,7 @@ public class UsersDao {
 			// JDBCドライバを読み込む
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			// データベースに接続する　後でコード変更有
+			// データベースに接続する　後でコード変更有！
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp1?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "Mikan0729");
