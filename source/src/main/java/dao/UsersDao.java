@@ -18,10 +18,10 @@ public class UsersDao {
 			// JDBCドライバを読み込む
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			// データベースに接続する　後でコード変更有！
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?"
-					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-					"root", "Mikan0729");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql ://localhost:3306/ c5 ?useSSL= false&allowPublicKeyRetrieval =true&serve\r\n"
+					+ "rTimezone =Asia/ Tokyo&connectTimeout =30000;\r\n"
+					+ "xMN3sWVGp4WNhyCz");
 				
 			// SELECT文を準備する
             String sql = "SELECT count(*) FROM users WHERE family_id=? AND couple_id=? AND password=?";
