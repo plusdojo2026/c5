@@ -28,6 +28,7 @@
     <title>こんなことしてたよ | ふたりごと。</title>
   
  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/konnnakotositetayo.css">
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 </head>
 <body>
 
