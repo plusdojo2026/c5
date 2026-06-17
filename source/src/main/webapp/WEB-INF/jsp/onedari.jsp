@@ -17,7 +17,7 @@
 <div class ="header-container">
 	<div class="header-left">
             <!--  買い物かごイラスト入れる --> <!-- 後で画像のリンクちゃんと設定 -->
-            <img src="/c5/images/ ここにいれる" alt="買い物かご" class="cart-icon">
+            <img src="/c5/img/onedari.png" alt="買い物かご" class="cart-icon">
 	<h1 class="page-title">おねだりリスト</h1>
 	</div>
 	 <button id="add-btn">＋追加する</button>
@@ -28,7 +28,7 @@
 <c:if test="${empty onedariList}">
 <main class ="empty-list">
 <!--  真ん中のイラスト --> <!-- 後で画像のリンクちゃんと設定 -->
-    <img src="/c5/images/ ここにいれる" alt="空のカート" class="empty-image">
+    <img src="/c5/img/onedari_kara.png" alt="空のカート" class="empty-image">
      <h2>おねだりリストは空です</h2>
      <p>右上の「＋追加する」から<br>お願いしたいものを追加してみましょう！</p>
 </main>
@@ -40,7 +40,17 @@
    <c:forEach var="item" items="${onedariList}">
                 <div class="item-card ${not empty item.updatedAt ? 'is-purchased' : ''}">
                     <div class="item-card-left">
-                        <img src="/c5/images/${item.category}-icon.png" alt="${item.categoryName}" class="item-cat-icon">
+					<c:choose>
+						<c:when test="${item.category == '紙おむつ'}">
+           				 	<img src="/c5/img/omutsu.png" alt="おむつ" class="item-cat-icon">
+        				</c:when>
+        				<c:when test="${item.category == 'ミルク'}">
+            			<img src="/c5/img/milk.png" alt="ミルク" class="item-cat-icon">
+       				 </c:when>
+       				 <c:otherwise>
+            			<img src="/c5/img/other-icon.png" alt="その他" class="item-cat-icon">
+            			</c:otherwise>
+					</c:choose>
                         <div class="item-details">
                         	<!-- product_name（パンパース等）を表示 -->
                             <span class="item-brand"><c:out value="${item.productName}" /></span>
@@ -51,7 +61,7 @@
                         </div>
                     </div>
                     <div class="item-card-right">
-                        <img src="/c5/images/${item.imagePath}" alt="添付写真" class="item-thumb">
+                        <img src="/c5/upload/${item.imagePath}" alt="添付写真" class="item-thumb">
                         
                         <!-- 購入したらチェックマーク -->
 					    <div class="check-wrapper">
@@ -82,17 +92,17 @@
         <div class="select-options">
     <!-- おむつ選択 -->
     	<button class="option-btn" data-target="omutsu-modal">  <!-- data属性でオムツモーダルを開く -->
-    	<img src="/c5/images/ ここにいれる" alt="おむつ" class="option-icon">
+    	<img src="/c5/img/omutsu.png" alt="おむつ" class="option-icon">
                 <span>おむつ</span>
         </button>  
     <!-- ミルク選択 -->
     	<button class="option-btn" data-target="milk-modal">  <!-- data属性でミルクモーダルを開く -->
-    	<img src="/c5/images/ ここにいれる" alt="ミルク" class="option-icon">
+    	<img src="/c5/img/milk.png" alt="ミルク" class="option-icon">
     			<span>ミルク</span>
     	</button>
     <!-- その他選択 -->
     	<button class="option-btn" data-target="other-modal">  <!-- data属性でその他モーダルを開く -->
-    	<img src="/c5/images/ ここにいれる" alt="その他" class="option-icon">
+    	<img src="/c5/img/ ここにいれる" alt="その他" class="option-icon">
     			<span>その他</span>
     	</button>
     	</div>
@@ -249,7 +259,7 @@
         
         <!-- 中央に表示されるチェックマークのイラスト -->
         <!-- 後で画像のリンクちゃんと設定 -->
-        <img src="/c5/images/ ここに入れる" alt="追加完了マーク" class="success-image">
+        <img src="/c5/img/tsuika.png" alt="追加完了マーク" class="success-image">
         <!-- メッセージ部分 -->
         <h2>追加しました！</h2>
         <p>おねだりリストに追加されました</p>
@@ -375,6 +385,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+    
+	//追加完了画面を２秒間表示したのちにリストの一覧に戻る
+	const successModal = document.getElementById("success-modal");
+	if (successModal && new URLSearchParams(window.location.search).get("msg") === "success") {
+	    successModal.style.display = "flex";
+	    setTimeout(() => {
+	        successModal.style.display = "none";
+	        // URLの「?msg=success」を綺麗に消して元のURLに戻す親切機能
+	        window.history.replaceState({}, document.title, window.location.pathname);
+	    }, 2000); // 2000ミリ秒 ＝ 2秒間表示する
+	}
 });
 </script>
 </body>
