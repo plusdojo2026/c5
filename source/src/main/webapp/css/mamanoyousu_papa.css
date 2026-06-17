@@ -1,95 +1,118 @@
 @charset   "UTF-8";
-
-/* 全体 */
-body {
-    background: #fafafa;
-    color: #333;
-    font-family: "Yu Gothic", "Meiryo", sans-serif;
-    margin: 0;
+main{
+    max-width:1400px;
+    margin:auto;
+    padding:30px;
 }
 
-/* タイトル */
-h1 {
-    color: #ff6b8f;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 30px 50px;
+.page-title{
+    color:#ff6f9c;
+    margin-bottom:25px;
 }
 
-/* メインカード */
-.main-card {
-    background: #ffffff;
-    border: 1px solid #f1e4e8;
-    border-radius: 16px;
-    padding: 30px;
-    margin: 20px 40px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+.banner{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    background:#fff8fa;
+    border:1px solid #ffd7e3;
+    border-radius:20px;
+
+    padding:30px;
+    margin-bottom:30px;
 }
 
-/* 各項目 */
-.status-row {
-    display: flex;
-    align-items: center;
-    padding: 25px 0;
-    border-bottom: 1px solid #f2f2f2;
+.mama-image{
+    width:120px;
 }
 
-.status-row:last-child {
-    border-bottom: none;
+.banner-text h2{
+    margin:0 0 10px;
 }
 
-/* アイコン部分 */
-.status-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #fff0f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 25px;
+.banner-text p{
+    color:#666;
+    margin:5px 0;
 }
 
-/* 項目名 */
-.status-title {
-    width: 180px;
-    font-size: 32px;
-    font-weight: bold;
+.content{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
 }
 
-/* 数値 */
-.status-value {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ff5d84;
+.status-card,
+.advice-card{
+    background:white;
+    border:1px solid #eee;
+    border-radius:20px;
+    padding:25px;
 }
 
-/* メモ */
-.memo-box {
-    background: #fff5f7;
-    border: 1px solid #ffd9e3;
-    border-radius: 10px;
-    padding: 18px;
-    margin-top: 10px;
-    line-height: 1.8;
+.status-card h2,
+.advice-card h2{
+    margin-top:0;
 }
 
-/* アドバイス */
-.advice-box {
-    background: #ffffff;
-    border: 1px solid #f1e4e8;
-    border-radius: 16px;
-    margin: 25px 40px;
-    padding: 25px;
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 0;
+    border-bottom:1px solid #eee;
 }
 
-.advice-title {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 15px;
+.score-circle-area{
+    display:flex;
+    gap:10px;
 }
 
-.advice-text {
-    color: #666;
-    line-height: 1.8;
+.score-circle{
+    width:36px;
+    height:36px;
+
+    border-radius:50%;
+
+    background:#f1f1f1;
+    color:#666;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+}
+
+.score-circle.active{
+    background:#ff7ea8;
+    color:white;
+}
+.memo-box{
+    margin-top:25px;
+
+    background:#fff8fa;
+    border:1px solid #ffd7e3;
+    border-radius:15px;
+
+    padding:15px;
+}
+
+.memo-box h3{
+    margin-top:0;
+}
+
+.advice-card{
+    background:#fff8fa;
+}
+
+.advice-card p{
+    line-height:2;
+}
+
+.empty-box{
+    text-align:center;
+    padding:80px;
+    font-size:24px;
 }
