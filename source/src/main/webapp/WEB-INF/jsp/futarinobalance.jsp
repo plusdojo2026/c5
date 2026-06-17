@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dto.Futarinobalance" %>
-
+List<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><Futarinobalance> mamaList =
 <%
+
     // ===== ServletからJSPにデータを受け渡している（今は受け取っている） =====
     // → FutarinobalanceServlet.java(dto) の doGet() で request.setAttribute() したデータ
 
@@ -48,12 +49,12 @@
     <div class="balance-wrapper">
 
         <!-- ページタイトル -->
-        <div class="page-header">
-            <h1 class="page-title">ふたりのバランス</h1>
-            <p class="page-subtitle">家事や育児の分担を見える化して、ふたりで気持ちよく協力し合おう。</p>
+        	<div class="page-header">
+        	<h1 class="page-title">ふたりのバランス</h1>
+        	<p class="page-subtitle">家事や育児の分担を見える化して、ふたりで気持ちよく協力し合おう。</p>
         </div>
 
-        <!-- 使い方ヒント -->
+        <!-- 使い方ヒント spanは文字とか小さい要素を囲むための箱-->
         <div class="hint-area">
             <span class="hint-icon"></span>
             <span class="hint-text">項目をドラッグして、担当を変更できます。</span>
@@ -72,24 +73,24 @@
                     <!-- ママリストの件数を表示 -->
                     <!-- mamaList.size() → Futarinobalance.java のリストの件数 -->
                     <span class="column-count"><%= mamaList.size() %>項目</span>
-                </div>
+                </div>	 <%--「<%=  %>」イコール付きはJavaの計算結果をHTMLに出力するループ処理タグ--%>
 
-                <!-- タスクを並べるドロップゾーン -->
+                <!-- タスクを--並べるドロップゾーン -->
                 <!-- id="mama-zone" → JavaScriptでドロップ先を識別するために使う -->
+                <%-- data-couple-id="0"はこのゾーンに落とすとcouple_idが0(ママ)になるよ、っていう情報をHTML属性に埋め込んでる--%>
+                
                 <div class="task-zone" id="mama-zone" data-couple-id="0">
 
-                    <% if (mamaList.isEmpty()) { %>
-                        <!-- データがない場合 -->
-                        <p class="empty-message">ここにドラッグしてください</p>
-                    <% } %>
-
+					<c:if test="${empty mamaList}">
+                     <!-- c:ifっていうのは、条件が正しい（trueの）ときだけ、↓のHTMLが表示される -->
+    				<p class="empty-message">ここにドラッグしてください</p>
+					</c:if>
+					
                     <!-- mamaListをループして1件ずつ表示する -->
                     <% for (int i = 0; i < mamaList.size(); i++) { %>
-                        <%
-                            // ループ1回ごとに1件取り出す
-                            // Futarinobalance.java の各getterで値を取得する
-                            Futarinobalance bean = mamaList.get(i);
-                        %>
+                    <% Futarinobalance bean = mamaList.get(i);%>
+                    
+               		
                         <!-- タスクカード -->
                         <!-- data-balance-id → JavaScriptでどのタスクか識別するために使う -->
                         <!-- draggable="true" → ドラッグできるようにする -->
@@ -120,7 +121,7 @@
                 </div>
 
                 <!-- タスクを並べるドロップゾーン -->
-                <div class="task-zone" id="unassigned-zone" data-couple-id="3">
+                <div class="task-zone" id="unassigned-zone" data-couple-id="2">
 
                     <% if (unassignedList.isEmpty()) { %>
                         <div class="empty-unassigned">
@@ -215,18 +216,19 @@
             for (var i = 0; i < cards.length; i++) {
                 var card = cards[i];
 
-                // ドラッグ開始した時
+             // ドラッグ開始した時
+
                 card.addEventListener("dragstart", function(e) {
+
                     // ドラッグ中のカードを記憶する
                     draggingCard = this;
                     // 少し透明にしてドラッグ中とわかるようにする
                     this.style.opacity = "0.5";
                 });
-
                 // ドラッグ終了した時（離した時）
                 card.addEventListener("dragend", function(e) {
                     // 透明度を元に戻す
-                    this.style.opacity = "1";
+                   this.style.opacity = "1";
                     draggingCard = null;
                 });
             }
