@@ -113,7 +113,7 @@
 <!-- ポップアップ -->
 <div id="popupModal" class="popup-modal ${sessionScope.couple_id == 0 ? 'mama-popup' : 'papa-popup'}">
     <div class="popup-content">
-        <h3>今日のひとこと</h3>
+        <h3>今日もおつかれさまです</h3>
         <p id="popupMessage">
             ${popup.message}
         </p>
