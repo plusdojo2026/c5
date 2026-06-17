@@ -53,3 +53,51 @@ img {
     text-align:center;
     box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
+
+/* ママ用ポップアップ */
+.mama-popup .popup-content{
+    background:#fff8fa;
+    border:2px solid #ffd6e0;
+    border-radius:24px;
+    padding:30px;
+    max-width:450px;
+    text-align:center;
+}
+
+.mama-popup h3{
+    color:#ff7ea8;
+    font-size:20px;
+}
+
+.mama-popup button{
+    background:#ff9fbe;
+    color:white;
+    border:none;
+    border-radius:30px;
+    padding:8px 20px;
+    margin-top:20px;
+}
+
+/* パパ用ポップアップ */
+.papa-popup .popup-content{
+    background:#f5fcff;
+    border:2px solid #bfefff;
+    border-radius:24px;
+    padding:30px;
+    max-width:450px;
+    text-align:center;
+}
+
+.papa-popup h3{
+    color:#BAD3FF;
+    font-size:20px;
+}
+
+.papa-popup button{
+    background:#BAD3FF;
+    color:white;
+    border:none;
+    border-radius:30px;
+    padding:8px 20px;
+    margin-top:20px;
+}
