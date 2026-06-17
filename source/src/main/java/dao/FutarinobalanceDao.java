@@ -16,9 +16,9 @@ public class FutarinobalanceDao {
 
     // DB接続情報
     // ※ futarigoto_db は futarigoto_db.sql で作成したデータベース名
-    private static final String URL      = "jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8";
-    private static final String USER     = "root";//rootはMYSQLのユーザー名
-    private static final String PASSWORD = "";
+    private static final String URL      = "jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8";
+    private static final String USER     = "root";
+    private static final String PASSWORD = "password";
 
     /**
      * 指定したfamilyIdのタスク一覧を全件取得する
@@ -29,7 +29,7 @@ public class FutarinobalanceDao {
      */
     //sessionはservletの37.38行目のsession.setAttributeで作成してる。
     
-    public List<Futarinobalance> getTaskList(int familyId) {
+    public List<Futarinobalance> getTaskList(String familyId) {
     //survlet43.44.60行目
 
         // 結果を入れるリストを用意する
@@ -63,7 +63,7 @@ public class FutarinobalanceDao {
 
             // SQLの ? に family_id をセット（SQL文を実行する準備をする）
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, familyId);
+            ps.setString(1, familyId);
 
             // SQL実行
             rs = ps.executeQuery();//excuteQuery=select
@@ -74,7 +74,7 @@ public class FutarinobalanceDao {
 
                 // rs.getInt("カラム名") でDBの値を取り出す
                 bean.setBalanceId(rs.getInt("balance_id"));
-                bean.setFamilyId(rs.getInt("family_id"));
+                bean.setFamilyId(rs.getString("family_id"));
                 bean.setCoupleId(rs.getInt("couple_id"));
                 bean.setTodoId(rs.getInt("todo_id"));
                 bean.setDisplayOrder(rs.getInt("display_order"));
@@ -158,7 +158,7 @@ public class FutarinobalanceDao {
      *
      * @param familyId セッションから取得したfamily_id
      */
-    public void insertInitialData(int familyId) {
+    public void insertInitialData(String familyId) {
 
         Connection conn      = null;
         PreparedStatement ps = null;
@@ -172,7 +172,7 @@ public class FutarinobalanceDao {
                        + "SELECT ?, 2, task_id, task_id FROM todo";
 
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, familyId);
+            ps.setString(1, familyId);
             ps.executeUpdate();
 
         } catch (Exception e) {
@@ -196,7 +196,7 @@ public class FutarinobalanceDao {
      * @param familyId 確認したいfamily_id
      * @return データあり:true / データなし:false
      */
-    public boolean existsData(int familyId) {
+    public boolean existsData(String familyId) {
 
         Connection conn      = null;
         PreparedStatement ps = null;
@@ -209,7 +209,7 @@ public class FutarinobalanceDao {
 
             String sql = "SELECT COUNT(*) FROM futarinobalance WHERE family_id = ?";
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, familyId);
+            ps.setString(1, familyId);
             rs = ps.executeQuery();
 
             if (rs.next()) {
