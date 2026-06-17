@@ -123,6 +123,7 @@ public class FutarinobalanceServlet extends HttpServlet {
         int balanceId    = Integer.parseInt(balanceIdStr);
         int coupleId     = Integer.parseInt(coupleIdStr);
         int displayOrder = Integer.parseInt(displayOrderStr);
+        System.out.println("★受信: balanceId=" + balanceId + ", coupleId=" + coupleId + ", displayOrder=" + displayOrder);
 
         // DAOを使ってDBを更新する
         FutarinobalanceDao dao = new FutarinobalanceDao();
