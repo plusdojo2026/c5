@@ -20,8 +20,7 @@ public Home getRandomPopup(int coupleId) {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		// DB接続
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp1?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-				"root","password");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
 
 		// SQL文を準備
 		String sql =
