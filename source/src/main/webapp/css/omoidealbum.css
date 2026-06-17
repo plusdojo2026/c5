@@ -294,6 +294,13 @@ body{
     transform:translate(-50%,-50%);
 }
 
+.tsuika{
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
 #ok{
     margin-top:20px;
 
