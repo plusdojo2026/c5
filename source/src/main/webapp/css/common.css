@@ -51,10 +51,10 @@ body{
 
 /* ページタイトル */
 .page-title{
-	font-size:40px;
+	font-size:35px;
 	font-weight:bold;
 	color:#ff648c;
-	margin:30px 50px;
+	margin:30px 10px;
 }
 
 
