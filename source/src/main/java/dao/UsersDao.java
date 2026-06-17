@@ -60,7 +60,7 @@ public class UsersDao {
     }
 
 
-    // 2. 新規登録をするメソッド
+    // 新規登録をするメソッド
     public boolean register(Users user) {
         Connection conn = null;
         boolean insertResult = false;
