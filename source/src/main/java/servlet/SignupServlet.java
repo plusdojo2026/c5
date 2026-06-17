@@ -67,7 +67,8 @@ public class SignupServlet extends HttpServlet {
         
         if (udao.register(user)) { // 登録成功
             // ログイン画面へリダイレクト
-            response.sendRedirect("/c5/LoginServlet"); 
+            response.sendRedirect("/c5/LoginServlet?msg=success"); 
+            return; // 処理を修了
 
             
         } else { // 登録失敗（すでに同じIDが存在する場合など）
