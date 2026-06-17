@@ -15,9 +15,9 @@ import java.util.List;
 public class KonnnakotositetayoDao {
 
     // DB接続情報
-    private static final String URL      = "jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8";
+    private static final String URL      = "jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8";
     private static final String USER     = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "password";
 
     /**
      * タイムライン一覧を取得する
@@ -113,7 +113,7 @@ public class KonnnakotositetayoDao {
             ps = conn.prepareStatement(sql);
             ps.setString(1, bean.getFamilyId());
             ps.setInt(2,    bean.getCoupleId());
-            ps.setString(3, bean.getTaskId());
+            ps.setInt(3, Integer.parseInt(bean.getTaskId()));
             ps.setInt(4,    bean.getCount());
             ps.setString(5, bean.getMemo());
 
