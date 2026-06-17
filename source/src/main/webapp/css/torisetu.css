@@ -36,6 +36,23 @@ body{
 .torisetu_h1 p{
     font-size: 22px;
     color: #666;
+    /* ==========================
+   タイトル
+========================== */
+.torisetu_h1{
+    margin-bottom: 30px;
+}
+
+.mama_pic {
+    width: 200px;
+    height: auto;
+}
+
+
+.torisetu_h1 p{
+    font-size: 22px;
+    color: #666;
+     margin: 20px 0 0 0;
 }
 
 /* ==========================
@@ -131,7 +148,7 @@ body{
 
 .card-header h4{
     margin: 0;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: bold;
 }
 
