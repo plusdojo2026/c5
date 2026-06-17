@@ -54,7 +54,7 @@
 	
 	<div class="row">
 		<!-- おもいでアルバム -->
-        <a href="${pageContext.request.contextPath}/OmoidealbumlbumServlet" class="home-icon">
+        <a href="${pageContext.request.contextPath}/OmoidealbumServlet" class="home-icon">
             <div class="icon">
             	<img src="${pageContext.request.contextPath}/img/omoidealbum.png"
         			 alt="おもいでアルバム">
@@ -95,7 +95,7 @@
 		</a>
 
 		<!-- ママのトリセツ -->
-        <a href="${pageContext.request.contextPath}/TorisetsuServlet" class="home-icon">
+        <a href="${pageContext.request.contextPath}/TorisetuServlet" class="home-icon">
             <div class="icon">
             	<img src="${pageContext.request.contextPath}/img/torisetsu.png"
         			 alt="ママのトリセツ">
@@ -111,20 +111,20 @@
 
 
 <!-- ポップアップ -->
-<div id="popupModal" class="popup-modal">
-	<div class="popup-content">
-		<h3>今日のひとこと</h3>
-		<p id="popupMessage">
-			${popup.message}
-		</p>
-		<button onclick="closePopup()">
-			閉じる
-		</button>
-	</div>
+<div id="popupModal" class="popup-modal ${sessionScope.couple_id == 0 ? 'mama-popup' : 'papa-popup'}">
+    <div class="popup-content">
+        <h3>今日のひとこと</h3>
+        <p id="popupMessage">
+            ${popup.message}
+        </p>
+        <button onclick="closePopup()">
+            閉じる
+        </button>
+    </div>
 </div>
 
 <script>
-use strict;
+'use strict';
 
 window.onload = function() {
 	document.getElementById("popupModal").style.display = "flex";
