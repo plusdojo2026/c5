@@ -11,7 +11,7 @@
 <title>ママのようす</title>
 </head>
 <body>
-<hr>
+
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
