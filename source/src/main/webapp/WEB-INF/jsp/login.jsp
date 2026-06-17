@@ -27,9 +27,9 @@
         </c:if>
         
         <!-- 会員登録できた時のメッセージ -->
-         <c:if test="${param.msg == 'success'}">
+         <c:if test="${not empty successMsg}">
             <div class="touroku-success-msg">
-                会員登録が完了しました！ログインしてください。
+                <c:out value="${successMsg}" />
             </div>
         </c:if>
         
