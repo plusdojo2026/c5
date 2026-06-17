@@ -20,7 +20,7 @@ public class OmoidealbumDao {
 			Connection conn = null;
 		//JDBCドライバを読み込む
 			try {Class.forName("com.mysql.cj.jdbc.Driver");
-		//DBに接続
+		//DBに接続 ※仮の入力
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
 		//SQLを準備
 			String sql = "SELECT * FROM album WHERE family_id=? ORDER BY albumId DESC";
@@ -60,7 +60,7 @@ public class OmoidealbumDao {
 		try {
 		//JDBCドライバ読み込み
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		//DBに接続
+		//DBに接続　※仮の入力
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
 		//SQLを準備
 		String sql = "DELETE FROM album WHERE albumId=?";
