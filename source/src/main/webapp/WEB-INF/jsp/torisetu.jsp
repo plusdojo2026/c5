@@ -93,10 +93,12 @@
 			</div>
 			<div class="bad_grid">
 				<input type="text" name="bad1" value="${torisetu.bad1}">
-				<input type="text" name="bad2" value="${torisetu.bad2}">
-				<input type="text" name="bad3" value="${torisetu.bad3}">
 				<input type="text" name="badaction1" value="${torisetu.bad_action1}">
+				
+				<input type="text" name="bad2" value="${torisetu.bad2}">
 				<input type="text" name="badaction2" value="${torisetu.bad_action2}">
+				
+				<input type="text" name="bad3" value="${torisetu.bad3}">
 				<input type="text" name="badaction3" value="${torisetu.bad_action3}">
 			</div>				
 		</div>
