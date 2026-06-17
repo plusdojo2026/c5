@@ -95,6 +95,7 @@
 	<!-- アルバム作成完了の表示 表示のみ完成。OK処理はまだ -->
 		<div id="complete_modal" class="complete_modal">
 			<div class="complete_box">
+				<img src="img/tsuika.png" class="tsuika">
 				<p>登録が完了しました！</p>
 				<button id="ok">OK</button>
 			</div>
