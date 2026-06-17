@@ -20,7 +20,8 @@ public class MamanoyousuServlet extends HttpServlet {
     // 画面表示
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+    	//セッションからfamily_id、couple_idを取得
         HttpSession session = request.getSession();
         String familyId = (String) session.getAttribute("family_id");
         int coupleId = (Integer) session.getAttribute("couple_id");
