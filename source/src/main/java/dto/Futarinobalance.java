@@ -10,7 +10,7 @@ public class Futarinobalance {
     private int balanceId;
 
     // ファミリーID（familiesテーブルと紐づく）
-    private int familyId;
+    private String familyId;
 
     // カップルID（0=妻担当, 1=夫担当, 2=両方, 3=未割当）
     private int coupleId;
@@ -31,7 +31,7 @@ public class Futarinobalance {
         return balanceId;
     }
 
-    public int getFamilyId() {
+    public String getFamilyId() {
         return familyId;
     }
 
@@ -58,7 +58,7 @@ public class Futarinobalance {
         this.balanceId = balanceId;
     }
 
-    public void setFamilyId(int familyId) {
+    public void setFamilyId(String familyId) {
         this.familyId = familyId;
     }
 
