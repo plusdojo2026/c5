@@ -33,18 +33,17 @@ public class FutarinobalanceServlet extends HttpServlet {
         // セッションからfamily_idを取得
         HttpSession session = request.getSession();
 
-     // ===== 開発用：仮セッションデータ（テスト後に削除） =====
+        // ===== 開発用：仮セッションデータ（テスト後に削除） =====
         session.setAttribute("family_id", "1");
         session.setAttribute("couple_id", "0");
         // =====================================================
 
-        // セッションのfamily_idをint型で取得する
-        // getAttribute()でLoginServlet.javaでsessionに保存したファミリーIDを取得
-        String familyIdStr = (String) session.getAttribute("family_id");
-        int familyId = Integer.parseInt(familyIdStr);
+        // セッションのfamily_idをString型で取得する
+        // (DBではVARCHAR(32)なのでStringのまま扱う)
+        String familyId = (String) session.getAttribute("family_id");
 
         // ログインしていない場合はログイン画面に戻す
-        if (familyIdStr == null) {
+        if (familyId == null) {
             response.sendRedirect("login.jsp");
             return;
         }
@@ -59,7 +58,6 @@ public class FutarinobalanceServlet extends HttpServlet {
         }
 
         // DBからタスク一覧を全件取得する
-        // → FutarinobalanceDao.java の getTaskList() を呼ぶ
         List<Futarinobalance> allList = dao.getTaskList(familyId);
 
         // 妻担当（couple_id=0）のリストを作る
@@ -68,7 +66,7 @@ public class FutarinobalanceServlet extends HttpServlet {
         // 夫担当（couple_id=1）のリストを作る
         List<Futarinobalance> papaList = new ArrayList<Futarinobalance>();
 
-        // 未割当（couple_id=3）のリストを作る
+        // 未割当（couple_id=2）のリストを作る
         List<Futarinobalance> unassignedList = new ArrayList<Futarinobalance>();
 
         // allListを1件ずつ見てcouple_idで振り分ける
@@ -84,13 +82,12 @@ public class FutarinobalanceServlet extends HttpServlet {
                 papaList.add(bean);
 
             } else {
-                // couple_id=3（未割当）→ 未割当リストに追加
+                // couple_id=2（未割当）→ 未割当リストに追加
                 unassignedList.add(bean);
             }
         }
 
         // JSPに各リストを渡す
-        // → futarinobalance.jsp の mamaList・papaList・unassignedList で受け取る
         request.setAttribute("mamaList",       mamaList);
         request.setAttribute("papaList",       papaList);
         request.setAttribute("unassignedList", unassignedList);
@@ -103,8 +100,6 @@ public class FutarinobalanceServlet extends HttpServlet {
 
     /**
      * POSTリクエスト：ドラッグ&ドロップで担当変更した時
-     * JSPのJavaScriptからfetch()で送られてくる
-     * balanceId・coupleId・displayOrderを受け取ってDBを更新する
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -114,25 +109,22 @@ public class FutarinobalanceServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         // JavaScriptから送られてきたデータを受け取る
-        // ※ futarinobalance.jsp の JavaScript の fetch() で送っている値
-        String balanceIdStr   = request.getParameter("balance_id");
-        String coupleIdStr    = request.getParameter("couple_id");
+        String balanceIdStr    = request.getParameter("balance_id");
+        String coupleIdStr     = request.getParameter("couple_id");
         String displayOrderStr = request.getParameter("display_order");
 
         // 受け取った値がnullでないか確認する
         if (balanceIdStr == null || coupleIdStr == null || displayOrderStr == null) {
-            // nullの場合はエラーを返す
             response.getWriter().write("error");
             return;
         }
 
         // String型をint型に変換する
-        int balanceId   = Integer.parseInt(balanceIdStr);
-        int coupleId    = Integer.parseInt(coupleIdStr);
+        int balanceId    = Integer.parseInt(balanceIdStr);
+        int coupleId     = Integer.parseInt(coupleIdStr);
         int displayOrder = Integer.parseInt(displayOrderStr);
 
         // DAOを使ってDBを更新する
-        // → FutarinobalanceDao.java の updateCoupleId() を呼ぶ
         FutarinobalanceDao dao = new FutarinobalanceDao();
         boolean result = dao.updateCoupleId(balanceId, coupleId, displayOrder);
 
