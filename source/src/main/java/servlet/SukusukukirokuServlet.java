@@ -42,7 +42,8 @@ public class SukusukukirokuServlet {
 
 	            // Daoからタイムラインデータを取得
 	            SukusukukirokuDao dao = new SukusukukirokuDao();
-	            List<Sukusukukiroku> list = dao.findAll();
+
+	            List<Sukusukukiroku> list = dao.findByFamilyId(familyId);
 
 	           //JSPにデータを渡す 
 	            request.setAttribute("recordList", list);
