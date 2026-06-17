@@ -66,7 +66,13 @@ public class KonnnakotositetayoServlet extends HttpServlet {
         // セッションからデータを取得
         HttpSession session = request.getSession();
         String familyId = (String) session.getAttribute("family_id");
-        int coupleId    = (int)   session.getAttribute("couple_id");
+        Object coupleIdObj = session.getAttribute("couple_id");
+        int coupleId;
+        if (coupleIdObj instanceof Integer) {
+            coupleId = (Integer) coupleIdObj;
+        } else {
+            coupleId = Integer.parseInt((String) coupleIdObj);
+        }
 
         // ログインしていない場合はログイン画面に戻す
         if (familyId == null) {
