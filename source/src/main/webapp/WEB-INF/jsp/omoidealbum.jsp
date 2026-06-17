@@ -6,6 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/omoidealbum.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <meta charset="UTF-8">
 <title>おもいでアルバム</title>
 </head>
@@ -38,9 +39,9 @@
 <!-- アルバムの追加が無いときの画面 -->
 <c:if test="${empty albumList}">
 	<div class="empty_album">
-		<p>📷</p>
-		<p>まだ写真がありません</p>
-		<p>右上の追加ボタンから、新しいおもいでを記録しましょう</p>
+		<img src="img/gazou_arimasenn.png" class="gazou_arimasenn">
+        <p class="empty_title">まだ写真がありません</p>
+        <p class="empty_text">右上の追加ボタンから、新しいおもいでを記録しましょう</p>
 	</div>
 </c:if>
 
