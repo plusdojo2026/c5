@@ -24,6 +24,14 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
+    	
+    	//  msgを取得する
+        String msg = request.getParameter("msg");
+        
+        // ログイン画面にある「successMsg」という変数に、メッセージを直接格納する
+        if ("success".equals(msg)) {
+            request.setAttribute("successMsg", "会員登録が完了しました！ログインしてください。");
+        }   	
         
     	// ログインページにフォワードする
     			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
