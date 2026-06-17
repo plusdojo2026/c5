@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Torisetu implements Serializable{
 	private String familyId;		/*ファミリーID*/
 	private int coupleId;			/*カップルID　妻=0,夫=1*/
-	private int torisetuid;				/*自動採番*/
+	private int torisetuId;				/*自動採番*/
 	private String happy1; 				/*喜ぶこと*/
 	private String happy2; 			
 	private String happy3; 			
@@ -30,14 +30,14 @@ public class Torisetu implements Serializable{
 	private String updateAt;			/*更新日*/
 	
 	/*コンストラクタの生成*/	
-	public Torisetu(String familyId,int coupleId,int torisetuid,String happy1,String happy2,String happy3,
+	public Torisetu(String familyId,int coupleId,int torisetuId,String happy1,String happy2,String happy3,
 			String angry1,String angry2,String angry3,String fun1,String fun2,String fun3,
 			String sad1,String sad2,String sad3,String charge1,String charge2,String charge3,
-			String bad1,String bad2,String bad3,String badaction1,String badaction2,String badaction3) {
+			String bad1,String bad2,String bad3,String badaction1,String badaction2,String badaction3,String updateAt) {
 		super();
 		this.familyId = familyId;
 		this.coupleId = coupleId;
-		this.torisetuid = 0;
+		this.torisetuId = 0;
 		this.happy1 = "happy1";
 		this.happy2 = "happy2";
 		this.happy3 = "happy3";
@@ -59,14 +59,15 @@ public class Torisetu implements Serializable{
 		this.badaction1 = "badaction1";
 		this.badaction2 = "badaction2";
 		this.badaction3 = "badaction3";
+		this.updateAt = updateAt;
 	}
 	
 /*引数の無いコンストラクタ*/
 	public Torisetu() {
 		super();
 		this.familyId = "";
-		this.coupleId = -1;	/*0が使用できないため*/
-		this.torisetuid = 0;
+		this.coupleId = 0;
+		this.torisetuId = 0;
 		this.happy1 = "";
 		this.happy2 = "";
 		this.happy3 = "";
@@ -88,6 +89,7 @@ public class Torisetu implements Serializable{
 		this.badaction1 = "";
 		this.badaction2 = "";
 		this.badaction3 = "";
+		this.updateAt = "";
 	}
 
 	/*ゲッタとセッタ*/
@@ -99,7 +101,7 @@ public class Torisetu implements Serializable{
 		this.familyId = familyId;
 	}
 	
-	public int setCoupleId() {
+	public int getCoupleId() {
 		return coupleId;
 	}
 
@@ -107,12 +109,12 @@ public class Torisetu implements Serializable{
 		this.coupleId = coupleId;
 	}
 	
-	public int getTorisetuid() {
-		return torisetuid;
+	public int getTorisetuId() {
+		return torisetuId;
 	}
 
-	public void setTorisetuid(int torisetuid) {
-		this.torisetuid = torisetuid;
+	public void setTorisetuId(int torisetuId) {
+		this.torisetuId = torisetuId;
 	}
 
 	public String getHappy1() {
@@ -290,7 +292,5 @@ public class Torisetu implements Serializable{
 	public void setUpdateAt(String updateAt) {
 		this.updateAt = updateAt;
 	}
-	
-	
 	
 }
