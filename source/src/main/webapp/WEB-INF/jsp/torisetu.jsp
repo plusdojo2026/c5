@@ -28,11 +28,11 @@
 			<p>このトリセツは、パパと一緒にずっと共有していく大切なメモだよ。</p>
 		</div>
 		<!-- 最終更新日時を表示 -->
-		<p class="update_at">更新日<br>${update_at}</p>
+		<p class="update_at">更新日<br>${torisetu.updateAt}</p>
 	</div>
 
 <!-- プロフィール内容をTorisetuservletへポストする。 -->
-<form method="POST" action="/webapp/Torisetuservlet">
+<form method="POST" action="TorisetuServlet">
 <!-- CSSグリッドここから 2列3行のカード配置をするための大枠-->
 	<div class="grid">
 <!--各項目をそれぞれカードとする。つまり6枚のカード-->
@@ -94,18 +94,20 @@
 			</div>
 			<div class="bad_grid">
 				<input type="text" name="bad1" value="${torisetu.bad1}">
-				<input type="text" name="badaction1" value="${torisetu.bad_action1}">
+				<input type="text" name="badaction1" value="${torisetu.badaction1}">
 				
 				<input type="text" name="bad2" value="${torisetu.bad2}">
-				<input type="text" name="badaction2" value="${torisetu.bad_action2}">
+				<input type="text" name="badaction2" value="${torisetu.badaction2}">
 				
 				<input type="text" name="bad3" value="${torisetu.bad3}">
-				<input type="text" name="badaction3" value="${torisetu.bad_action3}">
+				<input type="text" name="badaction3" value="${torisetu.badaction3}">
 			</div>				
 		</div>
 		
 	</div>
-	<button type="submit" name="torisetu_save" class="page-action-btn">保存</button>
+	<c:if test="${sessionScope.couple_id == 0}"><!-- 妻の画面でのみ表示 -->
+		<button type="submit" name="torisetu_save" class="page-action-btn">保存</button>
+	</c:if>
 <!-- CSSグリッドここまで-->
 </form>
 <p>ママも毎日がんばっています。たくさん褒めてあげて下さいね！</p>
