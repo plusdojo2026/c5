@@ -42,7 +42,18 @@ public class SukusukukirokuServlet {
 
 	            // Daoからタイムラインデータを取得
 	            SukusukukirokuDao dao = new SukusukukirokuDao();
+	            
 
+	            // 追加
+	            Sukusukukiroku record = new Sukusukukiroku();
+	            record.setFamilyId(familyId);
+	            record.setTemperature(temp);
+	            record.setWeight(weight);
+	            record.setNote(note);
+
+	            dao.insert(record);
+
+	            //一覧取得
 	            List<Sukusukukiroku> list = dao.findByFamilyId(familyId);
 
 	           //JSPにデータを渡す 
@@ -73,7 +84,7 @@ public class SukusukukirokuServlet {
 						double weight = Double.parseDouble(w);
 						
 						if (temp < 35|| temp >42) {
-							message = "体温は35~42の間で入力してください";
+							message = "体温は35~42の範囲で入力してください";
 						} else if(weight <0|| weight >99) {
 							message ="体重は0~99㎏の間で入力してください";
 						} else {
