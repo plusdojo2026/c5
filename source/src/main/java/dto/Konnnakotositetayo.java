@@ -35,6 +35,7 @@ public class Konnnakotositetayo {
 
     // 既読フラグ（0=未読, 1=既読）
     private int isRead;
+    private String taskName;
 
 
     // ===== getter =====
@@ -121,4 +122,11 @@ public class Konnnakotositetayo {
     public void setIsRead(int isRead) {
         this.isRead = isRead;
     }
+    public String getTaskName() {
+        return taskName;
+    }
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
 }
+     
