@@ -65,7 +65,8 @@ public class OnedariServlet extends HttpServlet {
         // セッションからファミリーIDとパパママ区分を取得する
         HttpSession session = request.getSession();
         String familyId = (String) session.getAttribute("family_id");
-        Integer coupleId = (Integer) session.getAttribute("couple_id"); // 💡 ログイン中ユーザーの区分(0か1)を取得
+        Integer coupleId = (Integer) session.getAttribute("couple_id"); // ログイン中ユーザーの区分(0か1)を取得       
+        
         
         // ログインしていない場合はログイン画面に強制リダイレクト
         if (familyId == null || coupleId == null) {
@@ -76,6 +77,20 @@ public class OnedariServlet extends HttpServlet {
         // JavaScriptからの非同期通信（チェックボックス）かどうかの判定
         String action = request.getParameter("action");
         String idStr = request.getParameter("id");
+        String onedariIdStr = request.getParameter("onedariId");
+        
+        // おねだり削除の処理ルート
+        if ("delete".equals(action) && onedariIdStr != null) {
+            int onedariId = Integer.parseInt(onedariIdStr);
+            OnedariDao odao = new OnedariDao();
+            
+            // DAOの削除メソッドを呼び出す
+            odao.deleteOnedari(onedariId);
+            
+            // 削除完了後、一覧画面にリダイレクトして画面を更新する
+            response.sendRedirect("/c5/OnedariServlet");
+            return; // 処理を完全に終了させる
+        }
         
         if (action != null && idStr != null) {
             // チェックボックスの制御ルート
@@ -158,7 +173,7 @@ public class OnedariServlet extends HttpServlet {
     }
 
     /**
-     * 💡 選ばれたタイプとサイズから、おむつのマスタID（1〜10）を割り出すための判定メソッド
+     *  選ばれたタイプとサイズから、おむつのマスタID（1〜10）を割り出すための判定メソッド
      */
     private int determineOmutsuCategoryId(String type, String size) {
         if ("テープ".equals(type)) {
