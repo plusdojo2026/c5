@@ -15,7 +15,11 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
-<h1 class="page-title">ママのようす</h1>
+<div class="page-container">
+
+	<div class="page-header">
+		<h1 class="page-title">ママのようす</h1>
+	</div>
 
 	<!-- ママが未入力時の時の処理 -->
 	<c:if test="${empty mama}">
@@ -88,6 +92,8 @@
 	        </div>
 	    </div>
 	</c:if>
+	
+</div>
 	
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
