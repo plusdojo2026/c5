@@ -31,16 +31,7 @@ header{
     display:block;
 }
 
-/* ママ・パパ表示 */
-.user-area{
-    font-size:28px;
-    color:#555555;
 
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-}
 
 
 
@@ -66,6 +57,159 @@ img {
     width: 200px;
     height: 200px;
 }
+
+/* =========================
+   パパ画面 ママのようす
+========================= */
+
+.mama-home-card{
+    width:340px;
+    height:200px;
+
+    background:#ffffff;
+
+    border-radius:25px;
+
+    padding:15px;
+
+    box-sizing:border-box;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    text-decoration:none;
+}
+
+/* 左側 */
+
+.mama-left{
+    width:130px;
+    flex-shrink:0;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+.mama-home-image{
+    width:160px;
+    height:auto;
+
+    display:block;
+}
+
+.mama-left-title{
+    margin-top:8px;
+
+    font-size:16px;
+    font-weight:bold;
+
+    color:#ff648c;
+}
+
+/* 右側 */
+
+.mama-right{
+    width:190px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+}
+
+/* メンタル・睡眠ボックス */
+
+.mental-box,
+.sleep-box{
+    background:#fff5f8;
+
+    border-radius:15px;
+
+    padding:10px 12px;
+
+    height:65px;
+
+    box-sizing:border-box;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* タイトル */
+
+.mini-title{
+    font-size:14px;
+    font-weight:bold;
+
+    color:#555555;
+
+    margin-bottom:6px;
+}
+
+/* ハート */
+
+.heart-area{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:5px;
+
+    font-size:24px;
+    line-height:1;
+}
+
+.heart-on{
+    color:#ff648c;
+}
+
+.heart-off{
+    color:#f2d8e1;
+}
+
+/* 睡眠 */
+
+.sleep-value{
+    text-align:center;
+
+    font-size:24px;
+    font-weight:bold;
+
+    color:#444444;
+
+    line-height:1;
+}
+
+.sleep-value span{
+    font-size:14px;
+    font-weight:normal;
+}
+
+/* 詳しく見る */
+
+.detail-link{
+    margin-top:auto;
+
+    text-align:right;
+
+    font-size:14px;
+    font-weight:bold;
+
+    color:#ff80c0;
+}
+
+/* ホバー無効 */
+
+.mama-home-card:hover{
+    transform:none;
+}
+
 
 /* 背景色 */
 .mama{
