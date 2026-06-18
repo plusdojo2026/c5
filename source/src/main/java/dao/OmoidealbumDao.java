@@ -12,8 +12,8 @@ import dto.Omoidealbum;
 
 public class OmoidealbumDao {
 	
-	//--------日記の一覧をfamilyIdで取得し、タイムライン形式で並べる。--------
-		public List<Omoidealbum> FindByFamilyId(String familyId){
+	//--------日記の一覧をfamilyIdとcoupleIdで取得し、タイムライン形式で並べる。--------
+		public List<Omoidealbum> FindByFamilyIdAndCoupleId(String familyId,int coupleId){
 		//結果を格納するリスト
 			List<Omoidealbum> list = new ArrayList<Omoidealbum>();
 		//DB接続に使う変数
@@ -23,7 +23,7 @@ public class OmoidealbumDao {
 		//DBに接続 ※仮の入力
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
 		//SQLを準備
-			String sql = "SELECT * FROM album WHERE family_id=? ORDER BY albumId DESC";
+			String sql = "SELECT * FROM album WHERE family_id=? ORDER BY album_id DESC";
 			PreparedStatement ps = conn.prepareStatement(sql);
 		//SQLを完成
 			ps.setString(1,familyId);
@@ -33,7 +33,7 @@ public class OmoidealbumDao {
 			while (rs.next()) {
 			Omoidealbum album = new Omoidealbum(rs.getString("family_id"),
 											 	rs.getInt("couple_id"),
-											 	rs.getInt("albumId"),
+											 	rs.getInt("album_id"),
 											 	rs.getString("photo_path"), 
 											 	rs.getString("comment"),
 											 	rs.getTimestamp("created_at"));
@@ -63,7 +63,7 @@ public class OmoidealbumDao {
 		//DBに接続　※仮の入力
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
 		//SQLを準備
-		String sql = "DELETE FROM album WHERE albumId=?";
+		String sql = "DELETE FROM album WHERE album_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		//SQLを完成
 		pStmt.setInt(1,album.getAlbumId());
@@ -98,22 +98,18 @@ public class OmoidealbumDao {
 		boolean result = false;
 		
 		//JDBCドライバ読み込み
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+		try {Class.forName("com.mysql.cj.jdbc.Driver");
 		//DBに接続
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
 		//SQLを準備
-		String sql = "INSERT INTO album(family_id,couple_id,photo_path,comment,created_at)"
-					+"VALUES(?,?,?,?,NOW())";
+		String sql = "INSERT INTO album (family_id, couple_id, photo_path, comment, created_at) VALUES(?,?,?,?,NOW())";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
 		//SQLの？に値を入れる
 		ps.setString(1, album.getFamilyId());
 		ps.setInt(2,album.getCoupleId());
-		ps.setInt(3,album.getAlbumId());
-		ps.setString(4,album.getPhotoPath());
-		ps.setString(5, album.getComment());
-		ps.setTimestamp(6,album.getCreatedAt());
+		ps.setString(3,album.getPhotoPath());
+		ps.setString(4, album.getComment());
 		
 		//SQLを実行
 		if(ps.executeUpdate()==1) {
