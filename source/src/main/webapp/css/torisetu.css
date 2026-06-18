@@ -39,9 +39,6 @@ body{
     /* ==========================
    タイトル
 ========================== */
-.torisetu_h1{
-    margin-bottom: 30px;
-}
 
 .mama_pic {
     width: 200px;
@@ -49,11 +46,6 @@ body{
 }
 
 
-.torisetu_h1 p{
-    font-size: 22px;
-    color: #666;
-     margin: 20px 0 0 0;
-}
 
 /* ==========================
    上部バナー
