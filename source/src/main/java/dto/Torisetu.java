@@ -66,7 +66,7 @@ public class Torisetu implements Serializable{
 	public Torisetu() {
 		super();
 		this.familyId = "";
-		this.coupleId = 0;
+		this.coupleId = -1; //0=妻のため、-1で未設定を表す
 		this.torisetuId = 0;
 		this.happy1 = "";
 		this.happy2 = "";
@@ -89,7 +89,7 @@ public class Torisetu implements Serializable{
 		this.badaction1 = "";
 		this.badaction2 = "";
 		this.badaction3 = "";
-		this.updateAt = "";
+		this.updateAt = null;
 	}
 
 	/*ゲッタとセッタ*/
