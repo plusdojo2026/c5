@@ -14,14 +14,14 @@
 <%@ include file="header.jsp" %>
 </header>
 <main>
-
-	<div class="torisetu_h1">
-	<h1 class="page-title">ママのトリセツ(取り扱い説明書)</h1>
-	<p>ママのことをもっと知って、もっと仲良く。</p>
+<div class="page-container">
+	<div class="page-header">
+		<h1 class="page-title">ママのトリセツ(取り扱い説明書)</h1>
+		<p class="page-description">ママのことをもっと知って、もっと仲良く。</p>
 	</div>
 	
 	<div class="torisetu_banner">
-		<img src="<%=request.getContextPath()%>/img/mama_pic.png">
+		<img src="<%=request.getContextPath()%>/img/mama_pic.png" class="mama_pic">
 		<div class="banner_text">
 			<h2>ママのことを知ると、毎日がもっと楽しくなるよね。</h2>
 			<p>このトリセツは、パパと一緒にずっと共有していく大切なメモだよ。</p>
@@ -104,10 +104,13 @@
 		</div>
 		
 	</div>
-	<button type="submit" name="torisetu_save">保存</button>
+	<button type="submit" name="torisetu_save" class="page-action-btn">保存</button>
 <!-- CSSグリッドここまで-->
 </form>
 <p>ママも毎日がんばっています。たくさん褒めてあげて下さいね！</p>
+
+</div>
+
 </main>
 <footer>
 <!-- フッターをインクルード -->
