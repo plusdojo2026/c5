@@ -36,7 +36,7 @@ private static final long serialVersionUID = 1L;
     OmoidealbumDao albumdao = new OmoidealbumDao();
     List<Omoidealbum> list = albumdao.FindByFamilyIdAndCoupleId(familyId,coupleId);
     
-    request.setAttribute("omoidealbum", list);
+    request.setAttribute("albumList", list);
     
     //思い出アルバムページにフォワードする
  		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/omoidealbum.jsp");
@@ -64,7 +64,17 @@ private static final long serialVersionUID = 1L;
  	//リクエストパラメータを取得
  	String photoPath = request.getParameter("photoPath");
  	String comment = request.getParameter("comment");
- 	//恐らく不要　　Timestamp createdAt = Timestamp.valueOf(request.getParameter("createdAt"));
+		//恐らく不要　　Timestamp createdAt = Timestamp.valueOf(request.getParameter("createdAt"));
+ 
+ 	//エラー(写真もコメントも未入力)
+ 	String error =null;
+ 	if(photoPath == null && comment == null) {
+ 		error = "写真かコメントを入力してください";
+ 	}
+ 	
+ 	if(error != null) {
+ 		request.setAttribute("message", error);
+ 	}
  	
  	//登録処理Dto
  	Omoidealbum album = new Omoidealbum();
@@ -78,7 +88,7 @@ private static final long serialVersionUID = 1L;
  	albumDao.insert(album);
  	
  	//リダイレクト
- 	response.sendRedirect("OmoidealbumServlet");
+ 	response.sendRedirect("OmoideAlbumServlet");
  	
 }
 }
