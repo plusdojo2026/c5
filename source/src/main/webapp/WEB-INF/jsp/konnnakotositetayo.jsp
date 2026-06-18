@@ -93,7 +93,7 @@
 
                             <!-- タスク名と回数 -->
                             <p class="timeline-task">
-                                <%= bean.getTaskId() %>
+                                <%= bean.getTaskName() %>
                                 &nbsp;
                                 <span class="timeline-count"><%= bean.getCount() %>回</span>
                             </p>
@@ -138,14 +138,15 @@
                 <!-- タスク選択 -->
                 <div class="form-group">
                     <label class="form-label">項目を選択</label>
-                    <div class="task-buttons">
-                        <button type="button" class="task-btn" onclick="selectTask('ミルク')">ミルク</button>
-                        <button type="button" class="task-btn" onclick="selectTask('夜泣き')">夜泣き</button>
-                        <button type="button" class="task-btn" onclick="selectTask('おむつ交換')">おむつ交換</button>
-                        <button type="button" class="task-btn" onclick="selectTask('歯磨き')">歯磨き</button>
-                        <button type="button" class="task-btn" onclick="selectTask('お風呂')">お風呂</button>
-                        <button type="button" class="task-btn" onclick="selectTask('その他')">その他</button>
-                    </div>
+ <div class="task-buttons">
+    <button type="button" class="task-btn" onclick="selectTask('1')">ミルク</button>
+    <button type="button" class="task-btn" onclick="selectTask('2')">夜泣き</button>
+    <button type="button" class="task-btn" onclick="selectTask('3')">おむつ交換</button>
+    <button type="button" class="task-btn" onclick="selectTask('4')">歯磨き</button>
+    <button type="button" class="task-btn" onclick="selectTask('5')">お風呂</button>
+    <button type="button" class="task-btn" onclick="selectTask('6')">その他</button>
+</div>
+</div>
                     <!-- 選択されたタスクをhiddenで送る -->
                     <input type="hidden" name="task_id" id="selectedTask" value="">
                 </div>
