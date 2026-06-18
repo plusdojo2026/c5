@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+
+
+/* ==========================
+   ヘッダー共通
+========================== */
+
 /* ヘッダー全体 */
 header{
     height:120px;
@@ -42,19 +48,98 @@ header{
     gap:10px;
 }
 
-/* body */
+
+/* ==========================
+   ページヘッダー共通
+========================== */
+
+/* ページヘッダー */
+.page-header{
+    max-width:1400px;
+
+    margin:40px auto 30px auto;
+
+    padding:0 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    box-sizing:border-box;
+}
+
+/* ページタイトル */
+.page-title{
+    margin:0;
+
+    color:#ff648c;
+
+    font-size:44px;
+    font-weight:bold;
+
+    line-height:1.2;
+}
+
+/* ページ説明文共通 */
+
+.page-description{
+    margin:0;
+
+    color:#888;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+
+/* ==========================
+    body
+========================== */
 body{
 	margin:0 0 0 0;
 	color:#555555;
 	background-color:#FFF0F5;
 }
 
-/* ページタイトル */
-.page-title{
-	font-size:35px;
-	font-weight:bold;
-	color:#ff648c;
-	margin:30px 10px;
+/* ==========================
+   ページ本文共通
+========================== */
+
+.page-container{
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:0 40px;
+
+    box-sizing:border-box;
+}
+
+
+/* ==========================
+   共通アクションボタン
+========================== */
+
+.page-action-btn{
+    background:#ff648c;
+    color:#fff;
+
+    border:none;
+    border-radius:16px;
+
+    padding:16px 32px;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.2s;
+}
+
+.page-action-btn:hover{
+    opacity:0.9;
 }
 
 
