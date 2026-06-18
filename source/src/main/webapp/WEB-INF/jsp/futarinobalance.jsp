@@ -337,45 +337,54 @@ List<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><Futarinobal
 
         saveBtn.addEventListener("click", function() {
 
-            // 変更がない場合は何もしない
             if (changedList.length == 0) {
                 saveMessage.textContent = "変更がありません。";
                 saveMessage.style.color = "#aaa";
                 return;
             }
 
-            // 変更されたカードを1件ずつサーバーに送る
-            var successCount = 0;
-            var totalCount   = changedList.length;
+            var total = changedList.length;
+            var done  = 0;
+            var error = 0;
 
             for (var i = 0; i < changedList.length; i++) {
+                (function(item) {   // ← クロージャで i を固定
+                    var formData = new FormData();
+                    formData.append("balance_id",    item.balanceId);
+                    formData.append("couple_id",     item.coupleId);
+                    formData.append("display_order", "0");
 
-                // fetch() でServletにPOSTリクエストを送る
-                // FutarinobalanceServlet.java の doPost() が受け取る
-                var formData = new FormData();
-                formData.append("balance_id",   changedList[i].balanceId);
-                formData.append("couple_id",    changedList[i].coupleId);
-                formData.append("display_order", "0"); // 暫定で0
-
-                fetch("FutarinobalanceServlet", {
-                    method: "POST",
-                    body:   formData
-                })
-                .then(function(res) {
-                    return res.text();
-                })
-                .then(function(text) {
-                    if (text == "success") {
-                        successCount++;
-                    }
-                    // 全件送り終わったらメッセージを表示
-                    if (successCount == totalCount) {
-                        saveMessage.textContent = "✓ 保存しました！";
-                        saveMessage.style.color = "#2ecc71";
-                        // 変更リストをリセット
-                        changedList = [];
-                    }
-                });
+                    fetch("/c5/FutarinobalanceServlet", {
+                        method: "POST",
+                        body:   formData
+                    })
+                    .then(function(res) { return res.text(); })
+                    .then(function(text) {
+                        if (text === "success") {
+                            done++;
+                        } else {
+                            error++;
+                        }
+                        // 全件終わったらメッセージ表示
+                        if (done + error === total) {
+                            if (error === 0) {
+                                saveMessage.textContent = "✓ 保存しました！";
+                                saveMessage.style.color = "#2ecc71";
+                                changedList = [];
+                            } else {
+                                saveMessage.textContent = "保存に失敗した項目があります。";
+                                saveMessage.style.color = "#e00";
+                            }
+                        }
+                    })
+                    .catch(function() {
+                        error++;
+                        if (done + error === total) {
+                            saveMessage.textContent = "通信エラーが発生しました。";
+                            saveMessage.style.color = "#e00";
+                        }
+                    });
+                })(changedList[i]);
             }
         });
 
