@@ -8,11 +8,7 @@ body{
     color:#333;
 }
 
-.wrapper{
-    max-width:1100px;
-    margin:40px auto;
-    padding:0 20px;
-}
+
 
 
 /* ------------------------
@@ -25,21 +21,7 @@ body{
     margin-bottom:20px;
 }
 
-.btn-add{
-    background:linear-gradient(
-        90deg,
-        #ff7ca5,
-        #ff5d87
-    );
 
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    padding:12px 24px;
-    font-size:14px;
-    font-weight:bold;
-    cursor:pointer;
-}
 
 .btn-add:hover{
     opacity:.9;
