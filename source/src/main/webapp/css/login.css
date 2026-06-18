@@ -7,8 +7,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 10px 20px;
     box-sizing: border-box;
+    
+     /* 背景画像 */
+    background-image: url("/c5/img/login_background.png"); 
+    background-size: cover;                  /* 画像を隙間なく画面いっぱいに広げる */
+    background-position: center; 
 }
 
 /* 2. 白いカードの箱 (login-card) */
@@ -18,7 +23,7 @@
     box-shadow: 0 8px 24px rgba(255, 182, 193, 0.2); /* 柔らかいピンク系の影 */
     width: 100%;
     max-width: 480px; /* カードの最大横幅 */
-    padding: 40px;
+    padding: 24px 40px;
     box-sizing: border-box;
     text-align: center;
 }
@@ -44,14 +49,14 @@
 .login-instruction {
     font-size: 14px;
     color: #888888;
-    margin: 0 0 32px 0;
+    margin: 0 0 16px 0;
     line-height: 1.5;
 }
 
 /* 3. 各入力項目の並び (form-group) */
 .form-group {
     text-align: left;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .form-group label {
@@ -93,16 +98,16 @@
 .password-input-wrapper {
     position: relative;
     width: 100%;
-    display: flex;
-    align-items: center;
 }
 
 /* 鍵アイコンの位置固定（入力欄の左側に浮かせる） */
 .password-icon {
     position: absolute;
-    left: 14px;
-    width: 18px;
-    height: 18px;
+    left: 1px;
+    top:50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
     object-fit: contain;
     z-index: 2;
     pointer-events: none;
@@ -110,28 +115,31 @@
 
 /* アイコンと文字が重ならないよう、パスワードの入力欄だけ左余白を広くする */
 .password-input-wrapper input[type="password"] {
-    padding-left: 42px; 
+    padding-left: 38px; 
 }
 
 /* 5. あなたは？（ママ/パパ選択の横並びボタン） */
 .user-type-options {
     display: flex;
-    gap: 16px;
+    gap: 12px;
 }
 
 .user-type-btn {
     flex: 1;
     display: flex;
     align-items: center;		/* 中身を真ん中に寄せる */
+    justify-content: center;   /* ★左右のジャスト中央に揃える */    
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 14px;
+    padding:  8px 10px;
+    font-size: 14px;
     cursor: pointer;
     background: #ffffff;
     transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
     user-select: none;
+    box-sizing: border-box;
 }
 
 /* ラジオボタンのポインタを指マークにする */
@@ -156,7 +164,8 @@
 
 /* 6. パスワード表示切り替えエリア */
 .show-password-wrapper {
-    margin-top: 12px;
+    margin-top: 10px;
+    margin-bottom: 0 !important; 
     display: flex;
     align-items: center;
     gap: 6px;
@@ -176,12 +185,13 @@
 
 /* 7. ログイン / 登録 ボタン */
 .form-actions {
-    margin-top: 32px;
+    margin-top: 16px;
 }
 
 .login-btn {
     width: 100%;
-    background-color: #ff5a79; /* メインカラーの鮮やかなピンク */
+    margin-top: -50px !important;
+    background-color: #ff5a79; 
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -243,4 +253,30 @@
     font-size: 13px;
     margin-bottom: 24px;
     line-height: 1.4;
+}
+
+/*  ヘッダーの全体の高さを細くする */
+header {
+    height: 80px; 
+    padding: 15px 50px 15px 20px; 
+    background: #ffffff;      
+    border-bottom: 1px solid #f8dce4;
+}
+
+/*  ロゴ画像を小さくする */
+.logo-image {
+    height: 90px; 
+}
+
+/* ママ・パパの文字サイズも調整 */
+.user-area {
+    font-size: 20px; 
+}
+
+.footer {
+    margin-top: auto; 
+    padding: 15px 0;
+}
+.footer-title {
+    font-size: 16px;
 }
