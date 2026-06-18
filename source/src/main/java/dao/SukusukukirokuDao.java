@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import dto.Sukusukukiroku;
@@ -76,16 +77,16 @@ public class SukusukukirokuDao {
 			conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8",
 					"root",
 					"password");
-		};
+		
 		//SQL文
 		String sql ="""
 				INSERT INTO sukusukukiroku(family_id,weight,temperature,note,recorded_at)
-				 VSLUES(?,?,?,?,NOW())
+				 VALUES(?,?,?,?,NOW())
 				""";
 		PreparedStatement pStmt	= conn.prepareStatement(sql);
 		pStmt.setString(1, record.getFamilyId());
-		pStmt.setString(2, record.getWeight());
-		pStmt.setString(3, record.getTemperature());
+		pStmt.setDouble(2, record.getWeight());
+		pStmt.setDouble(3, record.getTemperature());
 		pStmt.setString(4, record.getNote());
 		
 
@@ -104,6 +105,6 @@ public class SukusukukirokuDao {
 			e.printStackTrace();
 		}
 	}
-	return list;
+	return result;
   }	
 }
