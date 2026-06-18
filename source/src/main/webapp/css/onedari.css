@@ -185,6 +185,14 @@ body {
     cursor: pointer;
 }
 
+/* 削除ボタンの調整 */
+.delete-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
 
 /* 2. モーダル（ポップアップ）の制御レイアウト */
 /*  画面全体を覆う薄暗い背景の設定 */
