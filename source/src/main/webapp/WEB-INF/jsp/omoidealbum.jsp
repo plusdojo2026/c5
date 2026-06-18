@@ -17,12 +17,13 @@
 <%@ include file="header.jsp" %>
 </header>
 <main>
+<div class="page-container">
 
-		<div class="album_h1">
-			<h1 class="page-title">おもいでアルバム</h1>
+	<div class="page-header">
+		<h1 class="page-title">おもいでアルバム</h1>
 			<!-- 登録追加ボタン -->
-			<button id="open_modal">+写真を追加</button>
-		</div>
+			<button id="open_modal" class="page-action-btn">+写真を追加</button>
+	</div>
 		
 	<!-- ソート機能保留ここから -->
 	<!--  	<div class=album_bunner>
@@ -65,6 +66,7 @@
 		</div>
 		
 	</c:forEach>
+</div>
 </div>
 		
 <!-- モーダル制御 投稿画面-->
