@@ -12,7 +12,7 @@ public class SukusukukirokuDao {
 	//すくすく記録を取得するメソッド
 	public List<Sukusukukiroku> findByFamilyId(String familyId){
 		Connection conn = null;
-		List <sukusukukiroku> list = new AllayList<>();
+		List <sukusukukiroku> list = new ArrayList<>();
 		
 			try {
 				//JDBCドライバ
@@ -28,7 +28,7 @@ public class SukusukukirokuDao {
 				String sql ="""
 						SELECT*
 						FROM sukusukukiroku
-						WERER family_id = ?
+						WHERE family_id = ?
 						ORDER BY recorded_at DESC
 						""";
 
@@ -49,7 +49,7 @@ public class SukusukukirokuDao {
 	            	record.setNote(rs.getString("note"));
 	            	record.setRecordedAt(rs.getString("recorded_at"));
 	            	
-	            	list.sdd(record);
+	            	list.add(record);
 	            }
 	            
 			}catch (Exception e) {
