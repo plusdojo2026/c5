@@ -63,10 +63,13 @@
                     	<!-- 1. 添付写真 -->
                         <img src="/c5/upload/${item.imagePath}" alt="添付写真" class="item-thumb">
                         
-                        <!-- 2. 削除ボタン -->
-					    <a href="/c5/delete?onedariId=${item.onedariId}" class="delete-btn" onclick="return confirm('本当に削除しますか？');">
-					        <img src="/c5/img/delete.png" alt="削除" class="delete-icon-img">
-					    </a>
+                        <!-- 2. 削除ボタン style="display: inline-block;" で改行禁止-->
+					    <form action="/c5/OnedariServlet" method="POST" style="display:inline-block;">
+					    <!-- サーブレットに送るパラメータ（隠しフィールド） -->
+					    <input type="hidden" name="action" value="delete">
+					    <input type="hidden" name="onedariId" value="${item.onedariId}">
+					    <input type="image" name="submit" src="/c5/img/hamigaki.png" alt="削除" class="delete-btn" onclick="return confirm('本当に削除しますか？')">
+						</form>
                         
                         <!-- 3.購入したらチェックマーク -->
 					    <div class="check-wrapper">
