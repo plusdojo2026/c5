@@ -26,7 +26,7 @@ public class FutarinobalanceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+    	
         // 文字コードの設定
         request.setCharacterEncoding("UTF-8");
 
@@ -104,7 +104,9 @@ public class FutarinobalanceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+    	
+    	System.out.println("★doPost呼ばれた!");  // ← 一番最初に追加
+    	
         // 文字コードの設定
         request.setCharacterEncoding("UTF-8");
 
@@ -112,6 +114,7 @@ public class FutarinobalanceServlet extends HttpServlet {
         String balanceIdStr    = request.getParameter("balance_id");
         String coupleIdStr     = request.getParameter("couple_id");
         String displayOrderStr = request.getParameter("display_order");
+        
 
         // 受け取った値がnullでないか確認する
         if (balanceIdStr == null || coupleIdStr == null || displayOrderStr == null) {
@@ -128,7 +131,8 @@ public class FutarinobalanceServlet extends HttpServlet {
         // DAOを使ってDBを更新する
         FutarinobalanceDao dao = new FutarinobalanceDao();
         boolean result = dao.updateCoupleId(balanceId, coupleId, displayOrder);
-
+        System.out.println("★updateCoupleId結果: " + result);
+        
         // 結果をJavaScriptに返す
         if (result == true) {
             response.getWriter().write("success");
