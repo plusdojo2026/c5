@@ -179,16 +179,7 @@ header{
     display:block;
 }
 
-/* ママ・パパ表示 */
-.user-area{
-    font-size:28px;
-    color:#555555;
 
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-}
 
 
 /* フッター　*/
