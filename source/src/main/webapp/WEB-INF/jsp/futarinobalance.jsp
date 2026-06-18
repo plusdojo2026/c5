@@ -349,15 +349,17 @@ List<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><Futarinobal
 
             for (var i = 0; i < changedList.length; i++) {
                 (function(item) {   // ← クロージャで i を固定
-                    var formData = new FormData();
-                    formData.append("balance_id",    item.balanceId);
-                    formData.append("couple_id",     item.coupleId);
-                    formData.append("display_order", "0");
+                	var params = "balance_id=" + item.balanceId
+                    + "&couple_id=" + item.coupleId
+                    + "&display_order=0";
 
-                    fetch("/c5/FutarinobalanceServlet", {
-                        method: "POST",
-                        body:   formData
-                    })
+         fetch("/c5/FutarinobalanceServlet", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/x-www-form-urlencoded"
+             },
+             body: params
+         })
                     .then(function(res) { return res.text(); })
                     .then(function(text) {
                         if (text === "success") {
