@@ -16,7 +16,6 @@
 <!-- （おねだりリストのタイトルと追加するボタン） -->
 <div class ="header-container">
 	<div class="header-left">
-            <!--  買い物かごイラスト入れる --> <!-- 後で画像のリンクちゃんと設定 -->
             <img src="/c5/img/onedari.png" alt="買い物かご" class="cart-icon">
 	<h1 class="page-title">おねだりリスト</h1>
 	</div>
@@ -48,7 +47,7 @@
             			<img src="/c5/img/milk.png" alt="ミルク" class="item-cat-icon">
        				 </c:when>
        				 <c:otherwise>
-            			<img src="/c5/img/other-icon.png" alt="その他" class="item-cat-icon">
+            			<img src="/c5/img/onedari_sonota.png" alt="その他" class="item-cat-icon">
             			</c:otherwise>
 					</c:choose>
                         <div class="item-details">
@@ -59,11 +58,17 @@
                             <!-- categoryマスタの size（新生児、S などのサイズ）を表示 -->
                             <span class="item-size"><c:out value="${item.size}" /></span>
                         </div>
-                    </div>
+                    </div>                   
                     <div class="item-card-right">
+                    	<!-- 1. 添付写真 -->
                         <img src="/c5/upload/${item.imagePath}" alt="添付写真" class="item-thumb">
                         
-                        <!-- 購入したらチェックマーク -->
+                        <!-- 2. 削除ボタン -->
+					    <a href="/c5/delete?onedariId=${item.onedariId}" class="delete-btn" onclick="return confirm('本当に削除しますか？');">
+					        <img src="/c5/img/delete.png" alt="削除" class="delete-icon-img">
+					    </a>
+                        
+                        <!-- 3.購入したらチェックマーク -->
 					    <div class="check-wrapper">
                             <input type="checkbox" 
                                    id="check-${item.onedariId}" 
@@ -74,9 +79,9 @@
                         </div>						
                     </div>
                 </div>
-            </c:forEach>
-        </div>
-    </c:if>
+            </c:forEach> 
+            </div>           
+    </c:if>   
 </div>    <!-- ここで div class wrapper 閉じてる -->
 
 <!-- モーダル制御の画面構成1 -->
@@ -102,7 +107,7 @@
     	</button>
     <!-- その他選択 -->
     	<button class="option-btn" data-target="other-modal">  <!-- data属性でその他モーダルを開く -->
-    	<img src="/c5/img/ ここにいれる" alt="その他" class="option-icon">
+    	<img src="/c5/img/onedari_sonota.png" alt="その他" class="option-icon">
     			<span>その他</span>
     	</button>
     	</div>
@@ -215,7 +220,7 @@
     </div>
 </div>
 
-<!-- モーダル制御の画面構成2-3　その他 -->
+<!-- モーダル制御の画面構成2-3 その他 -->
 <div class="modal-overlay" id="other-modal"> 
     <div class="modal-container">
     	<!-- １つ前に戻るボタン -->
@@ -231,7 +236,7 @@
             <!-- 何を買ってきてほしいか（自由記述・必須） -->
             <div class="form-group">
                 <label for="other-name">なにを買ってきてほしいか教えてください</label>
-                <input type="text" id="other-name" name="other-name" placeholder="例：おしりふき、ベビーソープなど" required>
+                <textarea id="other-name" name="other-name" placeholder="例：おしりふき、ベビーソープなど" required></textarea>
             </div>
             
             <!-- 写真添付（任意） -->
@@ -356,9 +361,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const isChecked = checkbox.checked;
 
             try {
-                // チェックされたら complete、外されたら cancel をサーバーに送る
-                const action = isChecked ? "complete" : "cancel";
-                const response = await fetch(`/c5/OnedariServlet?id=${onedariId}&action=${action}`, { method: "POST" });
+                // チェックされたら complete、外されたら cancel をサーバーに送る					
+				const action = isChecked ? "complete" : "cancel";
+				// FormDataを使ってデータを組み立てるように変更します
+				const formData = new FormData();
+				formData.append("id", onedariId);
+				formData.append("action", action);
+					
+				// URLの後ろの文字を消し、bodyにformDataを載せます
+				const response = await fetch(`/c5/OnedariServlet`, {
+					   method: "POST",
+					   body: formData
+				});
 
                 if (response.ok) {
                     if (isChecked) {
