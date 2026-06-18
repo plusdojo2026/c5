@@ -22,7 +22,7 @@ public class SukusukukirokuDao {
 				conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/",//接続するデータベース名
 			            "root",//MySQLにログインするユーザー名 //⚠root は 管理者ユーザー
-			            ""
+			            "password"
 						);	
 				//SQL文
 				String sql ="""
@@ -65,5 +65,45 @@ public class SukusukukirokuDao {
 			return list;
 	}
 	//最新データ取得
-	
+	public boolean insert(Sukusukukiroku record) {
+		Connection conn= null;
+		boolean result= false;
+		
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			// DBに接続する
+			conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8",
+					"root",
+					"password");
+		};
+		//SQL文
+		String sql ="""
+				INSERT INTO sukusukukiroku(family_id,weight,temperature,note,recorded_at)
+				 VSLUES(?,?,?,?,NOW())
+				""";
+		PreparedStatement pStmt	= conn.prepareStatement(sql);
+		pStmt.setString(1, record.getFamilyId());
+		pStmt.setString(2, record.getWeight());
+		pStmt.setString(3, record.getTemperature());
+		pStmt.setString(4, record.getNote());
+		
+
+		int count = pStmt.executeUpdate();
+        if (count == 1) {
+                result = true;
+            }
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally{
+		//DB切断
+		try {
+			if (conn!= null)conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	return list;
+  }	
 }
