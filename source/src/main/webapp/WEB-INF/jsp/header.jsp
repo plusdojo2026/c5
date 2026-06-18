@@ -12,16 +12,12 @@
                 class="logo-image">
         </a>
     </div>
-
-    <div class="user-area">
-        <c:choose>
-            <c:when test="${sessionScope.couple_id == 0}">
-                ママ
-            </c:when>
-            <c:otherwise>
-                パパ
-            </c:otherwise>
-        </c:choose>
-    </div>
+    
+    <div class="home-header-action">
+	    <a href="${pageContext.request.contextPath}/LogoutServlet"
+	       class="logout-btn">
+	        ログアウト
+	    </a>
+	</div>
 
 </header>
