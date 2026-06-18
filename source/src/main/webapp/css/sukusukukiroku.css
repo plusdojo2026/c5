@@ -1,1 +1,311 @@
 @charset "UTF-8";
+
+/* ==========================
+   全体
+========================== */
+
+main{
+    padding: 30px;
+}
+
+
+
+/* ==========================
+   記録ボタン
+========================== */
+
+#openModal{
+    width:180px;
+    height:60px;
+
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(
+        90deg,
+        #ff7ea8,
+        #ff5f8d
+    );
+
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#openModal:hover{
+    opacity:0.9;
+}
+
+/* ==========================
+   メッセージ
+========================== */
+
+.message{
+    background:#fff;
+    border:1px solid #ffd6e0;
+    border-radius:12px;
+
+    padding:15px 20px;
+    margin-bottom:20px;
+
+    color:#ff5f8d;
+    font-weight:bold;
+}
+
+/* ==========================
+   記録一覧タイトル
+========================== */
+
+.record-title{
+    font-size:34px;
+    margin-bottom:25px;
+}
+
+/* ==========================
+   記録一覧
+========================== */
+
+.record-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* ==========================
+   カード
+========================== */
+
+.record-card{
+    background:#fff;
+
+    border:1px solid #eee;
+    border-radius:18px;
+
+    padding:28px 30px;
+
+    display:grid;
+    grid-template-columns:
+        220px
+        160px
+        160px
+        1fr;
+
+    align-items:center;
+
+    transition:0.2s;
+}
+
+.record-card:hover{
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ==========================
+   日付
+========================== */
+
+.record-date-main{
+    font-size:18px;
+    font-weight:bold;
+    line-height:1.6;
+}
+
+/* ==========================
+   項目
+========================== */
+
+.record-item{
+    border-left:1px solid #eee;
+    padding-left:30px;
+}
+
+.record-memo{
+    border-left:1px solid #eee;
+    padding-left:30px;
+}
+
+.label{
+    color:#ff5f8d;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.value{
+    font-size:18px;
+}
+
+/* ==========================
+   モーダル背景
+========================== */
+
+.modal{
+    display:none;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.3);
+
+    z-index:9999;
+}
+
+/* ==========================
+   モーダル本体
+========================== */
+
+.modal-content{
+    width:550px;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.modal-content h3{
+    margin-top:0;
+    margin-bottom:30px;
+
+    font-size:32px;
+}
+
+/* ==========================
+   フォーム
+========================== */
+
+.modal-content form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.modal-content label{
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.modal-content input[type="text"]{
+    height:52px;
+
+    border:1px solid #ddd;
+    border-radius:12px;
+
+    padding:0 15px;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+}
+
+.modal-content textarea{
+    height:140px;
+
+    border:1px solid #ddd;
+    border-radius:12px;
+
+    padding:15px;
+
+    resize:none;
+
+    font-size:16px;
+
+    box-sizing:border-box;
+}
+
+/* ==========================
+   体温・体重横並び
+========================== */
+
+.input-row{
+    display:flex;
+    gap:15px;
+}
+
+.input-box{
+    flex:1;
+}
+
+.input-box input{
+    width:100%;
+}
+
+/* ==========================
+   ボタンエリア
+========================== */
+
+.modal-button-area{
+    display:flex;
+    gap:15px;
+
+    margin-top:20px;
+}
+
+.cancel-btn{
+    flex:1;
+
+    height:55px;
+
+    border:1px solid #ddd;
+    border-radius:12px;
+
+    background:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+}
+
+.submit-btn{
+    flex:1;
+
+    height:55px;
+
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(
+        90deg,
+        #ff7ea8,
+        #ff5f8d
+    );
+
+    color:white;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* ==========================
+   記録なし
+========================== */
+
+.empty-box{
+    background:#fff;
+
+    border:1px solid #eee;
+    border-radius:20px;
+
+    padding:80px 30px;
+
+    text-align:center;
+
+    font-size:22px;
+    color:#777;
+}
