@@ -18,9 +18,13 @@ import dto.Torisetu;
 public class TorisetuServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
+//--------Get--------
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
+	// 文字コードを設定する
+    request.setCharacterEncoding("UTF-8");
+		
 	//セッションを取得する
 	HttpSession session = request.getSession();
     String familyId = (String) session.getAttribute("family_id");
@@ -43,9 +47,25 @@ public class TorisetuServlet extends HttpServlet{
  		dispatcher.forward(request, response);
  	}
 
-	
+//--------Post--------
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
     
+	// 文字コードを設定する
+	request.setCharacterEncoding("UTF-8");
 	
+	//セッションを取得する
+	HttpSession session = request.getSession();
+	String familyId = (String) session.getAttribute("family_id");
+	int coupleId = (int) session.getAttribute("couple_id");
+	    
+	//ログインしていなければ、ログインページへ
+	if (familyId == null) {
+		response.sendRedirect("LoginServlet");
+			return;
+		}
+	
+	//
 
-
+}
 }
