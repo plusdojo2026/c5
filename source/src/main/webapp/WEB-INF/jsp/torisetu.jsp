@@ -4,6 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/torisetu.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <meta charset="UTF-8">
 <title>ママのトリセツ</title>
 </head>
