@@ -73,26 +73,63 @@
 	<div class="row">
 	
 		<!-- ママのようす -->
-		<a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
     	
     	<c:choose>
 
         <c:when test="${sessionScope.couple_id == 0}">
-            <img
-                src="${pageContext.request.contextPath}/img/mamanoyousu_mama.png"
-                alt="ママのようす">
+        	<a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
+	            <img
+	                src="${pageContext.request.contextPath}/img/mamanoyousu_mama.png"
+	                alt="ママのようす">
+			</a>
         </c:when>
 
         <c:otherwise>
-            <div class="condition-preview">
-                メンタル：${mama.mental_score}
-                <br>
-                睡眠:${mama.sleep_hours}時間
-            </div>
+        	<a href="${pageContext.request.contextPath}/MamanoyousuServlet"
+				class="mama-home-card">
+
+    		<div class="mama-left">
+		        <img
+		            src="${pageContext.request.contextPath}/img/mamanoyousu_papa.png"
+		            alt="ママのようす"
+		            class="mama-home-image">
+    		</div>
+
+			<div class="mama-right">
+			
+				<div class="detail-link">
+					くわしく見る ＞
+        		</div>
+        		
+        		<div class="mental-box">
+            		<div class="mini-title">
+                		メンタル
+            		</div>
+            		<div class="heart-area">
+		                <span class="${mama.mentalScore >= 1 ? 'heart-on' : 'heart-off'}">♥</span>
+		                <span class="${mama.mentalScore >= 2 ? 'heart-on' : 'heart-off'}">♥</span>
+		                <span class="${mama.mentalScore >= 3 ? 'heart-on' : 'heart-off'}">♥</span>
+		                <span class="${mama.mentalScore >= 4 ? 'heart-on' : 'heart-off'}">♥</span>
+		                <span class="${mama.mentalScore >= 5 ? 'heart-on' : 'heart-off'}">♥</span>
+					</div>
+        		</div>
+
+        		<div class="sleep-box">
+            		<div class="mini-title">
+                		睡眠
+            		</div>
+					<div class="sleep-value">
+                		${mama.sleepHours}
+                		<span>時間</span>
+            		</div>
+        		</div>
+
+    		</div>
+
+			</a>
+			
         </c:otherwise>
     	</c:choose>
-
-		</a>
 
 		<!-- ママのトリセツ -->
         <a href="${pageContext.request.contextPath}/TorisetuServlet" class="home-icon">
