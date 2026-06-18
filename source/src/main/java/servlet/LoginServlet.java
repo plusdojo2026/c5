@@ -65,7 +65,11 @@ public class LoginServlet extends HttpServlet {
         
         if (udao.isLoginOK(user)) { // ログイン成功
             // セッションスコープにファミリーIDと区分を格納する
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession();           
+       
+            session.invalidate();               /* 古い記憶を完全に消去 */
+            session = request.getSession(true); /* 真っ新な新しい箱を作り直す */
+           
             session.setAttribute("family_id", familyId);
             session.setAttribute("couple_id", coupleId);
             
