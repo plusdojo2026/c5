@@ -15,7 +15,11 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
-<h1 class="page-title">ママのようす</h1>
+<div class="page-container">
+	<div class="page-header">
+		<h1 class="page-title">ママのようす</h1>
+	</div>
+
 	<div>
 		
 		<!-- ママのコンディションの入力項目 -->
@@ -98,9 +102,12 @@
 				<textarea name="memo"></textarea>
 			</div>
 				
-			<button type="submit">登録する</button>
+			<button type="submit" class="page-action-btn">登録する</button>
 		</form>	
 	</div>
+
+</div>
+
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
 <script>
