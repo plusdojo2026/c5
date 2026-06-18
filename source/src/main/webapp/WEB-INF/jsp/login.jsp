@@ -12,7 +12,6 @@
 <body>
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
-
 <div class="wrapper">
     <!-- 白の四角いログインの箱(login-card) -->
     <div class="login-card">    
