@@ -116,8 +116,12 @@ public class TorisetuServlet extends HttpServlet{
 	
 	//登録処理DAO
 	TorisetuDao proDao = new TorisetuDao();
-	proDao.insert(pro);
-	
+	//1回目は登録、２回目以降は更新に。
+	if (proDao.selectByFamilyIdAndCoupleId(familyId, coupleId) == null) {
+	    proDao.insert(pro);
+	} else {
+	    proDao.update(pro);
+	}
 	
 	//リダイレクト
 	response.sendRedirect("TorisetuServlet");
