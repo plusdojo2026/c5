@@ -35,7 +35,7 @@
     
 
     <!-- ===== メインコンテンツ ===== -->
-    <div class="wrapper">
+    <div class="page-container">
 
         <!-- エラーメッセージエリア -->
         <% if (!message.equals("")) { %>
@@ -45,13 +45,15 @@
         <% } %>
 
         <!-- ページタイトル -->
-        <h1 class="page-title">こんなことしてたよ</h1>
-
-        <!-- 記録するボタン -->
-        <div class="btn-area">
-            <button type="button" class="btn-add" id="openModalBtn">
-                ＋ 記録する
-            </button>
+        <div class="page-header">
+        	<h1 class="page-title">こんなことしてたよ</h1>
+        
+	        <!-- 記録するボタン -->
+	        <div class="btn-area">
+	            <button type="button" class="page-action-btn" id="openModalBtn">
+	                ＋ 記録する
+	            </button>
+	        </div>
         </div>
 
         <!-- ===== タイムライン ===== -->
