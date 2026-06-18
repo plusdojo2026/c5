@@ -26,7 +26,7 @@ public class Omoidealbum implements Serializable {
 	public Omoidealbum() {
 		super();
 		this.familyId = "";
-		this.coupleId = -1;	/*0が使用できないため*/
+		this.coupleId = -1; //0=妻のため、-1で未設定を表す
 		this.albumId = 0;
 		this.photoPath = "" ;
 		this.comment = "" ;
