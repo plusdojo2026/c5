@@ -5,6 +5,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sukusukukiroku.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <meta charset="UTF-8">
 <title>すくすく記録</title>
 </head>
@@ -15,52 +16,104 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
-<h1 class="page-title">すくすく記録</h1>
-	
-	<!-- メッセージ -->
-	<c:if test="${not empty message}">
-    <div class="message">${message}</div>
-	</c:if>
-	
-	<!-- 記録フォーム展開するボタン -->
-	<button id="openModal">記録する</button>
+<div class="page-container">
+	<div class="page-header">
+		<div class="page-title-area">
+			<h1 class="page-title">すくすく記録</h1>
+			
+			<!-- メッセージ -->
+			<c:if test="${not empty message}">
+		    	<div class="message">${message}</div>
+			</c:if>
+		</div>	
+		<!-- 記録フォーム展開するボタン -->
+		<button id="openModal" class="page-action-btn">記録する</button>
+	</div>
 	
 	 <!-- 記録のモーダル表示 -->
 		<div id="modal" class="modal">
 			<div class="modal-content">
 				<h3>赤ちゃんの健康記録を追加</h3>
 				<form action="${pageContext.request.contextPath}/SukusukukirokuServlet" method="post">
+					
 					<label>日付</label>
 						<input type="text" name="date" value="${now}" readonly> 
-					<label>体温</label>
-						<input type="text" name="temperature">
-					<label>体重</label>
-						<input type="text" name="weight">
+					
+					<div class="input-row">
+						<div class="input-box">
+	                    	<label>体温</label>
+	                    	<input type="text" name="temperature" placeholder="例）36.7">
+	                    </div>
+	                    
+						<div class="input-box">
+	                    	<label>体重</label>
+	                    	<input type="text" name="weight" placeholder="例）7.2">
+	                    </div>
+                    </div>
+                    
 					<label>メモ（任意）</label>
-						<textarea name="note"></textarea>
-					<button type="submit">追加する</button>
-					<button type="button" id="closeModal">閉じる</button>
+						<textarea name="note" placeholder="今日の様子や気づいたことをメモしましょう"></textarea>
+					
+					<div class="modal-button-area">
+		                <button type="button" id="closeModal" class="close-btn">
+		                    閉じる
+		                </button>
+		                <button type="submit" class="submit-btn">
+		                    追加する
+		                </button>
+					</div>
+					
 				</form>
 			</div>
 		</div>
+		
+		
 		<h2>記録一覧</h2>	
-		<table>
-			<tr>
-				<th>日付</th>
-				<th>体温</th>
-				<th>体重</th>
-				<th>メモ</th>
-			</tr>
+		
+		<div class="record-list">
 			<c:forEach var="r" items="${recordList}">
-			<tr>
-				<td>${r.recordedAt}</td>
-   				 <td>${r.temperature}</td>
-    			<td>${r.weight}</td>
-    			<td>${r.note}</td>				
-			</tr>
-			</c:forEach>
-		</table>	
 			
+				<div class="record-card">
+				
+					<div class="record-date">
+						<div class="record-date-main">
+							${r.recordedAt}
+						</div>
+					</div>
+					
+					<div class="record-item">
+						<div class="label">
+							体重
+						</div>
+						<div class="value">
+							${r.weight} kg
+						</div>
+					</div>
+
+					<div class="record-item">
+						<div class="label">
+							体温
+						</div>
+						<div class="value">
+							${r.temperature} ℃
+						</div>
+					</div>
+
+					<div class="record-memo">
+						<div class="label">
+							メモ
+						</div>
+						<div class="value">
+							${r.note}
+						</div>
+					</div>
+					
+				</div>
+
+			</c:forEach>
+
+		</div>	
+</div>			
 			
 	<!-- フッター -->
 <%@ include file="footer.jsp" %>
