@@ -8,13 +8,13 @@
 
 /* ヘッダー全体 */
 header{
-    height:120px;
+    height:80px;
 
     display:flex;
     justify-content:space-between;
     align-items:center;
 
-    padding: 30px 50px 30px 20px;
+    padding: 15px 50px 15px 20px;
 
     background:#fcf1f6;
 
@@ -31,7 +31,7 @@ header{
 
 /* ロゴ画像 */
 .logo-image{
-    height:140px;
+    height:90px;
     width:auto;
 
     display:block;
@@ -99,7 +99,7 @@ header{
 body{
 	margin:0 0 0 0;
 	color:#555555;
-	background-color:#FFF0F5;
+	background-color:#ffffff;
 }
 
 /* ==========================
