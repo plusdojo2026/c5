@@ -11,7 +11,16 @@
 </head>
 <body>
 <!-- ヘッダー -->
-<%@ include file="header.jsp" %>
+<header>
+    <div class="logo-area">
+        <a href="${pageContext.request.contextPath}/HomeServlet">
+            <img
+                src="${pageContext.request.contextPath}/img/logo.png"
+                alt="ふたりごと。"
+                class="logo-image">
+        </a>
+    </div>
+</header>
 
 <div class="wrapper">
     <!-- 白の四角い箱(login-card) -->
