@@ -14,7 +14,7 @@ header{
     justify-content:space-between;
     align-items:center;
 
-    padding: 15px 50px 15px 20px;
+    padding: 15px 20px 15px 20px;
 
     background:#fcf1f6;
 
@@ -37,16 +37,31 @@ header{
     display:block;
 }
 
-/* ママ・パパ表示 */
-.user-area{
-    font-size:28px;
-    color:#555555;
-
+/* ログアウトボタン */
+.home-header-action{
     display:flex;
     align-items:center;
-
     gap:10px;
 }
+
+.logout-btn{
+    text-decoration:none;
+
+    background:#ffffff;
+    color:#ff648c;
+
+    padding:12px 24px;
+
+    border:1px solid #ffb6c8;
+    border-radius:12px;
+
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#fff5f8;
+}
+
 
 
 /* ==========================
