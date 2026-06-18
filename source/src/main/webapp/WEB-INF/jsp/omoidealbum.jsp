@@ -22,7 +22,7 @@
 	<div class="page-header">
 		<h1 class="page-title">おもいでアルバム</h1>
 			<!-- 登録追加ボタン -->
-			<button id="open_modal" class="page-action-btn">+写真を追加</button>
+			<button id="open_modal" class="page-action-btn">＋写真を追加</button>
 	</div>
 		
 	<!-- ソート機能保留ここから -->
@@ -48,19 +48,19 @@
 
 <!-- タイムライン形式でのアルバム表示 -->
 <div class="album_list">
-	<c:forEach var="a" items="${albumList}">
+	<c:forEach var="album" items="${albumList}">
 		<div class="album_item">
 		
-		<img src="${pageContext.request.contextPath}/${a.photoPath}" class="album_photo">
+		<img src="${pageContext.request.contextPath}/${album.photoPath}" class="album_photo">
 		
-		<p class="album_message">${a.message}</p>
+		<p class="album_message">${album.comment}</p>
 		<!-- 日付を表示(フォーマットを改善) -->
-		<p class="album_date"><fmt:formatDate value = "${a.createdAt}" pattern="yyyy/MM/dd"/></p>
+		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy/MM/dd"/></p>
 		
-	<!-- 削除。OmoidealbumServletにポスト -->
-		<form method="POST" action="/webapp/OmoideAlbumServlet">
+	<!-- 削除。OmoideAlbumServletにポスト -->
+		<form method="POST" action="OmoideAlbumServlet">
 			<input type="hidden" name ="action" value="delete">
-			<input type="hidden" name ="album_id" value="${a.albumId}">
+			<input type="hidden" name ="album_id" value="${album.albumId}">
 			<button type="submit" class="delete_button">削除</button>
 		</form>
 		</div>
@@ -73,7 +73,7 @@
 <div id=album_modal class="album_modal">
 	<div class="photo_modal">
 		<button id="close">×</button>							<!-- enctype・・・写真を送るための処理 -->
-		<form method="POST" action="/webapp/OmoideAlbumServlet" enctype="multipart/form-data">
+		<form method="POST" action="OmoideAlbumServlet" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="insert">
 		
 	<!-- 写真追加の枠 -->
