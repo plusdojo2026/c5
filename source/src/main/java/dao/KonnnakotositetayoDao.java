@@ -44,7 +44,12 @@ public class KonnnakotositetayoDao {
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
             // SQL文（同じfamily_idのデータを新しい順に取得）
-            String sql = "SELECT * FROM konnnakotositetayo WHERE family_id = ? ORDER BY created_at DESC";
+         // SQL文（tasksとJOINしてタスク名も取得）
+            String sql = "SELECT k.*, t.task_name "
+                       + "FROM konnnakotositetayo k "
+                       + "JOIN tasks t ON k.task_id = t.task_id "
+                       + "WHERE k.family_id = ? "
+                       + "ORDER BY k.created_at DESC";
 
             // SQLをセット
             ps = conn.prepareStatement(sql);
@@ -61,6 +66,7 @@ public class KonnnakotositetayoDao {
                 bean.setFamilyId(rs.getString("family_id"));
                 bean.setCoupleId(rs.getInt("couple_id"));
                 bean.setTaskId(rs.getString("task_id"));
+                bean.setTaskName(rs.getString("task_name"));
                 bean.setCount(rs.getInt("count"));
                 bean.setMemo(rs.getString("memo"));
                 bean.setDisplayOrder(rs.getInt("display_order"));
@@ -105,7 +111,7 @@ public class KonnnakotositetayoDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
-            // SQL文
+         // SQL文
             String sql = "INSERT INTO konnnakotositetayo "
                        + "(family_id, couple_id, task_id, count, memo, recorded_date, is_read, created_at) "
                        + "VALUES (?, ?, ?, ?, ?, CURDATE(), 0, NOW())";
