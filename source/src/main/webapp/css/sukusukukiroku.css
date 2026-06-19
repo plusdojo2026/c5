@@ -3,10 +3,11 @@
 /* ==========================
    全体
 ========================== */
-
+/*
 main{
     padding: 30px;
 }
+*/
 
 
 
@@ -14,28 +15,10 @@ main{
    記録ボタン
 ========================== */
 
-#openModal{
-    width:180px;
-    height:60px;
 
-    border:none;
-    border-radius:12px;
-
-    background:linear-gradient(
-        90deg,
-        #ff7ea8,
-        #ff5f8d
-    );
-
-    color:white;
-    font-size:22px;
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-#openModal:hover{
-    opacity:0.9;
+.btn-area{
+	margin-top:30px;
+	text-align:center;
 }
 
 /* ==========================
@@ -309,3 +292,4 @@ main{
     font-size:22px;
     color:#777;
 }
+
