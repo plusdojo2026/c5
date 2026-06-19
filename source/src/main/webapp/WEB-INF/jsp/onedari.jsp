@@ -12,14 +12,14 @@
 <body>
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
-<div class="wrapper">
+<div class="page-container">
 <!-- （おねだりリストのタイトルと追加するボタン） -->
-<div class ="header-container">
+<div class ="page-header">
 	<div class="header-left">
             <img src="/c5/img/onedari.png" alt="買い物かご" class="cart-icon">
 	<h1 class="page-title">おねだりリスト</h1>
 	</div>
-	 <button id="add-btn">＋追加する</button>
+	 <button id="add-btn" class="page-action-btn">＋追加する</button>
 </div>
 
 <!-- おねだりリストのメインエリア -->
