@@ -104,7 +104,8 @@
 }
 
 /* アイコンと文字が重ならないよう、パスワードの入力欄だけ左余白を広くする */
-.password-input-wrapper input[type="password"] {
+.password-input-wrapper input[type="password"],
+.password-input-wrapper input[type="text"] {
     padding-left: 38px; 
 }
 
