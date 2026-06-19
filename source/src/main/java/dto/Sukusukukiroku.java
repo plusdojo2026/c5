@@ -8,20 +8,24 @@ public class Sukusukukiroku {
 	private String note;		//メモ
 	private String recordedAt;	//日時（自動入力）
 	
+	//引数なしコンストラクタ
+	public Sukusukukiroku() {}
+
+	//引数ありコンストラクタ
 	public Sukusukukiroku(int sukusukuId,String family_Id,double weight,double temperature,
 			String note,String recordedAt) {
 		super();
 		this.sukusukuId=sukusukuId;
 		this.family_Id=family_Id;
-		this.weight=weight;
 		this.temperature=temperature;
+		this.weight=weight;		
 		this.note=note;
 		this.recordedAt=recordedAt;
 	}
 	
-	public int getsukusukuId() {
+	public int getSukusukuId() {
 		return sukusukuId;
-	}public void setsukusukuId(int sukusukuId) {
+	}public void setSukusukuId(int sukusukuId) {
 		this.sukusukuId=sukusukuId;
 	}
 	
@@ -31,27 +35,27 @@ public class Sukusukukiroku {
 		this.family_Id=family_Id;
 	}
 	
-	public double getweight () {
-		return  weight;
-	}public void setweight(double weight){
-		this.weight=weight;
-	}
-	
-	public double gettemperature(){
+	public double getTemperature(){
 		return temperature;
-	}public void settemperature(){
+	}public void setTemperature(double temperature){
 		this.temperature= temperature;
 	}
 	
-	public String getnote(){
+	public double getWeight () {
+		return  weight;
+	}public void setWeight(double weight){
+		this.weight=weight;
+	}
+	
+	public String getNote(){
 		return note;
-	}public void setnote(){
+	}public void setNote(String note){
 		this.note=note;
 	}
 	
-	public String getrecordedAt(){
+	public String getRecordedAt(){
 		return recordedAt;
-	}public void setrecordedAt(){
+	}public void setRecordedAt(String recordedAt){
 		this.recordedAt=recordedAt;
 	}
 }
