@@ -111,7 +111,16 @@
 	</c:if>
 <!-- CSSグリッドここまで-->
 </form>
-<p>ママも毎日がんばっています。たくさん褒めてあげて下さいね！</p>
+
+<c:if test="${sessionScope.couple_id == 1}">
+	
+	<p class="papa-message">
+		<img src="img/deco1.png" class="deco1">
+		ママも毎日がんばっています。たくさん褒めてあげて下さいね！
+		<img src="img/deco2.jpg" class="deco2">
+	</p>
+	
+</c:if>
 
 </div>
 
