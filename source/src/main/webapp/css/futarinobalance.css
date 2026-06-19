@@ -255,3 +255,11 @@ a {
     font-size: 14px;
     font-weight: bold;
 }
+/* タスクカードの文字を可愛く */
+.task-name {
+    font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ff7ca5;
+    letter-spacing: 0.04em;
+}
