@@ -1,6 +1,7 @@
 package dto;
 
 public class Mamanoyousu {
+	private int mamanoyousuId; //ママの様子ID(主キー)
 	private String familyId;	/*家族名（夫婦共通）*/
 	private int coupleId;		/*夫01、妻00*/
 	private int physicalScore;	/*体調*/
@@ -23,6 +24,12 @@ public class Mamanoyousu {
 	}
 	
 	//ゲッター・セッター
+	public int getMamanoyousuId() {
+		return mamanoyousuId;
+	} public void setMamanoyousuId(int mamanoyousuId) {
+		this.mamanoyousuId= mamanoyousuId;
+	}
+	
 	public String getFamilyId(){
 		return familyId;
 	}
