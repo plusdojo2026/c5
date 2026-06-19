@@ -39,6 +39,7 @@
     <!-- このページ専用CSS（common.cssの内容も含む） -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/futarinobalance.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap">
 </head>
 <body>
 
