@@ -35,8 +35,7 @@ public class FutarinobalanceServlet extends HttpServlet {
 
 //ログインサーブレットを経由せずにサーバーを実行するための仮のデータなので、本番では消す。
 //本番にこのデータがあると、誰が入ってもｆａｍｉｌｙ＿ｉｄ＝１のままとして扱われてしまうので。
-        session.setAttribute("family_id", "1");
-        session.setAttribute("couple_id", "0");
+        session.setAttribute("couple_id", 0); 
         
 
         // セッションのfamily_idをString型で取得する
