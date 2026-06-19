@@ -25,7 +25,7 @@
 		
 	<!-- ソート機能保留ここから -->
 	<!--  	<div class=album_bunner>
-				<form method="get" action="OmoideAlbumServlet">	
+				<form method="get" action="OmoidealbumServlet">	
 						<option value="new">新しい順</option>
 						<option value="old">古い順</option>
 					</select>
@@ -55,8 +55,8 @@
 		<!-- 日付を表示(フォーマットを改善) -->
 		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy/MM/dd"/></p>
 		
-	<!-- 削除。OmoideAlbumServletにポスト -->
-		<form method="POST" action="OmoideAlbumServlet">
+	<!-- 削除。OmoidealbumServletにポスト -->
+		<form method="POST" action="OmoidealbumServlet">
 			<input type="hidden" name ="action" value="delete">
 			<input type="hidden" name ="album_id" value="${album.albumId}">
 			<button type="submit" class="delete_button">削除</button>
@@ -71,7 +71,7 @@
 <div id=album_modal class="album_modal">
 	<div class="photo_modal">
 		<button id="close">×</button>							<!-- enctype・・・写真を送るための処理 -->
-		<form method="POST" action="OmoideAlbumServlet" enctype="multipart/form-data">
+		<form method="POST" action="OmoidealbumServlet" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="insert">
 		
 	<!-- 写真追加の枠 -->
