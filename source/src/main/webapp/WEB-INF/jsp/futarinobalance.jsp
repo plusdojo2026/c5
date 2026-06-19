@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dto.Futarinobalance" %>
-List<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><Futarinobalance> mamaList =
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
     // ===== ServletからJSPにデータを受け渡している（今は受け取っている） =====
@@ -187,9 +187,11 @@ List<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><Futarinobal
 
         <!-- ===== 保存ボタン ===== -->
         <div class="save-area">
-            <button type="button" class="btn-save" id="saveBtn">
+        	<div class="btn-area">
+            <button type="button" class="page-action-btn" id="saveBtn">
                  担当を保存する
             </button>
+            </div>
             <!-- 保存結果メッセージ（JavaScriptで表示する） -->
             <p class="save-message" id="saveMessage"></p>
         </div>
