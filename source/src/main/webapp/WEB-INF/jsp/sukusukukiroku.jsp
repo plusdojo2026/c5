@@ -3,16 +3,17 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/sukusukukiroku.css">
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/sukusukukiroku.css">
+
 <meta charset="UTF-8">
 <title>すくすく記録</title>
-</head>
+
 
 <!-- ここからすくすく記録 -->
 <body>
-<hr>
+
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
@@ -25,9 +26,14 @@
 			<c:if test="${not empty message}">
 		    	<div class="message">${message}</div>
 			</c:if>
-		</div>	
+		</div>
+	
 		<!-- 記録フォーム展開するボタン -->
-		<button id="openModal" class="page-action-btn">記録する</button>
+		<div class="btn-area">
+		<button type="button" id="openModal" class="page-action-btn">
+		＋記録する
+		</button>
+		</div>
 	</div>
 	
 	 <!-- 記録のモーダル表示 -->
