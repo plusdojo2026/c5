@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 import dto.Torisetu;
 
@@ -50,8 +52,13 @@ public class TorisetuDao {
            card.setBadaction1(rs.getString("badaction1"));
            card.setBadaction2(rs.getString("badaction2"));
            card.setBadaction3(rs.getString("badaction3"));
-           card.setUpdateAt(rs.getTimestamp("update_at").toString());
-   	}
+           
+           Timestamp ts = rs.getTimestamp("update_at");
+           if(ts != null) {
+        	   SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+        	   card.setUpdateAt(sdf.format(ts));
+           }else {card.setUpdateAt("");}
+    		}
    	
    	//SQLを実行する
    	}catch(Exception e) {
