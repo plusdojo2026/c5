@@ -3,17 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/torisetu.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/torisetu.css">
 <meta charset="UTF-8">
 <title>ママのトリセツ</title>
 </head>
 
 <body>
-<header>
+
 <!-- ヘッダーをインクルード -->
 <%@ include file="header.jsp" %>
-</header>
+
 <main>
 <div class="page-container">
 	<div class="page-header">
@@ -41,9 +41,9 @@
 				<img src="<%=request.getContextPath()%>/img/よろこぶ.png">
 				<h4>喜ぶこと</h4>
 			</div>
-				<input type="text" name="happy1" value="${torisetu.happy1}">
-				<input type="text" name="happy2" value="${torisetu.happy2}">
-				<input type="text" name="happy3" value="${torisetu.happy3}">
+				<input type="text" name="happy1" value="${torisetu.happy1}" placeholder="例) 「ありがとう」と言われること">
+				<input type="text" name="happy2" value="${torisetu.happy2}" placeholder="例) 家族でゆっくりする時間が大好き！">
+				<input type="text" name="happy3" value="${torisetu.happy3}" placeholder="例) サプライズも喜びます♡">
 		</div>
 		
 		<div class="card angry">
@@ -51,9 +51,9 @@
 				<img src="<%=request.getContextPath()%>/img/怒る.png">
 				<h4>怒ること</h4>
 			</div>
-				<input type="text" name="angry1" value="${torisetu.angry1}">
-				<input type="text" name="angry2" value="${torisetu.angry2}">
-				<input type="text" name="angry3" value="${torisetu.angry3}">
+				<input type="text" name="angry1" value="${torisetu.angry1}" placeholder="例) 約束を忘れられること">
+				<input type="text" name="angry2" value="${torisetu.angry2}" placeholder="例) 話を聞いてもらえないこと">
+				<input type="text" name="angry3" value="${torisetu.angry3}" placeholder="例) 否定的な言葉を言われること">
 		</div>
 		
 		<div class="card fun">
@@ -61,9 +61,9 @@
 				<img src="<%=request.getContextPath()%>/img/楽しむ.png">
 				<h4>楽しむこと</h4>
 			</div>
-				<input type="text" name="fun1" value="${torisetu.fun1}">
-				<input type="text" name="fun2" value="${torisetu.fun2}">
-				<input type="text" name="fun3" value="${torisetu.fun3}">
+				<input type="text" name="fun1" value="${torisetu.fun1}" placeholder="例) 音楽に没頭するのが好き！">
+				<input type="text" name="fun2" value="${torisetu.fun2}" placeholder="例) 旅行やおでかけの計画を立てるのも楽しい！">
+				<input type="text" name="fun3" value="${torisetu.fun3}" placeholder="例) ご褒美のアイス">
 		</div>
 		
 		<div class="card sad">
@@ -71,9 +71,9 @@
 				<img src="<%=request.getContextPath()%>/img/悲しむ.png">
 				<h4>悲しむこと</h4>
 			</div>
-				<input type="text" name="sad1" value="${torisetu.sad1}">
-				<input type="text" name="sad2" value="${torisetu.sad2}">
-				<input type="text" name="sad3" value="${torisetu.sad3}">
+				<input type="text" name="sad1" value="${torisetu.sad1}" placeholder="例) 共感してくれないとき、、">
+				<input type="text" name="sad2" value="${torisetu.sad2}" placeholder="例) 話し合いを放棄されること">
+				<input type="text" name="sad3" value="${torisetu.sad3}" placeholder="例) 頑張れていないかもと不安になる">
 		</div>	
 				
 		<div class="card charge">
@@ -81,9 +81,9 @@
 				<img src="<%=request.getContextPath()%>/img/充電方法.png">
 				<h4>充電方法</h4>
 			</div>
-				<input type="text" name="charge1" value="${torisetu.charge1}">
-				<input type="text" name="charge2" value="${torisetu.charge2}">
-				<input type="text" name="charge3" value="${torisetu.charge3}">
+				<input type="text" name="charge1" value="${torisetu.charge1}" placeholder="例) 映画鑑賞！！">
+				<input type="text" name="charge2" value="${torisetu.charge2}" placeholder="例) プリンをちゃんとお皿に出して食べる">
+				<input type="text" name="charge3" value="${torisetu.charge3}" placeholder="例) いっぱい寝られたら嬉しいな♪">
 		</div>
 	<!--『不機嫌かなと思ったら』は、テキストボックスを2列3行にする。-->
 	<!-- そのため、不機嫌カード内にグリッドを用意 -->
@@ -93,20 +93,23 @@
 				<h4>不機嫌かなと思ったら</h4>
 			</div>
 			<div class="bad_grid">
-				<input type="text" name="bad1" value="${torisetu.bad1}">
-				<input type="text" name="badaction1" value="${torisetu.badaction1}">
+				<input type="text" name="bad1" value="${torisetu.bad1}" placeholder="状態(こんなときは...)">
+				<input type="text" name="badaction1" value="${torisetu.badaction1}" placeholder="対応方法(こうしてみてほしい)">
 				
-				<input type="text" name="bad2" value="${torisetu.bad2}">
-				<input type="text" name="badaction2" value="${torisetu.badaction2}">
+				<input type="text" name="bad2" value="${torisetu.bad2}" placeholder="例) ため息が増えます">
+				<input type="text" name="badaction2" value="${torisetu.badaction2}" placeholder="例) 気にかけて、話しかけてくれると嬉しいです。">
 				
-				<input type="text" name="bad3" value="${torisetu.bad3}">
-				<input type="text" name="badaction3" value="${torisetu.badaction3}">
+				<input type="text" name="bad3" value="${torisetu.bad3}" placeholder="例) イライラして口調がきつくなります">
+				<input type="text" name="badaction3" value="${torisetu.badaction3}" placeholder="例) 話し合いでゆっくり解決したいかも">
 			</div>				
 		</div>
 		
 	</div>
 	<c:if test="${sessionScope.couple_id == 0}"><!-- 妻の画面でのみ表示 -->
-		<button type="submit" name="torisetu_save" class="page-action-btn">保存</button>
+		
+		<div class="btn-area">
+			<button type="submit" name="torisetu_save" class="page-action-btn">保存</button>
+		</div>
 	</c:if>
 <!-- CSSグリッドここまで-->
 </form>
