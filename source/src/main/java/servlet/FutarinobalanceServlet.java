@@ -33,10 +33,11 @@ public class FutarinobalanceServlet extends HttpServlet {
         // セッションからfamily_idを取得
         HttpSession session = request.getSession();
 
-        // ===== 開発用：仮セッションデータ（テスト後に削除） =====
+//ログインサーブレットを経由せずにサーバーを実行するための仮のデータなので、本番では消す。
+//本番にこのデータがあると、誰が入ってもｆａｍｉｌｙ＿ｉｄ＝１のままとして扱われてしまうので。
         session.setAttribute("family_id", "1");
         session.setAttribute("couple_id", "0");
-        // =====================================================
+        
 
         // セッションのfamily_idをString型で取得する
         // (DBではVARCHAR(32)なのでStringのまま扱う)
@@ -57,10 +58,10 @@ public class FutarinobalanceServlet extends HttpServlet {
             dao.insertInitialData(familyId);
         }
 
-        // DBからタスク一覧を全件取得する
+        // DBからタスク一覧を全件取得する。alllistにぶち込む。
         List<Futarinobalance> allList = dao.getTaskList(familyId);
 
-        // 妻担当（couple_id=0）のリストを作る
+        // 妻担当（couple_id=0）のリストを作る。arraylistは入れる数を決めなくていい伸び縮みの箱。
         List<Futarinobalance> mamaList = new ArrayList<Futarinobalance>();
 
         // 夫担当（couple_id=1）のリストを作る
@@ -70,6 +71,7 @@ public class FutarinobalanceServlet extends HttpServlet {
         List<Futarinobalance> unassignedList = new ArrayList<Futarinobalance>();
 
         // allListを1件ずつ見てcouple_idで振り分ける
+//alllost.size（21）より小さい場合はループを続ける。i=i+1の短い書き方がi++。
         for (int i = 0; i < allList.size(); i++) {
             Futarinobalance bean = allList.get(i);
 
@@ -88,6 +90,7 @@ public class FutarinobalanceServlet extends HttpServlet {
         }
 
         // JSPに各リストを渡す
+        //setAttributeはデータに名前のラベル（青文字）を貼って、一時的に預けるメソッド。
         request.setAttribute("mamaList",       mamaList);
         request.setAttribute("papaList",       papaList);
         request.setAttribute("unassignedList", unassignedList);
@@ -105,12 +108,12 @@ public class FutarinobalanceServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	System.out.println("★doPost呼ばれた!");  // ← 一番最初に追加
-    	
+       	
         // 文字コードの設定
         request.setCharacterEncoding("UTF-8");
 
         // JavaScriptから送られてきたデータを受け取る
+        //getParameterは送られてきたデータを、名前を指定して取り出すメソッド。
         String balanceIdStr    = request.getParameter("balance_id");
         String coupleIdStr     = request.getParameter("couple_id");
         String displayOrderStr = request.getParameter("display_order");
@@ -123,6 +126,8 @@ public class FutarinobalanceServlet extends HttpServlet {
         }
 
         // String型をint型に変換する
+        //parse=解析する　int=整数に　parseInt＝文字列を整数に変換するメソッド
+        //integerは整数を箱に入れる。NULLも入る。
         int balanceId    = Integer.parseInt(balanceIdStr);
         int coupleId     = Integer.parseInt(coupleIdStr);
         int displayOrder = Integer.parseInt(displayOrderStr);
