@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.HomeDao;
+import dao.MamanoyousuDao;
 import dto.Home;
+import dto.Mamanoyousu;
 
 /**
  * Servlet implementation class HomeServlet
@@ -43,6 +45,15 @@ public class HomeServlet extends HttpServlet {
 
 		// JSPへ渡す
 		request.setAttribute("popup", popup);
+		
+		
+		// ママのようす取得
+		MamanoyousuDao mamaDao = new MamanoyousuDao();
+
+		Mamanoyousu mama =
+		        mamaDao.findLatest((String)session.getAttribute("family_id"));
+
+		request.setAttribute("mama", mama);
 
 		
 		 // ホーム画面へ遷移
