@@ -8,6 +8,9 @@
 
 	String familyId = (String) session.getAttribute("family_id");
 
+//LoginServlet経由 → couple_idはInteger型
+//FutarinobalanceServlet経由 →couple_idはString型
+//integerでもstringでも対応できるようにtoString「共通の通貨」に変換した後に、parseIntで整数に変換
 	Object coupleIdObj = session.getAttribute("couple_id");
 	int coupleId = 0;
 	if (coupleIdObj != null) {
@@ -15,6 +18,7 @@
 	}
 
     // Servletからタイムラインデータを受け取る
+    //KonnnakotositetayoServlet.javaのDAOを使ってタイムラインデータを取得の部分と繋がっている。
     List<Konnnakotositetayo> timelineList =
         (List<Konnnakotositetayo>) request.getAttribute("timelineList");
 
