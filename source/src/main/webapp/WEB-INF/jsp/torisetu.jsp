@@ -93,14 +93,12 @@
 				<h4>不機嫌かなと思ったら</h4>
 			</div>
 			<div class="bad_grid">
-				<input type="text" name="bad1" value="${torisetu.bad1}" placeholder="状態(こんなときは...)">
-				<input type="text" name="badaction1" value="${torisetu.badaction1}" placeholder="対応方法(こうしてみてほしい)">
-				
-				<input type="text" name="bad2" value="${torisetu.bad2}" placeholder="例) ため息が増えます">
-				<input type="text" name="badaction2" value="${torisetu.badaction2}" placeholder="例) 気にかけて、話しかけてくれると嬉しいです。">
-				
-				<input type="text" name="bad3" value="${torisetu.bad3}" placeholder="例) イライラして口調がきつくなります">
-				<input type="text" name="badaction3" value="${torisetu.badaction3}" placeholder="例) 話し合いでゆっくり解決したいかも">
+				<textarea name="bad1" placeholder="状態(こんなときは...)">${torisetu.bad1}</textarea>				
+				<textarea name="badaction1" placeholder="対応方法(こうしてみてほしい)">${torisetu.badaction1}</textarea>				
+				<textarea name="bad2" placeholder="例) ため息が増えます">${torisetu.bad2}</textarea>
+				<textarea name="badaction2" placeholder="例) 気にかけて、話しかけてくれると嬉しいです。">${torisetu.badaction2}</textarea>				
+				<textarea name="bad3" placeholder="例) イライラして口調がきつくなります">${torisetu.bad3}</textarea>
+				<textarea name="badaction3" placeholder="例) 話し合いでゆっくり解決したいかも">${torisetu.badaction3}</textarea>
 			</div>				
 		</div>
 		
