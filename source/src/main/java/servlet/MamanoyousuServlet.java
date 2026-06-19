@@ -85,7 +85,7 @@ public class MamanoyousuServlet extends HttpServlet {
         int coupleId = (Integer) session.getAttribute("couple_id");
 
         Mamanoyousu m = new Mamanoyousu(
-                familyId, coupleId, physical, mental, sleep, stress, memo
+              familyId, coupleId, physical, mental, sleep, stress, memo
         );
 
         boolean result = dao.insert(m);
