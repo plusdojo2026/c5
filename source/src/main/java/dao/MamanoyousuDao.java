@@ -12,7 +12,7 @@ public class MamanoyousuDao {
 	private static final String URL= "jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8";//接続するデータベース名
 	private static final String USER     = "root";//MySQLにログインするユーザー名
 											      //⚠root は 管理者ユーザー
-    private static final String PASSWORD = "";//上記ユーザーのパスワード
+    private static final String PASSWORD = "password";//上記ユーザーのパスワード
     
     //データ登録、SQL準備
     public boolean insert(Mamanoyousu m) {
@@ -44,7 +44,7 @@ public class MamanoyousuDao {
      public Mamanoyousu findLatest(String familyId) {
 
          String sql = "SELECT * FROM mamanoyousu "
-                    + "WHERE family_id=? ORDER BY recorded_date DESC LIMIT 1";
+                    + "WHERE family_id=? ORDER BY mamanoyousu_id DESC LIMIT 1";
 
          try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
               PreparedStatement ps = conn.prepareStatement(sql))
@@ -54,6 +54,7 @@ public class MamanoyousuDao {
 
              if (rs.next()) {
                  Mamanoyousu m = new Mamanoyousu();
+                 m.setMamanoyousuId(rs.getInt("mamanoyousu_id"));
                  m.setPhysicalScore(rs.getInt("physical_score"));
                  m.setMentalScore(rs.getInt("mental_score"));
                  m.setSleepHours(rs.getDouble("sleep_hours"));
