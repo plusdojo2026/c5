@@ -31,7 +31,7 @@
 		<p class="update_at">更新日<br>${torisetu.updateAt}</p>
 	</div>
 
-<!-- プロフィール内容をTorisetuservletへポストする。 -->
+<!-- プロフィール内容をTorisetuServletへポストする。 -->
 <form method="POST" action="TorisetuServlet">
 <!-- CSSグリッドここから 2列3行のカード配置をするための大枠-->
 	<div class="grid">
