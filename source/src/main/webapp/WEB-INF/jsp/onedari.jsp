@@ -16,8 +16,7 @@
 <!-- （おねだりリストのタイトルと追加するボタン） -->
 <div class ="page-header">
 	<div class="header-left">
-            <img src="/c5/img/onedari.png" alt="買い物かご" class="cart-icon">
-	<h1 class="page-title">おねだりリスト</h1>
+		<h1 class="page-title">おねだりリスト</h1>
 	</div>
 	 <button id="add-btn" class="page-action-btn">＋追加する</button>
 </div>
