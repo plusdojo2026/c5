@@ -13,7 +13,7 @@ public class SukusukukirokuDao {
 	//すくすく記録を取得するメソッド
 	public List<Sukusukukiroku> findByFamilyId(String familyId){
 		Connection conn = null;
-		List <sukusukukiroku> list = new ArrayList<>();
+		List <Sukusukukiroku> list = new ArrayList<>();
 		
 			try {
 				//JDBCドライバ
@@ -21,7 +21,7 @@ public class SukusukukirokuDao {
 				
 				//DB接続
 				conn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/",//接続するデータベース名
+						"jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8",//接続するデータベース名
 			            "root",//MySQLにログインするユーザー名 //⚠root は 管理者ユーザー
 			            "password"
 						);	
@@ -44,11 +44,11 @@ public class SukusukukirokuDao {
 	            	Sukusukukiroku record =new Sukusukukiroku();
 	            	
 	            	record.setSukusukuId(rs.getInt("sukusuku_id"));
-	            	record.setFamilyId(rs.getString("family_id"));
+	            	record.setfamily_Id(rs.getString("family_id"));
 	            	record.setWeight(rs.getDouble("weight"));
 	            	record.setTemperature(rs.getDouble("temperature"));
 	            	record.setNote(rs.getString("note"));
-	            	record.setRecordedAt(rs.getString("recorded_at"));
+	            	record.setRecordedAt(rs.getString("recorded_At"));
 	            	
 	            	list.add(record);
 	            }
@@ -84,7 +84,7 @@ public class SukusukukirokuDao {
 				 VALUES(?,?,?,?,NOW())
 				""";
 		PreparedStatement pStmt	= conn.prepareStatement(sql);
-		pStmt.setString(1, record.getFamilyId());
+		pStmt.setString(1, record.getfamily_Id());
 		pStmt.setDouble(2, record.getWeight());
 		pStmt.setDouble(3, record.getTemperature());
 		pStmt.setString(4, record.getNote());
