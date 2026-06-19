@@ -139,14 +139,25 @@
                 <div class="form-group">
                     <label class="form-label">項目を選択</label>
  <div class="task-buttons">
-    <button type="button" class="task-btn" onclick="selectTask('1')">ミルク</button>
-    <button type="button" class="task-btn" onclick="selectTask('2')">夜泣き</button>
-    <button type="button" class="task-btn" onclick="selectTask('3')">おむつ交換</button>
-    <button type="button" class="task-btn" onclick="selectTask('4')">歯磨き</button>
-    <button type="button" class="task-btn" onclick="selectTask('5')">お風呂</button>
-    <button type="button" class="task-btn" onclick="selectTask('6')">その他</button>
+    <button type="button" class="task-btn" onclick="selectTask('1')">
+    <img src="/c5/img/milk_konnna.png" alt="ミルク" class="btn-icon">ミルク</button>
+    
+    <button type="button" class="task-btn" onclick="selectTask('2')">
+    <img src="/c5/img/yonaki.png" alt="夜泣き" class="btn-icon">夜泣き</button>
+    
+    <button type="button" class="task-btn" onclick="selectTask('3')">
+    <img src="/c5/img/omutsukoukann.png" alt="おむつ交換" class="btn-icon">おむつ交換</button>
+    
+    <button type="button" class="task-btn" onclick="selectTask('4')">
+    <img src="/c5/img/hamigaki.png" alt="歯磨き" class="btn-icon">歯磨き</button>
+    
+    <button type="button" class="task-btn" onclick="selectTask('5')">
+    <img src="/c5/img/ofuro.png" alt="お風呂" class="btn-icon">お風呂</button>
+    
+    <button type="button" class="task-btn" onclick="selectTask('6')">
+    <img src="/c5/img/sonota.png" alt="その他" class="btn-icon">その他</button>
 </div>
-</div>
+
                     <!-- 選択されたタスクをhiddenで送る -->
                     <input type="hidden" name="task_id" id="selectedTask" value="">
                 </div>
