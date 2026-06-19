@@ -108,25 +108,4 @@ textarea{
 	background:#fff;
 }
 
-/* ===== ボタン ===== */
-button{
-	display:block;
-	margin:40px auto 0;
-	width:400px;
-	height:70px;
-	border:none;
-	border-radius:10px;
-	background:linear-gradient(
-		90deg,
-		#ff5f87,
-		#ff4d7f
-	);
-	color:white;
-	font-size:28px;
-	font-weight:bold;
-	cursor:pointer;
-}
 
-button:hover{
-	opacity:0.9;
-}
