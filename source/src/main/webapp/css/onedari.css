@@ -2,9 +2,6 @@
 
 /* 画面全体の基本設定 */
 body {
-    background-color: #ffffff;  
-    margin: 0;
-    padding: 0;
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
 }
 
@@ -33,29 +30,8 @@ body {
     object-fit: contain;
 }
 
-.page-title {
-    font-size: 22px;
-    color: #333333;
-    margin: 0;
-    font-weight: bold;
-}
 
-/* 右上の「＋追加する」ボタン（ピンク色・白文字） */
-#add-btn {
-    background-color: #ff4d79; 
-    color: #ffffff;
-    border: none;
-    padding: 10px 30px;   /*上下  左右*/
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
 
-#add-btn:hover {
-    background-color: #e63960;    /* マウスを乗せたら少し濃いピンク */
-}
 
 /* リストが空のときの真ん中のエリア */
 .empty-list {
