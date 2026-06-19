@@ -27,8 +27,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>こんなことしてたよ | ふたりごと。</title>
   
- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/konnnakotositetayo.css">
  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/css/konnnakotositetayo.css">
+
 </head>
 <body>
 
