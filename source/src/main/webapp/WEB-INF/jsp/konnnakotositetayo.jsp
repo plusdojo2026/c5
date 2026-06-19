@@ -6,9 +6,13 @@
 
 
 
-    // セッションからfamily_idとcouple_idを取得!
-    String familyId = (String) session.getAttribute("family_id");
-    int coupleId    = (int)   session.getAttribute("couple_id");
+	String familyId = (String) session.getAttribute("family_id");
+
+	Object coupleIdObj = session.getAttribute("couple_id");
+	int coupleId = 0;
+	if (coupleIdObj != null) {
+	coupleId = Integer.parseInt(coupleIdObj.toString());
+	}
 
     // Servletからタイムラインデータを受け取る
     List<Konnnakotositetayo> timelineList =
