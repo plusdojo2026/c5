@@ -40,10 +40,14 @@ public class KonnnakotositetayoServlet extends HttpServlet {
         }
 
         // DAOを使ってタイムラインデータを取得
+        //dao.getTimelineList(familyId); 
+        //①どのインスタンスの(dao)②どのメソッドを(getTimelineList)③何を渡して呼ぶか。(familyId)
+        //引数＝メソッドに渡す値。familyIdが引数。
         KonnnakotositetayoDao dao = new KonnnakotositetayoDao();
         List<Konnnakotositetayo> timelineList = dao.getTimelineList(familyId);
 
         // JSPにデータを渡す
+        //データに名前をつけて預けるメソッド。ServletからJSPにデータを渡すときに使う。
         request.setAttribute("timelineList", timelineList);
 
         // JSPに遷移
@@ -64,6 +68,7 @@ public class KonnnakotositetayoServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         // セッションからデータを取得
+        //文字列なら文字列で処理、整数なら整数に変換して処理
         HttpSession session = request.getSession();
         String familyId = (String) session.getAttribute("family_id");
         Object coupleIdObj = session.getAttribute("couple_id");
@@ -80,7 +85,7 @@ public class KonnnakotositetayoServlet extends HttpServlet {
             return;
         }
 
-        // フォームからデータを受け取る
+        // フォーム（JSPにあるユーザーの入力欄）からnameを指定してデータを受け取る
         String taskId   = request.getParameter("task_id");
         String countStr = request.getParameter("count");
         String memo     = request.getParameter("memo");
