@@ -42,17 +42,7 @@ public class SukusukukirokuServlet {
 
 	            // Daoからタイムラインデータを取得
 	            SukusukukirokuDao dao = new SukusukukirokuDao();
-	            
-
-	            // 追加
-	            Sukusukukiroku record = new Sukusukukiroku();
-	            record.setFamilyId(familyId);
-	            record.setTemperature(temp);
-	            record.setWeight(weight);
-	            record.setNote(note);
-
-	            dao.insert(record);
-
+	           
 	            //一覧取得
 	            List<Sukusukukiroku> list = dao.findByFamilyId(familyId);
 
@@ -88,8 +78,17 @@ public class SukusukukirokuServlet {
 						} else if(weight <0|| weight >99) {
 							message ="体重は0~99㎏の間で入力してください";
 						} else {
+							HttpSession session= request.getSession();
+							String familyId= (String) session.getAttribute("family_id");
+							Sukusukukiroku record= new Sukusukukiroku();
+
+							record.setfamily_Id(familyId);
+							record.setTemperature(temp);
+							record.setWeight(weight);
+							record.setNote(note);
+
 							SukusukukirokuDao dao = new SukusukukirokuDao();
-							dao.insert(temp,weight,note);
+							dao.insert(record);
 							message = "登録完了しました！";
 						}
 					}catch(Exception e) {
