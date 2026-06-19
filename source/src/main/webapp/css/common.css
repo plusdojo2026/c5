@@ -87,9 +87,9 @@ header{
 .page-title{
     margin:0;
 
-    color:#ff648c;
+    color:#f5989d;
 
-    font-size:44px;
+    font-size:38px;
     font-weight:bold;
 
     line-height:1.2;
@@ -114,7 +114,7 @@ header{
 body{
 	margin:0 0 0 0;
 	color:#555555;
-	background-color:#ffffff;
+	background-color:#FFFAFA;
 }
 
 /* ==========================
