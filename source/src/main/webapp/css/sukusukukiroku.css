@@ -233,30 +233,33 @@ main{
 
 .modal-button-area{
     display:flex;
-    gap:15px;
-
+    gap:15px;	
     margin-top:20px;
+    
+    width: 100%;
 }
 
-.cancel-btn{
+
+.close-btn{
     flex:1;
 
-    height:55px;
+    height:45px;
 
-    border:1px solid #ddd;
+    border:none;
     border-radius:12px;
 
     background:white;
 
     font-size:18px;
-
+    font-weight:bold;
+	border:1px solid #ccc;
     cursor:pointer;
 }
 
 .submit-btn{
     flex:1;
 
-    height:55px;
+    height:45px;
 
     border:none;
     border-radius:12px;
