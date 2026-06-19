@@ -48,7 +48,7 @@ public class SukusukukirokuDao {
 	            	record.setWeight(rs.getDouble("weight"));
 	            	record.setTemperature(rs.getDouble("temperature"));
 	            	record.setNote(rs.getString("note"));
-	            	record.setRecordedAt(rs.getString("recorded_At"));
+	            	record.setRecordedAt(rs.getString("recorded_at"));
 	            	
 	            	list.add(record);
 	            }
