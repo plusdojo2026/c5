@@ -410,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	        successModal.style.display = "none";
 	        // URLの「?msg=success」を綺麗に消して元のURLに戻す親切機能
 	        window.history.replaceState({}, document.title, window.location.pathname);
-	    }, 2000); // 2000ミリ秒 ＝ 2秒間表示する
+	    }, 1000); // 1000ミリ秒 ＝ 1秒間表示する
 	}
 });
 </script>
