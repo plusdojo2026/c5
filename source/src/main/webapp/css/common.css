@@ -137,24 +137,19 @@ body{
 ========================== */
 
 .page-action-btn{
-    background:#ff648c;
-    color:#fff;
-
-    border:none;
-    border-radius:16px;
-
-    padding:16px 32px;
-
-    font-size:18px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:0.2s;
+    background-color: #ff4d79; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;   /*上下  左右*/
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .page-action-btn:hover{
-    opacity:0.9;
+    background-color: #e63960;    /* マウスを乗せたら少し濃いピンク */
 }
 
 
