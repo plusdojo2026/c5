@@ -91,7 +91,6 @@ public class TorisetuServlet extends HttpServlet{
 	//登録処理DTO
 	Torisetu pro = new Torisetu();
 	pro.setFamilyId(familyId);
-	pro.setCoupleId(coupleId);
 	pro.setHappy1(happy1);
 	pro.setHappy2(happy2);
 	pro.setHappy3(happy3);
