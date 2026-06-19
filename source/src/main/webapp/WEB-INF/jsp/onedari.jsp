@@ -67,7 +67,7 @@
 					    <!-- サーブレットに送るパラメータ（隠しフィールド） -->
 					    <input type="hidden" name="action" value="delete">
 					    <input type="hidden" name="onedariId" value="${item.onedariId}">
-					    <input type="image" name="submit" src="/c5/img/gomibako.png" alt="削除" class="delete-btn" onclick="return confirm('本当に削除しますか？')">
+					    <input type="image" name="submit" src="/c5/img/gomibako.jpg" alt="削除" class="delete-btn" onclick="return confirm('本当に削除しますか？')">
 						</form>
                         
                         <!-- 3.購入したらチェックマーク -->
