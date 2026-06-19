@@ -26,7 +26,6 @@ header{
 /* ロゴ画像 */
 .logo-image{
     height:90px;
-    rgb(255, 228, 225)uto;
 
     display:block;
 }
@@ -348,3 +347,4 @@ header{
     color:#aaaaaa;
     font-size:12px;
 }
+
