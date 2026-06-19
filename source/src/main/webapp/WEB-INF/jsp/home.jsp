@@ -24,30 +24,31 @@
 
 <!-- メイン -->
 <main>
+<div class="page-container">
     <div class="menu-grid">
     
     <div class="row">
     	<!-- おねだり -->
         <a href="${pageContext.request.contextPath}/OnedariServlet" class="home-icon">
-            <div class="icon">
+            <div>
             	<img src="${pageContext.request.contextPath}/img/onedari.png"
-        			 alt="おねだり">
+        			 alt="おねだり" class="icon">
 			</div>
         </a>
 
 		<!-- こんなことしてたよ -->
         <a href="${pageContext.request.contextPath}/KonnnakotositetayoServlet" class="home-icon">
-            <div class="icon">
+            <div>
             	<img src="${pageContext.request.contextPath}/img/konnnakotositetayo.png"
-        			 alt="こんなことしてたよ">
+        			 alt="こんなことしてたよ" class="icon">
 			</div>
         </a>
 
 		<!-- ふたりのバランス -->
         <a href="${pageContext.request.contextPath}/FutarinobalanceServlet" class="home-icon">
-            <div class="icon">
+            <div>
             	<img src="${pageContext.request.contextPath}/img/futarinobalance.png"
-        			 alt="ふたりのバランス">
+        			 alt="ふたりのバランス" class="icon">
 			</div>
         </a>
 	</div>
@@ -55,17 +56,17 @@
 	<div class="row">
 		<!-- おもいでアルバム -->
         <a href="${pageContext.request.contextPath}/OmoidealbumServlet" class="home-icon">
-            <div class="icon">
+            <div>
             	<img src="${pageContext.request.contextPath}/img/omoidealbum.png"
-        			 alt="おもいでアルバム">
+        			 alt="おもいでアルバム" class="icon">
 			</div>
         </a>
 
 		<!-- すくすく記録 -->
         <a href="${pageContext.request.contextPath}/SukusukukirokuServlet" class="home-icon">
-            <div class="icon">
+            <div>
             	<img src="${pageContext.request.contextPath}/img/sukusukukiroku.png"
-        			 alt="すくすく記録">
+        			 alt="すくすく記録" class="icon">
 			</div>
         </a>
 	</div>
@@ -80,7 +81,7 @@
         	<a href="${pageContext.request.contextPath}/MamanoyousuServlet" class="home-icon">
 	            <img
 	                src="${pageContext.request.contextPath}/img/mamanoyousu_mama.png"
-	                alt="ママのようす">
+	                alt="ママのようす" class="icon">
 			</a>
         </c:when>
 
@@ -133,14 +134,15 @@
 
 		<!-- ママのトリセツ -->
         <a href="${pageContext.request.contextPath}/TorisetuServlet" class="home-icon">
-            <div class="icon">
+            <div>
             	<img src="${pageContext.request.contextPath}/img/torisetsu.png"
-        			 alt="ママのトリセツ">
+        			 alt="ママのトリセツ" class="icon">
 			</div>
         </a>
 	</div>
 	
     </div>
+</div>
 </main>
 
 <!-- フッター -->
