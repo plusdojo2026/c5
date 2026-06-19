@@ -2,7 +2,7 @@
    全体
 ========================== */
 main{
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -187,7 +187,7 @@ body{
     border: 1px solid #ddd;
     border-radius: 10px;
 
-    font-size: 14px;
+    font-size: 12px;
 
     box-sizing: border-box;
 }
@@ -197,23 +197,37 @@ body{
     border-color: #ff7ea8;
 }
 
+input::placeholder{
+	font-size:10px;
+}
+
 /* ==========================
    不機嫌グリッド
 ========================== */
 
 .bad_grid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns:42% 58%;
+    gap: 5px;
 }
 
-.bad_grid input{
-    margin-bottom: 0;
+
+
+.bad_grid textarea{
+    width:100%;
+    min-height:50px;
+
+    padding:5px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+
+    font-size:12px;
+
+    resize:none;
+    box-sizing:border-box;
 }
 
-textarea::placeholder{
-	font-size:5px;
-}
 
 /* ==========================
    下部メッセージ
