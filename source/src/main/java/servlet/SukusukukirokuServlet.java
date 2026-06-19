@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,7 @@ import dao.SukusukukirokuDao;
 import dto.Sukusukukiroku;
 
 @WebServlet("/SukusukukirokuServlet")
-public class SukusukukirokuServlet {
+public class SukusukukirokuServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	/**
@@ -88,14 +89,18 @@ public class SukusukukirokuServlet {
 							record.setNote(note);
 
 							SukusukukirokuDao dao = new SukusukukirokuDao();
-							dao.insert(record);
-							message = "登録完了しました！";
+							boolean success=dao.insert(record);
+							if (success) {
+								message = "登録完了しました！";
+							}else {
+								message="登録に失敗しました";
+							}
+							
 						}
 					}catch(Exception e) {
 						message = "入力エラー";
 					}
-					
-					doGet(request,response);//再表示
 					request.setAttribute("message", message);
+					doGet(request,response);//再表示
 				}
 }
