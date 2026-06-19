@@ -1,22 +1,26 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import dao.OmoidealbumDao;
 import dto.Omoidealbum;
 
+@MultipartConfig //ファイルのアップロードに必要
 @WebServlet("/OmoidealbumServlet")
 
-public class OmoideAlbumServlet  extends HttpServlet{
+public class OmoidealbumServlet  extends HttpServlet{
 private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -60,21 +64,55 @@ private static final long serialVersionUID = 1L;
  		response.sendRedirect("LoginServlet");
  			return;
  		}
+ 	
+ 	
+ 	String action = request.getParameter("action");
+ 	
+ 	//---------削除する--------
+ 	if("delete".equals(action)){
+ 		int albumId = Integer.parseInt(request.getParameter("album_id"));
  		
- 	//リクエストパラメータを取得
- 	String photoPath = request.getParameter("photoPath");
- 	String comment = request.getParameter("comment");
-		//恐らく不要　　Timestamp createdAt = Timestamp.valueOf(request.getParameter("createdAt"));
- 
- 	//エラー(写真もコメントも未入力)
- 	String error =null;
- 	if(photoPath == null && comment == null) {
- 		error = "写真かコメントを入力してください";
+ 		Omoidealbum album = new Omoidealbum();
+ 		album.setAlbumId(albumId);
+ 		
+ 		OmoidealbumDao dao = new OmoidealbumDao();
+ 		dao.delete(album);
+ 		
+ 		//リダイレクトして、削除を確実に反映する
+ 		response.sendRedirect("OmoidealbumServlet");
+ 		return;
  	}
  	
- 	if(error != null) {
- 		request.setAttribute("message", error);
+ 	//--------投稿する--------
+ 	if("insert".equals(action)){
+ 	//リクエストパラメータを取得
+ 	Part part = request.getPart("album_photo");
+ 	String fileName = part.getSubmittedFileName();
+ 	String comment = request.getParameter("comment");
+		//恐らく不要  Timestamp createdAt = Timestamp.valueOf(request.getParameter("createdAt"));
+ 
+ 	//エラー(写真かコメントが未入力)
+ 	if(fileName == null || comment == null) {
+ 		request.setAttribute("message","写真とコメントを入力してください");
+ 		doGet(request,response);
+ 		return;
  	}
+ 	
+ 	//写真を保存する
+ 	String uploadDir = getServletContext().getRealPath("img/album");
+ 	File dir = new File(uploadDir);
+ 	//フォルダを作る
+ 	if(!dir.exists()) {
+ 		dir.mkdirs();
+ 	}
+ 	
+ 	//ファイルの保存名
+ 	String saveName = familyId + fileName;
+ 	String savePath = uploadDir + File.separator + saveName;
+ 	
+ 	String photoPath = "img/album/"+saveName;
+ 	
+ 	part.write(savePath);
  	
  	//登録処理Dto
  	Omoidealbum album = new Omoidealbum();
@@ -88,7 +126,8 @@ private static final long serialVersionUID = 1L;
  	albumDao.insert(album);
  	
  	//リダイレクト
- 	response.sendRedirect("OmoideAlbumServlet");
+ 	response.sendRedirect("OmoidealbumServlet");
  	
-}
+ 	}
+ 	}
 }
