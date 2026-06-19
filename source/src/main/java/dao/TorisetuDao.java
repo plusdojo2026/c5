@@ -17,19 +17,17 @@ public class TorisetuDao {
     //JDBCドライバ読み込み
     	try {Class.forName("com.mysql.cj.jdbc.Driver");
     //DBに接続　※仮の入力
-    	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
+    	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
     //SQLを準備
-    	String sql = "SELECT * FROM torisetu WHERE family_id=? AND couple_id=?";
+    	String sql = "SELECT * FROM torisetu WHERE family_id=?";
     	PreparedStatement pStmt = conn.prepareStatement(sql);
     	pStmt.setString(1,familyId);
-    	pStmt.setInt(2,coupleId);
     	ResultSet rs = pStmt.executeQuery();
     	
     	if(rs.next()) {
     	   card = new Torisetu();
    	
            card.setFamilyId(rs.getString("family_id"));
-           card.setCoupleId(rs.getInt("couple_id"));
            card.setTorisetuId(rs.getInt("torisetu_id"));
            card.setHappy1(rs.getString("happy1"));
            card.setHappy2(rs.getString("happy2"));
@@ -72,10 +70,10 @@ public class TorisetuDao {
 	//JDBCドライバ読み込み
 	try {Class.forName("com.mysql.cj.jdbc.Driver");
 	//DBに接続　※仮の入力
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
 	//SQLを準備
 	String sql = "INSERT INTO torisetu("
-										+ "family_id,couple_id,"
+										+ "family_id,"
 										+ "happy1,happy2,happy3,"
 										+ "angry1,angry2,angry3,"
 										+ "fun1,fun2,fun3,"
@@ -84,7 +82,7 @@ public class TorisetuDao {
 										+ "bad1,bad2,bad3,"
 										+ "badaction1,badaction2,badaction3,"
 										+ "update_at"
-										+ ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
+										+ ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW())";
 	PreparedStatement pStmt = conn.prepareStatement(sql);
 	
 			
@@ -92,112 +90,111 @@ public class TorisetuDao {
 	
 	//SQLの？に値を入れる
 	pStmt.setString(1,pro.getFamilyId());
-	pStmt.setInt(2,pro.getCoupleId());
 	
 	if (pro.getHappy1() != null) {
-		pStmt.setString(3, pro.getHappy1());
+		pStmt.setString(2, pro.getHappy1());
 	} else {
-		pStmt.setString(3, "");
+		pStmt.setString(2, "");
 		
 	}if (pro.getHappy2() != null) {
-		pStmt.setString(4, pro.getHappy2());
+		pStmt.setString(3, pro.getHappy2());
+	} else {
+		pStmt.setString(3, "");
+	
+	}if (pro.getHappy3() != null) {
+		pStmt.setString(4, pro.getHappy3());
 	} else {
 		pStmt.setString(4, "");
 	
-	}if (pro.getHappy3() != null) {
-		pStmt.setString(5, pro.getHappy3());
+	}if (pro.getAngry1() != null) {
+		pStmt.setString(5, pro.getAngry1());
 	} else {
 		pStmt.setString(5, "");
 	
-	}if (pro.getAngry1() != null) {
-		pStmt.setString(6, pro.getAngry1());
+	}if (pro.getAngry2() != null) {
+		pStmt.setString(6, pro.getAngry2());
 	} else {
 		pStmt.setString(6, "");
 	
-	}if (pro.getAngry2() != null) {
-		pStmt.setString(7, pro.getAngry2());
+	}if (pro.getAngry3() != null) {
+		pStmt.setString(7, pro.getAngry3());
 	} else {
 		pStmt.setString(7, "");
 	
-	}if (pro.getAngry3() != null) {
-		pStmt.setString(8, pro.getAngry3());
+	}if (pro.getFun1() != null) {
+		pStmt.setString(8, pro.getFun1());
 	} else {
 		pStmt.setString(8, "");
 	
-	}if (pro.getFun1() != null) {
-		pStmt.setString(9, pro.getFun1());
+	}if (pro.getFun2() != null) {
+		pStmt.setString(9, pro.getFun2());
 	} else {
 		pStmt.setString(9, "");
 	
-	}if (pro.getFun2() != null) {
-		pStmt.setString(10, pro.getFun2());
+	}if (pro.getFun3() != null) {
+		pStmt.setString(10, pro.getFun3());
 	} else {
 		pStmt.setString(10, "");
 	
-	}if (pro.getFun3() != null) {
-		pStmt.setString(11, pro.getFun3());
+	}if (pro.getSad1() != null) {
+		pStmt.setString(11, pro.getSad1());
 	} else {
 		pStmt.setString(11, "");
 	
-	}if (pro.getSad1() != null) {
-		pStmt.setString(12, pro.getSad1());
+	}if (pro.getSad2() != null) {
+		pStmt.setString(12, pro.getSad2());
 	} else {
 		pStmt.setString(12, "");
 	
-	}if (pro.getSad2() != null) {
-		pStmt.setString(13, pro.getSad2());
+	}if (pro.getSad3() != null) {
+		pStmt.setString(13, pro.getSad3());
 	} else {
 		pStmt.setString(13, "");
 	
-	}if (pro.getSad3() != null) {
-		pStmt.setString(14, pro.getSad3());
+	}if (pro.getCharge1() != null) {
+		pStmt.setString(14, pro.getCharge1());
 	} else {
 		pStmt.setString(14, "");
 	
-	}if (pro.getCharge1() != null) {
-		pStmt.setString(15, pro.getCharge1());
+	}if (pro.getCharge2() != null) {
+		pStmt.setString(15, pro.getCharge2());
 	} else {
 		pStmt.setString(15, "");
 	
-	}if (pro.getCharge2() != null) {
-		pStmt.setString(16, pro.getCharge2());
+	}if (pro.getCharge3() != null) {
+		pStmt.setString(16, pro.getCharge3());
 	} else {
 		pStmt.setString(16, "");
 	
-	}if (pro.getCharge3() != null) {
-		pStmt.setString(17, pro.getCharge3());
+	}if (pro.getBad1() != null) {
+		pStmt.setString(17, pro.getBad1());
 	} else {
 		pStmt.setString(17, "");
 	
-	}if (pro.getBad1() != null) {
-		pStmt.setString(18, pro.getBad1());
+	}if (pro.getBad2() != null) {
+		pStmt.setString(18, pro.getBad2());
 	} else {
 		pStmt.setString(18, "");
 	
-	}if (pro.getBad2() != null) {
-		pStmt.setString(19, pro.getBad2());
+	}if (pro.getBad3() != null) {
+		pStmt.setString(19, pro.getBad3());
 	} else {
 		pStmt.setString(19, "");
 	
-	}if (pro.getBad3() != null) {
-		pStmt.setString(20, pro.getBad3());
+	}if (pro.getBadaction1() != null) {
+		pStmt.setString(20, pro.getBadaction1());
 	} else {
 		pStmt.setString(20, "");
 	
-	}if (pro.getBadaction1() != null) {
-		pStmt.setString(21, pro.getBadaction1());
+	}if (pro.getBadaction2() != null) {
+		pStmt.setString(21, pro.getBadaction2());
 	} else {
 		pStmt.setString(21, "");
 	
-	}if (pro.getBadaction2() != null) {
-		pStmt.setString(22, pro.getBadaction2());
+	}if (pro.getBadaction3() != null) {
+		pStmt.setString(22, pro.getBadaction3());
 	} else {
 		pStmt.setString(22, "");
-	
-	}if (pro.getBadaction3() != null) {
-		pStmt.setString(23, pro.getBadaction3());
-	} else {
-		pStmt.setString(23, "");
 	}
 
 	
@@ -215,14 +212,14 @@ public class TorisetuDao {
 }
     
 //--------トリセツを更新する--------
-	//引数proで登録されたレコードを登録し、成功したらtrueを返す
+	//引数proで登録されたレコードで更新し、成功したらtrueを返す
 	public boolean update(Torisetu pro) {
 		Connection conn = null;
 		boolean result = false;
 	//JDBCドライバ読み込み
 	try {Class.forName("com.mysql.cj.jdbc.Driver");
 	//DBに接続　※仮の入力
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/futarigoto_db?characterEncoding=UTF-8","root","");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
 	//SQLを準備
 		String sql = "UPDATE torisetu SET happy1=?,happy2=?,happy3=?,"
 											+ "angry1=?,angry2=?,angry3=?,"
@@ -231,7 +228,7 @@ public class TorisetuDao {
 											+ "charge1=?,charge2=?,charge3=?,"
 											+ "bad1=?,bad2=?,bad3=?,"
 											+ "badaction1=?,badaction2=?,badaction3=?,"
-											+ "update_at=NOW() WHERE family_id=? AND couple_id=?";
+											+ "update_at=NOW() WHERE family_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 	//SQLの？に値を入れる
 		pStmt.setString(1, pro.getHappy1());
@@ -257,7 +254,6 @@ public class TorisetuDao {
 		pStmt.setString(21, pro.getBadaction3());
 		
 		pStmt.setString(22, pro.getFamilyId());
-		pStmt.setInt(23, pro.getCoupleId());
 	
 		//SQLを実行する
 	if(pStmt.executeUpdate()==1) {
