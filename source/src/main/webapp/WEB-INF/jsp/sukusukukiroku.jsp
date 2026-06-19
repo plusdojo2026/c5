@@ -3,11 +3,12 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-
+<head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sukusukukiroku.css">
 
 <meta charset="UTF-8">
+</head>
 <title>すくすく記録</title>
 
 
@@ -62,10 +63,10 @@
 					
 					<div class="modal-button-area">
 		                <button type="button" id="closeModal" class="close-btn">
-		                    閉じる
+		                    キャンセル
 		                </button>
 		                <button type="submit" class="submit-btn">
-		                    追加する
+		                    記録する
 		                </button>
 					</div>
 					
