@@ -87,13 +87,14 @@ List<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><Futarinobal
 					</c:if>
 					
                     <!-- mamaListをループして1件ずつ表示する -->
+                    <!-- mamaList.size(２１） -->
                     <% for (int i = 0; i < mamaList.size(); i++) { %>
                     <% Futarinobalance bean = mamaList.get(i);%>
                     
                		
                         <!-- タスクカード -->
                         <!-- data-balance-id → JavaScriptでどのタスクか識別するために使う -->
-                        <!-- draggable="true" → ドラッグできるようにする -->
+                        <!-- draggable="true" → ドラッグできるようにする HTMLの標準機能-->
                         <div class="task-card"
                              draggable="true"
                              data-balance-id="<%= bean.getBalanceId() %>"
