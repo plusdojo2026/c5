@@ -4,18 +4,16 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/omoidealbum.css">
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/omoidealbum.css">
 <meta charset="UTF-8">
 <title>おもいでアルバム</title>
-</head>
 
 <body>
-<header>
 <!-- ヘッダーをインクルード -->
 <%@ include file="header.jsp" %>
-</header>
+
 <main>
 <div class="page-container">
 
