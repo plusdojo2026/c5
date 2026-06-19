@@ -44,6 +44,12 @@ main{
     margin-bottom: 170px;
 }
 
+.page-container{
+    min-height: calc(100vh - 120px - 120px);
+}
+
+
+
 /* アイコン配列 */
 .row{
     display:flex;
@@ -55,6 +61,18 @@ main{
 img {
     width: 200px;
     height: 200px;
+}
+
+.icon {
+	border-radius:35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition:0.2s ease;
+}
+
+.home-icon:hover .icon{
+	transform:scale(1.03);
+
+	box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* =========================
@@ -78,6 +96,17 @@ img {
     gap:15px;
 
     text-decoration:none;
+    
+    transition:transform 0.2s ease;
+	
+	box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mama-home-card:hover{
+	transform:scale(1.03);
+
+	box-shadow:
+		0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* 左側 */
@@ -203,11 +232,6 @@ img {
     color:#ff80c0;
 }
 
-/* ホバー無効 */
-
-.mama-home-card:hover{
-    transform:none;
-}
 
 
 /* 背景色 */
