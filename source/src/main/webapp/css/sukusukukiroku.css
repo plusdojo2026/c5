@@ -101,6 +101,7 @@ main{
 ========================== */
 
 .record-card{
+	display: flex;
     background:#fff;
 
     border:1px solid #eee;
