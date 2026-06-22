@@ -118,6 +118,14 @@
 						</div>
 					</div>
 					
+					 <!-- 削除ボタン style="display: inline-block;" で改行禁止-->
+					 <form action="/c5/SukusukukirokuServlet" method="POST" style="display:inline-block;">
+					 <!-- サーブレットに送るパラメータ（隠しフィールド） -->
+					 <input type="hidden" name="action" value="delete">
+					 <input type="hidden" name="sukusukuId" value="${item.sukusukuId}">
+					 <input type="image" name="submit" src="/c5/img/gomibako.jpg" alt="削除" class="delete-btn" onclick="return confirm('本当に削除しますか？')">
+					 </form>
+					
 				</div>
 
 			</c:forEach>
