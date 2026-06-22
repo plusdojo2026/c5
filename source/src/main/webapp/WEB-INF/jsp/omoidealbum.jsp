@@ -96,18 +96,24 @@
 		<button type="submit" id="regist">記録する</button>
 		</form>
 	</div>
-	
-	<!-- アルバム作成完了の表示 表示のみ完成。OK処理はまだ -->
-		<div id="complete_modal" class="complete_modal">
-			<div class="complete_box">
-				<img src="img/tsuika.png" class="tsuika">
-				<p>登録が完了しました！</p>
-				<button id="ok">OK</button>
-			</div>
-		</div>
-</div>
 
 </main>
+
+<!-- 変更完了モーダル -->
+<div class="modal-overlay" id="success-modal">
+    <div class="modal-container success-container">
+        
+        <!-- 中央に表示されるチェックマークのイラスト -->
+        <!-- 後で画像のリンクちゃんと設定 -->
+        <img src="/c5/img/tsuika.png" alt="追加完了マーク" class="success-image">
+        <!-- メッセージ部分 -->
+        <h2>記録しました！</h2>
+        <p>思い出アルバムの内容が更新されました</p>
+        
+    </div>
+</div>
+
+
 <footer>
 <!-- フッターをインクルード -->
 <%@ include file="footer.jsp" %> 
@@ -153,6 +159,21 @@
 	}
 	window.previewImage = previewImage;
 	});
+	
+		//記録完了モーダル
+		document.addEventListener("DOMContentLoaded", () => {
+		    const successModal = document.getElementById("success-modal");
+		    
+		    // サーブレットから処理完了後、URLに「?msg=success」が付いて戻ってきたらモーダルを表示
+		    if (successModal && new URLSearchParams(window.location.search).get("msg") === "success") {
+		        successModal.style.display = "flex";
+		        setTimeout(() => {
+		            successModal.style.display = "none";
+		            // URLの「?msg=success」を綺麗に消して元のURLに戻す
+		            window.history.replaceState({}, document.title, window.location.pathname);
+		        }, 1000); // 1秒間表示する
+		    }
+		});
 		
 </script>
 </body>
