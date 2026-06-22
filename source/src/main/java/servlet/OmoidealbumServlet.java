@@ -26,7 +26,7 @@ private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
-	//セッションを取得する
+	//セッションを取得する!
 	HttpSession session = request.getSession();
     String familyId = (String) session.getAttribute("family_id");
     int coupleId = (int) session.getAttribute("couple_id");
