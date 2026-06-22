@@ -130,7 +130,8 @@ private static final long serialVersionUID = 1L;
  	albumDao.insert(album);
  	
  	//リダイレクト
- 	response.sendRedirect("OmoidealbumServlet");
+ 	response.sendRedirect("/c5/OmoidealbumServlet?msg=success");
+ 	return; 
  	
  	}
  	}
