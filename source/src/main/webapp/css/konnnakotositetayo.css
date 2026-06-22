@@ -97,6 +97,13 @@ body{
     padding:14px 18px;
 }
 
+/* 削除ボタンの調整 */
+.trash-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
 /* ------------------------
  日付
 ------------------------ */
