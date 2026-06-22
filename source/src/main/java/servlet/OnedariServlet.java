@@ -168,7 +168,7 @@ public class OnedariServlet extends HttpServlet {
         // データベースに登録を実行
         odao.register(onedari);
         
-        // これにより、JSPのJavaScriptが反応して「追加しました！」が2秒間自動表示されます
+        // リダイレクト 「追加しました！」1秒間自動表示
         response.sendRedirect("/c5/OnedariServlet?msg=success");
     }
 
