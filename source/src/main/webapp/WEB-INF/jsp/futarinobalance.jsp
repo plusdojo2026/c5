@@ -47,6 +47,10 @@
 
     <!-- ===== メインコンテンツ ===== -->
     <div class="balance-wrapper">
+    
+    <a href="${pageContext.request.contextPath}/HomeServlet">
+	<img src="<%=request.getContextPath()%>/img/back_home.png" class="back_home">
+	</a>
 
         <!-- ページタイトル -->
         	<div class="page-header">
