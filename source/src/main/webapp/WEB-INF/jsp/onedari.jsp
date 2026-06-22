@@ -89,8 +89,7 @@
 <!-- モーダル制御の画面構成1 -->
 <div class="modal-overlay" id="add-modal"> 
     <div class="modal-container">      <!-- ミルクオムツその他などの上にくるカードの部分 -->
-    <!-- 1つ前のページに戻るボタン（左上の>） -->
-    <button class="modal-back-btn">&lt;</button>
+
     <!-- 閉じるボタン（右上の×） -->
         <button class="modal-close-btn">&times;</button>  
         <!-- [&times;]  綺麗な「×」のバツ印を表示するための書き方 -->
@@ -402,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-	//追加完了画面を２秒間表示したのちにリストの一覧に戻る
+	//追加完了画面を表示し、リストに戻る
 	const successModal = document.getElementById("success-modal");
 	if (successModal && new URLSearchParams(window.location.search).get("msg") === "success") {
 	    successModal.style.display = "flex";
