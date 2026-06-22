@@ -167,6 +167,7 @@
             
             <!-- 送信ボタン -->
             <div class="form-actions">
+            	<button type="button" class="cancel-btn">キャンセル</button>
                 <button type="submit" class="submit-btn">追加する</button>
             </div>
         </form>
@@ -215,6 +216,7 @@
             
             <!-- ④ 送信ボタン -->
             <div class="form-actions">
+            	<button type="button" class="cancel-btn">キャンセル</button>
                 <button type="submit" class="submit-btn">追加する</button>
             </div>
         </form>
@@ -253,6 +255,7 @@
             
             <!-- 送信ボタン -->
             <div class="form-actions">
+            	<button type="button" class="cancel-btn">キャンセル</button>
                 <button type="submit" class="submit-btn">追加する</button>
             </div>
         </form>
@@ -286,6 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const optionBtns = document.querySelectorAll(".select-options .option-btn");
     const closeBtns = document.querySelectorAll(".modal-close-btn");
     const backBtns = document.querySelectorAll(".modal-back-btn");
+    const cancelBtns = document.querySelectorAll(".cancel-btn");
+    
 	
     //追加ボタン押されたら、おむつ ミルク その他 を選択する1のモーダルを表示
     if (addBtn && addModal) {
@@ -319,6 +324,18 @@ document.addEventListener("DOMContentLoaded", () => {
             allModals.forEach(modal => modal.style.display = "none");
         });
     });
+    
+	 // キャンセルボタンが押されたらフォームをリセットして全てのモーダルを閉じる
+	    cancelBtns.forEach(btn => {
+	        btn.addEventListener("click", () => {
+	            // すべてのモーダルを非表示にする（完全に閉じる）
+	            allModals.forEach(modal => modal.style.display = "none");
+	
+	            // キャンセルされたら、フォームに入力されていた内容をクリアする
+	            const form = btn.closest("form");
+	            if (form) form.reset();
+	        });
+	    });
 
     // 2. 画像のリアルタイムプレビュー処理
     const setupPreview = (inputId, previewId) => {
