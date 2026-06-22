@@ -14,7 +14,7 @@ public class OmoidealbumDao {
 	
 	//--------日記の一覧をfamilyIdとcoupleIdで取得し、タイムライン形式で並べる。--------
 		public List<Omoidealbum> FindByFamilyIdAndCoupleId(String familyId,int coupleId){
-		//結果を格納するリスト
+		//結果を格納するリスト!
 			List<Omoidealbum> list = new ArrayList<Omoidealbum>();
 		//DB接続に使う変数
 			Connection conn = null;
