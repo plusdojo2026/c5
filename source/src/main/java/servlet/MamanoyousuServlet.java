@@ -53,41 +53,69 @@ public class MamanoyousuServlet extends HttpServlet {
         String sleepStr = request.getParameter("sleep_hours");
         String stressStr = request.getParameter("stress");
         String memo = request.getParameter("memo");
+        
+
+        //値を保持
+        request.setAttribute("physical_score", physicalStr);
+        request.setAttribute("mental_score", mentalStr);
+        request.setAttribute("sleep_hours", sleepStr);
+        request.setAttribute("stress", stressStr);
+        request.setAttribute("memo", memo);
+
 
         String error = null;
 
         // 未入力チェック
-        if (physicalStr == null) {
+        if (physicalStr == null ||physicalStr.isEmpty()) {
             error = "体調具合を選択してください";
-        } else if (mentalStr == null) {
+        } else if (mentalStr == null || mentalStr.isEmpty()) {
             error = "メンタル値を選択してください";
         } else if (sleepStr == null || sleepStr.isEmpty()) {
             error = "睡眠時間を入力してください";
-        } else if (stressStr == null) {
+        } else if (stressStr == null || stressStr.isEmpty()) {
             error = "ストレス値を選択してください";
         }
+        
+        //例外処理
+        int physical = 0;
+        int mental = 0;
+        double sleep = 0;
+        int stress = 0;
+        
 
+        if (error == null) {
+            try {
+                physical = Integer.parseInt(physicalStr);
+                mental = Integer.parseInt(mentalStr);
+                sleep = Double.parseDouble(sleepStr);
+                stress = Integer.parseInt(stressStr);
+            } catch (NumberFormatException e) {
+                error = "数値の入力形式が正しくありません";
+            }
+
+        
+        //エラー時
         if (error != null) {
             request.setAttribute("message", error);
             request.getRequestDispatcher("/WEB-INF/jsp/mamanoyousu_mama.jsp").forward(request, response);
             return;
         }
 
-        // 型変換
-        int physical = Integer.parseInt(physicalStr);
-        int mental = Integer.parseInt(mentalStr);
-        double sleep = Double.parseDouble(sleepStr);
-        int stress = Integer.parseInt(stressStr);
-
+        
         // セッション取得
         HttpSession session = request.getSession();
         String familyId = (String) session.getAttribute("family_id");
         int coupleId = (Integer) session.getAttribute("couple_id");
+        
 
+
+
+        //DTO作成
         Mamanoyousu m = new Mamanoyousu(
               familyId, coupleId, physical, mental, sleep, stress, memo
         );
-
+        
+        //記録の有無の判定
         boolean result = dao.insert(m);
 
         if (result) {
@@ -97,6 +125,7 @@ public class MamanoyousuServlet extends HttpServlet {
         }
 
         doGet(request, response);
+        }
     }
 
     // アドバイス
