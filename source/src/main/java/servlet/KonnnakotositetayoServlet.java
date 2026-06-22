@@ -28,6 +28,30 @@ public class KonnnakotositetayoServlet extends HttpServlet {
 
         // 文字コードの設定
         request.setCharacterEncoding("UTF-8");
+     // ===== 削除リクエストの判定 =====
+        // actionパラメータが "delete" なら削除処理を行う
+        String action = request.getParameter("action");
+        if ("delete".equals(action)) {
+
+            // セッションからfamily_idを取得
+            HttpSession delSession = request.getSession();
+            String delFamilyId = (String) delSession.getAttribute("family_id");
+
+            // ログインしていない場合はログイン画面へ
+            if (delFamilyId == null) {
+                response.sendRedirect("LoginServlet");
+                return;
+            }
+
+            // DAOで自分の記録を全削除
+            KonnnakotositetayoDao delDao = new KonnnakotositetayoDao();
+            delDao.deleteAll(delFamilyId);
+
+            // 削除後は画面を再読み込み（リダイレクト）
+            response.sendRedirect("KonnnakotositetayoServlet");
+            return;
+        }
+        // ===== ここまで削除リクエスト =====
 
         // セッションからfamily_idを取得
         HttpSession session = request.getSession();
