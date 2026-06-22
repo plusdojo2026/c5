@@ -372,3 +372,120 @@ header{
     font-size:12px;
 }
 
+
+
+/* ==========================
+   スマホ対応
+========================== */
+@media (max-width: 767px) {
+
+    /* 全体 */
+    body{
+        overflow-x:hidden;
+    }
+
+    /* ヘッダー */
+    header{
+        height:60px;
+        padding:10px 15px;
+    }
+
+    .logo-image{
+        height:50px;
+    }
+
+    .logout-btn{
+        padding:8px 12px;
+        font-size:12px;
+    }
+
+    /* メイン */
+    main{
+        margin-top:20px;
+        margin-bottom:40px;
+    }
+
+    .page-container{
+        min-height:auto;
+        padding:0 15px;
+    }
+
+    /* アイコンエリア */
+    .row{
+        gap:12px;
+        margin-bottom:12px;
+    }
+
+    img{
+        width:90px;
+        height:90px;
+    }
+
+    /* ママのようすカード */
+    .mama-home-card{
+        width:100%;
+        height:auto;
+
+        padding:12px;
+        gap:10px;
+    }
+
+    .mama-left{
+        width:90px;
+    }
+
+    .mama-home-image{
+        width:90px;
+    }
+
+    .mama-left-title{
+        font-size:12px;
+    }
+
+    .mama-right{
+        width:auto;
+        flex:1;
+    }
+
+    .mini-title{
+        font-size:12px;
+    }
+
+    .heart-area{
+        font-size:18px;
+    }
+
+    .sleep-value{
+        font-size:18px;
+    }
+
+    .detail-link{
+        font-size:12px;
+    }
+
+    /* ポップアップ */
+    .popup-content{
+        width:90%;
+        max-width:none;
+        padding:20px;
+    }
+
+    .mama-popup .popup-content,
+    .papa-popup .popup-content{
+        width:90%;
+        padding:20px;
+    }
+
+    /* フッター */
+    .footer{
+        padding:20px 10px;
+    }
+
+    .footer-title{
+        font-size:16px;
+    }
+
+    .copyright{
+        font-size:10px;
+    }
+}
