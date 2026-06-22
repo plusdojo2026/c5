@@ -45,6 +45,10 @@
 
     <!-- ===== メインコンテンツ ===== -->
     <div class="page-container">
+    
+    <a href="${pageContext.request.contextPath}/HomeServlet">
+	<img src="<%=request.getContextPath()%>/img/back_home.png" class="back_home">
+	</a>
 
         <!-- エラーメッセージエリア -->
         <% if (!message.equals("")) { %>
