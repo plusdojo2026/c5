@@ -18,7 +18,11 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 
+<main>
 <div class="page-container">
+<a href="${pageContext.request.contextPath}/HomeServlet">
+<img src="<%=request.getContextPath()%>/img/ホームに戻る.png" class="back_home">
+</a>
 	<div class="page-header">
 		<div class="page-title-area">
 			<h1 class="page-title">すくすく記録</h1>
@@ -132,7 +136,7 @@
 
 		</div>	
 </div>			
-			
+</main>			
 	<!-- フッター -->
 <%@ include file="footer.jsp" %>
 <script>
