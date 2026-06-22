@@ -1,34 +1,35 @@
--- ============================================================
---  7. todo (ふたりのバランス用タスクマスタ)
---     家事育児21タスクを定義する表
---     ※ tasks (6件) とは別物。家事育児のバランス可視化専用
--- ============================================================
-CREATE TABLE todo (
-    task_id   INT         NOT NULL AUTO_INCREMENT,  -- タスクID (主キー)
-    task_name VARCHAR(50) NOT NULL,                 -- タスク名
-    PRIMARY KEY (task_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+mysql> CREATE TABLE tasks (
+         task_id   INT         NOT NULL AUTO_INCREMENT,
+         task_name VARCHAR(20) NOT NULL,
+         PRIMARY KEY (task_id)
+     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- ▼ todo 初期データ (内部設計書より 21件)
-INSERT INTO todo (task_id, task_name) VALUES
-    ( 1, 'ミルク'),
-    ( 2, 'おむつ交換'),
-    ( 3, '沐浴・お風呂'),
-    ( 4, '寝かしつけ'),
-    ( 5, '夜泣き'),
-    ( 6, '歯磨き'),
-    ( 7, '哺乳瓶の洗浄・消毒'),
-    ( 8, '送り迎え'),
-    ( 9, '離乳食準備'),
-    (10, '病院対応'),
-    (11, 'ご飯を作る'),
-    (12, '洗い物をする'),
-    (13, '洗濯機を回す'),
-    (14, '洗濯物を干す'),
-    (15, '洗濯物を畳む'),
-    (16, '掃除機をかける'),
-    (17, 'ゴミ出し'),
-    (18, '買い物に行く'),
-    (19, '消耗品の補充・注文'),
-    (20, '風呂掃除'),
-    (21, 'トイレ掃除');
+mysql> INSERT INTO tasks (task_id, task_name) VALUES
+         (1, 'ミルク'),
+         (2, '夜泣き'),
+         (3, 'おむつ交換'),
+         (4, '歯磨き'),
+         (5, 'お風呂'),
+         (6, 'その他');
+
+
+mysql> CREATE TABLE konnnakotositetayo (
+         konnnakotositetayo_id INT         NOT NULL AUTO_INCREMENT,
+         family_id             VARCHAR(32) NOT NULL,
+         couple_id             INT         NOT NULL,
+         task_id               INT         NOT NULL,
+         count                 INT         NOT NULL DEFAULT 1,
+         memo                  VARCHAR(20)          DEFAULT NULL,
+         display_order         INT         NOT NULL DEFAULT 0,
+         is_read               INT         NOT NULL DEFAULT 0,
+         recorded_date         DATE        NOT NULL,
+         created_at            DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+         PRIMARY KEY (konnnakotositetayo_id),
+         FOREIGN KEY (task_id) REFERENCES tasks (task_id)
+       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+mysql> SHOW TABLES;
+
+mysql> SELECT * FROM tasks;
+
+INSERT INTO todo (task_id, task_name) VALUES (22, 'その他');
