@@ -12,7 +12,7 @@ public class Omoidealbum implements Serializable {
 	private String comment;			/*コメント*/
 	private Timestamp createdAt;	/*作成日時*/
 	
-/*コンストラクタの生成*/
+/*コンストラクタの生成!*/
 	public Omoidealbum(String familyId,int coupleId,int albumId,String photoPath,String comment,Timestamp createdAt) {
 		super();
 		this.familyId = familyId;
