@@ -81,7 +81,7 @@ body {
     transition: all 0.3s ease;
 }
 
-/* 購入完了（チェックが入ったとき）はカード全体を半透明にする設定 */
+/* 購入完了時はカード全体を半透明にする */
 .item-card.is-purchased {
     opacity: 0.5;
     background-color: #fafafa;
@@ -144,7 +144,7 @@ body {
     border: 1px solid #eee;
 }
 
-/* チェックボックスの大きさ調整 */
+/* チェックボックス調整 */
 .check-box {
     width: 24px;
     height: 24px;
@@ -160,24 +160,24 @@ body {
 }
 
 
-/* 2. モーダル（ポップアップ）の制御レイアウト */
-/*  画面全体を覆う薄暗い背景の設定 */
+/* 2. モーダル制御のレイアウト */
+/*  画面全体の背景設定 */
 .modal-overlay {
     position: fixed;     /* 画面の特定の位置に固定する（スクロールしてもズレない） */
     top: 0;
     left: 0;
     width: 100%;         /* 横幅を画面いっぱいに広げる */
     height: 100vh;       /* 縦幅を画面いっぱいに広げる */
-    background-color: rgba(0, 0, 0, 0.4); /* 黒色を40%の透明度にする */
+    background-color: rgba(0, 0, 0, 0.4); 
     
-    /* 中の白いカード（modal-container）を真ん中に配置するための設定 */
+    /* 中の白いカード（modal-container）を真ん中に配置 */
     display: flex;
     justify-content: center;
     align-items: center;
     
     z-index: 1000;       /* 他のパーツよりも一番手前に表示させるための数字 */
 
-    /* 最初は none で隠す */
+    /* 最初 none で隠す */
     display: none;       
 }
 
@@ -336,14 +336,14 @@ body {
     transition: all 0.2s;
 }
 
-/* 選択された時（チェックが入った時）にピンク色 */
+/* 選択された時にピンク */
 .type-btn:has(input:checked), .size-btn:has(input:checked) {
     background-color: #fff0f3;
     border-color: #ff4d79;
     color: #ff4d79;
 }
 
-/* 本物の丸いラジオボタンは見えなくする */
+/* 丸いラジオボタン隠す */
 .type-btn input, .size-btn input {
     margin-right: 6px;
 }
@@ -376,7 +376,7 @@ body {
     background-color: #e63960;
 }
 
-/* キャンセルボタン（グレーのやわらかいデザイン） */
+/* キャンセルボタン */
 .form-actions .cancel-btn {
     background-color: #f2f2f2;
     color: #666666;
@@ -387,7 +387,7 @@ body {
 }
 
 
-/* 4. 追加完了（サクセス）モーダルのスタイル　*/
+/* 4. 追加完了のモーダル　*/
 .success-container {
     text-align: center;
     padding: 40px 20px;
