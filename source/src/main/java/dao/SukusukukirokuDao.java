@@ -107,4 +107,49 @@ public class SukusukukirokuDao {
 	}
 	return result;
   }	
+	
+	
+	//削除のメゾット
+	public boolean deleteSukusuku(int sukusukuId) {
+		Connection conn = null;
+        boolean deleteResult = false;
+        
+        try {
+            // JDBCドライバを読み込む
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            // データベースに接続する
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
+
+            // DELETE文を準備する
+            String sql = "DELETE FROM sukusukukiroku WHERE sukusuku_id = ?";
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, sukusukuId);
+
+            // DELETE文を実行し、結果を取得する
+            int rowsDeleted = pStmt.executeUpdate();
+            if (rowsDeleted == 1) {
+                deleteResult = true;
+            }
+        } catch (java.sql.SQLException e) {
+            e.printStackTrace();
+            deleteResult = false;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            deleteResult = false;
+        } finally {
+            // データベースを切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (java.sql.SQLException e) {
+                    e.printStackTrace();
+                    deleteResult = false;
+                }
+            }
+        }
+        // 結果を返す
+        return deleteResult;
+	}
+	
 }
