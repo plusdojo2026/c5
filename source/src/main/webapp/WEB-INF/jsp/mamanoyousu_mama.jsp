@@ -12,7 +12,7 @@
 
 <!--ここからママの様子記録! -->
 <body>
-<!-- ヘッダー -->
+<!-- ヘッダー! -->
 <%@ include file="header.jsp" %>
 
 <div class="page-container">
