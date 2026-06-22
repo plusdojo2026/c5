@@ -33,7 +33,7 @@ public class MamanoyousuServlet extends HttpServlet {
         if (mama != null) {
             request.setAttribute("advice", createAdvice(mama));
         }
-      //カップルIDでの表示画面の判別
+      //カップルIDでの表示画面の判別11
         if (coupleId == 0) {
             request.getRequestDispatcher("/WEB-INF/jsp/mamanoyousu_mama.jsp").forward(request, response);
         } else {
