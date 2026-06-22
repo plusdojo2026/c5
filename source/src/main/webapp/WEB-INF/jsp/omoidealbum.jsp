@@ -82,14 +82,14 @@
 		<div class="photobox">
 			<label for ="album_photo">📸写真を追加</label>
 			<input type="file" id="album_photo" accept="image/*" onchange="previewImage(event)" name="album_photo" style="display:none;">
-			<img id="preview" style = "max-width:200px; display:none;">
+			<img id="preview" style = "max-width:250px; display:none;">
 		</div>
 		
 		<p>コメント(任意)</p>
 	<!-- テキストエリアの文字数カウント -->
 		<div class=album_textarea>
 			<textarea id="album_text" name="comment" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
-			<div id=count>0 / 200</div>
+			<div id="count">0 / 200</div>
 		</div>
 		
 		<button type="button" id="cancel">キャンセル</button>
@@ -117,11 +117,19 @@
 <script>
 	'use strict';
 		//テキストの文字数をカウントする
+		document.addEventListener('DOMContentLoaded',()=>{
+			
 		const textarea = document.getElementById("album_text");
 		const counter = document.getElementById("count");
 		
-		textarea.addEventListener("input",()=>{
-		counter.textContent = `${textarea.value.length} / 200`;});
+		if(textarea && counter){
+			
+			counter.textContent = `0 / 200`;
+
+			textarea.addEventListener("input",()=>{
+			counter.textContent = `${textarea.value.length} / 200`;
+			});
+			}
 		
 		//モーダル制御
 		const modal = document.getElementById("album_modal");
@@ -143,6 +151,8 @@
 			reader.readAsDataURL(file);
 		}
 	}
+	window.previewImage = previewImage;
+	});
 		
 </script>
 </body>
