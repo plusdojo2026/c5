@@ -17,6 +17,10 @@
 <main>
 <div class="page-container">
 
+<a href="${pageContext.request.contextPath}/HomeServlet">
+<img src="<%=request.getContextPath()%>/img/back_home.png" class="back_home">
+</a>
+
 	<div class="page-header">
 		<h1 class="page-title">おもいでアルバム</h1>
 			<!-- 登録追加ボタン -->
