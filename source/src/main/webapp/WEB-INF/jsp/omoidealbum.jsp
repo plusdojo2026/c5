@@ -59,12 +59,12 @@
 		<!-- 日付を表示(フォーマットを改善) -->
 		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy年MM月dd日"/></p>
 		
-	<!-- 削除。OmoidealbumServletにポスト -->
+	<!-- 削除。OmoidealbumServletにポスト  ※実装なし！！！
 		<form method="POST" action="OmoidealbumServlet">
 			<input type="hidden" name ="action" value="delete">
 			<input type="hidden" name ="album_id" value="${album.albumId}">
 			<button type="submit" class="delete_button">削除</button>
-		</form>
+		</form> -->
 		</div>
 		
 	</c:forEach>
