@@ -136,7 +136,23 @@
 
 		</div>	
 </div>			
-</main>			
+</main>		
+
+		
+		<!-- 変更完了モーダル -->
+<div class="modal-overlay" id="success-modal">
+    <div class="modal-container success-container">
+        
+        <!-- 中央に表示されるチェックマークのイラスト -->
+        <!-- 後で画像のリンクちゃんと設定 -->
+        <img src="/c5/img/tsuika.png" alt="追加完了マーク" class="success-image">
+        <!-- メッセージ部分 -->
+        <h2>保存しました！</h2>
+        <p>すくすく記録の内容が更新されました</p>
+        
+    </div>
+</div>
+	
 	<!-- フッター -->
 <%@ include file="footer.jsp" %>
 <script>
@@ -145,6 +161,22 @@
 	document.getElementById("openModal").onclick = () => modal.style.display="block";
 	//モーダルの非表示
 	document.getElementById("closeModal").onclick = () => modal.style.display="none";
+	
+	
+	//保存済みモーダル
+	document.addEventListener("DOMContentLoaded", () => {
+	    const successModal = document.getElementById("success-modal");
+	    
+	    // サーブレットから処理完了後、URLに「?msg=success」が付いて戻ってきたらモーダルを表示
+	    if (successModal && new URLSearchParams(window.location.search).get("msg") === "success") {
+	        successModal.style.display = "flex";
+	        setTimeout(() => {
+	            successModal.style.display = "none";
+	            // URLの「?msg=success」を綺麗に消して元のURLに戻す
+	            window.history.replaceState({}, document.title, window.location.pathname);
+	        }, 1000); // 1秒間表示する
+	    }
+	});
 </script>
 </body>
 </html>
