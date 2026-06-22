@@ -53,7 +53,7 @@
 		
 		<p class="album_message">${album.comment}</p>
 		<!-- 日付を表示(フォーマットを改善) -->
-		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy/MM/dd"/></p>
+		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy年MM月dd日"/></p>
 		
 	<!-- 削除。OmoidealbumServletにポスト -->
 		<form method="POST" action="OmoidealbumServlet">
@@ -77,7 +77,8 @@
 	<!-- 写真追加の枠 -->
 		<div class="photobox">
 			<label for ="album_photo">📸写真を追加</label>
-			<input type="file" id="album_photo" name="album_photo" style="display:none;">
+			<input type="file" id="album_photo" accept="image/*" onchange="previewImage(event)" name="album_photo" style="display:none;">
+			<img id="preview" style = "max-width:200px; display:none;">
 		</div>
 		
 		<p>コメント(任意)</p>
@@ -123,6 +124,22 @@
 		document.getElementById("open_modal").onclick = () => modal.style.display = "block";
 		document.getElementById("close").onclick = () => modal.style.display = "none";
 		document.getElementById("cancel").onclick = () => modal.style.display = "none";
+		
+		function previewImage(event){
+			const file = event.target.files[0];
+			const reader = new FileReader();
+			
+		//投稿前に写真をプレビュー
+		reader.onload = function(e){
+			const preview = document.getElementById('preview');
+			preview.src = e.target.result;
+			preview.style.display = 'block';
+		}
+		if(file){
+			reader.readAsDataURL(file);
+		}
+	}
+		
 </script>
 </body>
 </html>

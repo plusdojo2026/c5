@@ -74,6 +74,8 @@ private static final long serialVersionUID = 1L;
  		
  		Omoidealbum album = new Omoidealbum();
  		album.setAlbumId(albumId);
+ 		album.setFamilyId(familyId);
+ 		album.setCoupleId(coupleId);
  		
  		OmoidealbumDao dao = new OmoidealbumDao();
  		dao.delete(album);

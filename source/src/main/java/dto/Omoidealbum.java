@@ -17,6 +17,7 @@ public class Omoidealbum implements Serializable {
 		super();
 		this.familyId = familyId;
 		this.coupleId = coupleId;
+		this.albumId = albumId;
 		/*this.familyalbumId = familyalbumId;*/
 		this.photoPath = photoPath;
 		this.comment = comment;

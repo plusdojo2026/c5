@@ -23,7 +23,7 @@ public class OmoidealbumDao {
 		//DBに接続 ※仮の入力
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
 		//SQLを準備
-			String sql = "SELECT * FROM album WHERE family_id=? ORDER BY album_id DESC";
+			String sql = "SELECT * FROM album WHERE family_id=? AND couple_id ORDER BY album_id DESC";
 			PreparedStatement ps = conn.prepareStatement(sql);
 		//SQLを完成
 			ps.setString(1,familyId);
@@ -62,7 +62,7 @@ public class OmoidealbumDao {
 		//DBに接続　※仮の入力
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
 		//SQLを準備
-		String sql = "DELETE FROM album WHERE album_id=?";
+		String sql = "DELETE FROM album WHERE album_id =? AND family_id AND couple_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		//SQLを完成
 		pStmt.setInt(1,album.getAlbumId());
