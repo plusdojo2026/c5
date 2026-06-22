@@ -149,7 +149,7 @@
 <%@ include file="footer.jsp" %>
 </footer>
 
-<!-- 【追加】モーダルを制御するJavaScript -->
+<!-- モーダルを制御するJavaScript -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const successModal = document.getElementById("success-modal");
