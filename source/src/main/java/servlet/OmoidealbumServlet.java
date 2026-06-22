@@ -1,4 +1,4 @@
-package servlet;//aa
+package servlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,7 +68,7 @@ private static final long serialVersionUID = 1L;
  	
  	String action = request.getParameter("action");
  	
- 	//---------削除する--------
+ 	/*---------削除する--------※実装なし！！！
  	if("delete".equals(action)){
  		int albumId = Integer.parseInt(request.getParameter("album_id"));
  		
@@ -83,7 +83,7 @@ private static final long serialVersionUID = 1L;
  		//リダイレクトして、削除を確実に反映する
  		response.sendRedirect("OmoidealbumServlet");
  		return;
- 	}
+ 	}*/
  	
  	//--------投稿する--------
  	if("insert".equals(action)){
