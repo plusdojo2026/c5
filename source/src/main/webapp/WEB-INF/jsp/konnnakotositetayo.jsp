@@ -72,7 +72,7 @@
 	                </button>
 	            </form>
 	        </div>
-
+	</div>
         <!-- ===== タイムライン ===== -->
         <div class="timeline">
 
