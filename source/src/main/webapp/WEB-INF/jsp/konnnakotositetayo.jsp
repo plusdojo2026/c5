@@ -57,13 +57,21 @@
         <div class="page-header">
         	<h1 class="page-title">こんなことしてたよ</h1>
         
-	        <!-- 記録するボタン -->
+	       <!-- 記録する・削除ボタン -->
 	        <div class="btn-area">
 	            <button type="button" class="page-action-btn" id="openModalBtn">
 	                ＋ 記録する
 	            </button>
+
+	            <!-- すべて削除ボタン -->
+	            <form action="KonnnakotositetayoServlet" method="post" id="deleteForm" style="margin:0;">
+	                <input type="hidden" name="action" value="delete">
+	                <button type="button" class="btn-delete-all" id="deleteAllBtn">
+	                    <img src="${pageContext.request.contextPath}/img/gomibako.jpg" alt="削除" class="trash-icon">
+	                    すべて削除
+	                </button>
+	            </form>
 	        </div>
-        </div>
 
         <!-- ===== タイムライン ===== -->
         <div class="timeline">
@@ -228,6 +236,15 @@
         overlay.addEventListener("click", function() {
             modal.style.display   = "none";
             overlay.style.display = "none";
+        });
+        
+     // ===== すべて削除ボタン =====
+        var deleteBtn = document.getElementById("deleteAllBtn");
+        deleteBtn.addEventListener("click", function() {
+            var ok = confirm("記録をすべて削除します。よろしいですか？");
+            if (ok) {
+                document.getElementById("deleteForm").submit();
+            }
         });
 
 
