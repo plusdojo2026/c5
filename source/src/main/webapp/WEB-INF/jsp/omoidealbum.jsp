@@ -18,7 +18,7 @@
 <div class="page-container">
 
 <a href="${pageContext.request.contextPath}/HomeServlet">
-<img src="<%=request.getContextPath()%>/img/back_home.png" class="back_home">
+<img src="<%=request.getContextPath()%>/img/ホームに戻る.png" class="back_home">
 </a>
 
 	<div class="page-header">
