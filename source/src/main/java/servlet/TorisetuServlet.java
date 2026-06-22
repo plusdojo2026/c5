@@ -122,7 +122,7 @@ public class TorisetuServlet extends HttpServlet{
 	    proDao.update(pro);
 	}
 	
-	//リダイレクト
-	response.sendRedirect("TorisetuServlet");
+	//リダイレクト 
+	response.sendRedirect("/c5/TorisetuServlet?msg=success");
 }
 }
