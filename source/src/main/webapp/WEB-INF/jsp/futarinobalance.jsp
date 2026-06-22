@@ -37,8 +37,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ふたりのバランス | ふたりごと。</title>
     <!-- このページ専用CSS（common.cssの内容も含む） -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/futarinobalance.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/futarinobalance.css">
 </head>
 <body>
 
@@ -46,7 +46,7 @@
     <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
     <!-- ===== メインコンテンツ ===== -->
-    <div class="balance-wrapper">
+    <div class="page-container">
     
     <a href="${pageContext.request.contextPath}/HomeServlet">
 	<img src="<%=request.getContextPath()%>/img/ホームに戻る.png" class="back_home">
@@ -55,7 +55,7 @@
         <!-- ページタイトル -->
         	<div class="page-header">
         	<h1 class="page-title">ふたりのバランス</h1>
-        	<p class="page-subtitle">家事や育児の分担を見える化して、ふたりで気持ちよく協力し合おう。</p>
+        	<p class="page-description">家事や育児の分担を見える化して、ふたりで気持ちよく協力し合おう。</p>
         </div>
 
         <!-- 使い方ヒント spanは文字とか小さい要素を囲むための箱-->
