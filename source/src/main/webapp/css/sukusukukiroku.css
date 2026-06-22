@@ -88,6 +88,13 @@ main{
 	padding-left:25px;
 }
 
+/* 削除ボタンの調整 */
+.delete-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    vertical-align: middle;
+}
 
 /* ==========================
    カード
