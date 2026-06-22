@@ -211,8 +211,8 @@
     </div>
     <!-- /モーダル -->
 		<!-- 変更完了モーダル -->
-<div class="modal-overlay" id="success-modal">
-    <div class="modal-container success-container">
+<div class="kannryou-modal" id="success-modal">
+    <div class="modal-container1 success-container">
         
         <!-- 中央に表示されるチェックマークのイラスト -->
         <!-- 後で画像のリンクちゃんと設定 -->
