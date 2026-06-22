@@ -1,10 +1,8 @@
-mysql> CREATE TABLE tasks (
+         CREATE TABLE tasks (
          task_id   INT         NOT NULL AUTO_INCREMENT,
          task_name VARCHAR(20) NOT NULL,
          PRIMARY KEY (task_id)
-     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-mysql> INSERT INTO tasks (task_id, task_name) VALUES
+     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; INSERT INTO tasks (task_id, task_name) VALUES
          (1, 'ミルク'),
          (2, '夜泣き'),
          (3, 'おむつ交換'),
@@ -13,7 +11,7 @@ mysql> INSERT INTO tasks (task_id, task_name) VALUES
          (6, 'その他');
 
 
-mysql> CREATE TABLE konnnakotositetayo (
+         CREATE TABLE konnnakotositetayo (
          konnnakotositetayo_id INT         NOT NULL AUTO_INCREMENT,
          family_id             VARCHAR(32) NOT NULL,
          couple_id             INT         NOT NULL,
@@ -28,8 +26,5 @@ mysql> CREATE TABLE konnnakotositetayo (
          FOREIGN KEY (task_id) REFERENCES tasks (task_id)
        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-mysql> SHOW TABLES;
-
-mysql> SELECT * FROM tasks;
-
-INSERT INTO todo (task_id, task_name) VALUES (22, 'その他');
+  
+        INSERT INTO todo (task_id, task_name) VALUES (22, 'その他');
