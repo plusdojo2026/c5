@@ -55,7 +55,7 @@
 	
 	<div class="row">
 		<!-- おもいでアルバム -->
-        <a href="${pageContext.request.contextPath}/OmoidealbumServlet" class="home-icon">
+        <a href="${pageContext.request.contextPath}/OmoideAlbumServlet" class="home-icon">
             <div>
             	<img src="${pageContext.request.contextPath}/img/omoidealbum.png"
         			 alt="おもいでアルバム" class="icon">
