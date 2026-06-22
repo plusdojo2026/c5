@@ -440,8 +440,9 @@
     background: #fff5f8;
 }
 
+
 /* 画面全体を覆う半透明の背景 */
-.modal-overlay {
+.kannryou-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -457,7 +458,7 @@
 }
 
 /* モーダル中央の白いボックス */
-.modal-container {
+.modal-container1 {
   background-color: #ffffff;
   padding: 40px;
   border-radius: 12px;
@@ -476,12 +477,12 @@
 }
 
 /* モーダル内の文字スタイル */
-.modal-container h2 {
+.modal-container1 h2 {
   font-size: 22px;
   color: #333333;
   margin-bottom: 10px;
 }
-.modal-container p {
+.modal-container1 p {
   font-size: 14px;
   color: #666666;
   margin: 0;
