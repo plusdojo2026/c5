@@ -64,6 +64,19 @@ public class SukusukukirokuServlet extends HttpServlet{
 					
 					request.setCharacterEncoding("UTF-8");
 					
+String action = request.getParameter("action");
+					
+					//---------削除する--------
+					if ("delete".equals(action)) {
+						int sukusukuId = Integer.parseInt(request.getParameter("sukusukuId"));
+						
+						SukusukukirokuDao dao = new SukusukukirokuDao();
+						dao.deleteSukusuku(sukusukuId);
+						
+						response.sendRedirect("SukusukukirokuServlet");
+						return;
+					}
+					
 					String t = request.getParameter("temperature");
 					String w = request.getParameter("weight");
 					String note = request.getParameter("note");//任意
