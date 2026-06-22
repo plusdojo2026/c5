@@ -16,6 +16,11 @@
 
 <main>
 <div class="page-container">
+
+<a href="${pageContext.request.contextPath}/HomeServlet">
+<img src="<%=request.getContextPath()%>/img/back_home.png" class="back_home">
+</a>
+
 	<div class="page-header">
 		<h1 class="page-title">ママのトリセツ(取り扱い説明書)</h1>
 		<p class="page-description">ママのことをもっと知って、もっと仲良く。</p>
