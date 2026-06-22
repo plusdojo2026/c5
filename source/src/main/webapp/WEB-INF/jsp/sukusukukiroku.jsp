@@ -60,7 +60,7 @@
                     
 					<label>メモ（任意）</label>
 						<textarea name="note" placeholder="今日の様子や気づいたことをメモしましょう"></textarea>
-					
+				
 					<div class="modal-button-area">
 		                <button type="button" id="closeModal" class="close-btn">
 		                    キャンセル
@@ -81,15 +81,16 @@
 			<c:forEach var="r" items="${recordList}">
 			
 				<div class="record-card">
-				
 					<div class="record-date">
 						<div class="record-date-main">
+						<img src="<%=request.getContextPath()%>/img/calender.png" class="calender">
 							${r.recordedAt}
 						</div>
 					</div>
 					
 					<div class="record-item">
 						<div class="label">
+						<img src="<%=request.getContextPath()%>/img/weight.png" class="weight">
 							体重
 						</div>
 						<div class="value">
@@ -99,6 +100,7 @@
 
 					<div class="record-item">
 						<div class="label">
+						<img src="<%=request.getContextPath()%>/img/temperature.png" class="temperature">
 							体温
 						</div>
 						<div class="value">
@@ -108,6 +110,7 @@
 
 					<div class="record-memo">
 						<div class="label">
+						<img src="<%=request.getContextPath()%>/img/memo.png" class="memo">
 							メモ
 						</div>
 						<div class="value">
