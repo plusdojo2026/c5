@@ -13,6 +13,11 @@
 <!-- ヘッダー -->
 <%@ include file="header.jsp" %>
 <div class="page-container">
+
+<a href="${pageContext.request.contextPath}/HomeServlet">
+<img src="<%=request.getContextPath()%>/img/back_home.png" class="back_home">
+</a>
+
 <!-- （おねだりリストのタイトルと追加するボタン） -->
 <div class ="page-header">
 	<div class="header-left">
