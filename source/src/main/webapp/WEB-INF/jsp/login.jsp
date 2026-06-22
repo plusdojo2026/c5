@@ -104,6 +104,7 @@
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
 
+
 <!-- JavaScript -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
