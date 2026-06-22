@@ -105,6 +105,10 @@ String action = request.getParameter("action");
 							boolean success=dao.insert(record);
 							if (success) {
 								message = "登録完了しました！";
+								
+								response.sendRedirect("/c5/TorisetuServlet?msg=success");
+							    return;
+							    
 							}else {
 								message="登録に失敗しました";
 							}
