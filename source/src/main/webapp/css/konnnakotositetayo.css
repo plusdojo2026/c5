@@ -291,7 +291,8 @@ body{
   width: 45px;            
   height: 45px;           
   object-fit: contain;    
-  margin-bottom: 5px;     
+  margin-bottom: 5px; 
+  pointer-events: none;    
 }
 
 .task-btn:hover{
