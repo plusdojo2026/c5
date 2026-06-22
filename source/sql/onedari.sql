@@ -10,7 +10,7 @@ CREATE TABLE category (
 CREATE TABLE onedari (
     onedari_id INT AUTO_INCREMENT PRIMARY KEY,
     family_id VARCHAR(32) NOT NULL,
-    couple_id INT NOT NULL,                        -- 0:ママ / 1:パパ
+    couple_id INT NOT NULL,                        -- 0:ママ / 1:パパ!!
     category_id INT NOT NULL,                      -- マスタ(category)のIDと繋ぐ列
     product_name VARCHAR(50),                      -- 自由入力の商品名（ブランドなど）
     image_path VARCHAR(255),                       -- 画像ファイル名
