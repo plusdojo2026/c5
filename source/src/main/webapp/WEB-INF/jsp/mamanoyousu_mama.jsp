@@ -18,6 +18,11 @@
 <div class="page-container">
 	<div class="page-header">
 		<h1 class="page-title">ママのようす</h1>
+		
+		<!-- メッセージ -->
+			<c:if test="${not empty message}">
+		    	<div class="message">${message}</div>
+			</c:if>
 	</div>
 
 	<div>
@@ -41,7 +46,7 @@
 			
 				<div class="radio-group">
 					<label>
-						<input type="radio" name="physical_score" value="1" required>
+						<input type="radio" name="physical_score" value="1" >
 						<span>1</span>
 					</label>
 			
@@ -79,7 +84,7 @@
 			
 				<div class="radio-group">
 					<label>
-						<input type="radio" name="mental_score" value="1" required>
+						<input type="radio" name="mental_score" value="1" >
 						<span>1</span>
 					</label>
 			
@@ -128,7 +133,7 @@
 			
 				<div class="radio-group">
 					<label>
-						<input type="radio" name="stress" value="1" required>
+						<input type="radio" name="stress" value="1" > 
 						<span>1</span>
 					</label>
 			
@@ -177,6 +182,37 @@
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
 <script>
+
+document.getElementById("mamaForm").addEventListener("submit", function(e) {
+
+    let errorMsg = "";
+
+    // ① radioチェック
+    const physical = document.querySelector("input[name='physical_score']:checked");
+    const mental = document.querySelector("input[name='mental_score']:checked");
+    const stress = document.querySelector("input[name='stress']:checked");
+
+    // ② 数値入力取得
+    const sleep = document.querySelector("input[name='sleep_hours']").value;
+
+    // ③ 未入力チェック
+    if (!physical) {
+        errorMsg = "体調を選択してください";
+    } else if (!mental) {
+        errorMsg = "メンタル値を選択してください";
+    } else if (!sleep) {
+        errorMsg = "睡眠時間を入力してください";
+    } else if (!stress) {
+        errorMsg = "ストレス値を選択してください";
+    }
+
+    // ④ エラー表示
+    if (errorMsg !== "") {
+        e.preventDefault(); // 送信ストップ
+        document.getElementById("jsError").innerText = errorMsg;
+    }
+
+});
 </script>
 </body>
 </html>
