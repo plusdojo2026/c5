@@ -299,9 +299,9 @@ body{
 }
 
 .task-btn-selected{
-    background:#ff5d87;
-    color:#fff;
-    border-color:#ff5d87;
+    background:#ffffff;
+    color:#333;
+    border: 2px solid #ff5d87; 
 }
 
 /* ========================================
