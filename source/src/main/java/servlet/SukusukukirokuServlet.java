@@ -106,7 +106,7 @@ String action = request.getParameter("action");
 							if (success) {
 								message = "登録完了しました！";
 								
-								response.sendRedirect("/c5/TorisetuServlet?msg=success");
+								response.sendRedirect("/c5/SukusukukirokuServlet?msg=success");
 							    return;
 							    
 							}else {
