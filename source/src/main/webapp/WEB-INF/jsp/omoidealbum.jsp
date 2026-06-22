@@ -105,10 +105,10 @@
 </main>
 <footer>
 <!-- フッターをインクルード -->
-<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp" %> 
 </footer>
 
-<!-- JavaScriptここから -->
+<!-- JavaScriptここからa -->
 <script>
 	'use strict';
 		//テキストの文字数をカウントする
