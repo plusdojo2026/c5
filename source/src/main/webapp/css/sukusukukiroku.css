@@ -42,7 +42,7 @@ main{
 ========================== */
 
 .record-title{
-    font-size:34px;
+    font-size:32px;
     margin-bottom:25px;
 }
 
@@ -55,6 +55,39 @@ main{
     flex-direction:column;
     gap:18px;
 }
+
+.calender,
+.weight,
+.temperature,
+.memo{
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.record-date-main,
+.label
+.value{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    
+}
+
+.label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    color:#ff5f8d;
+    font-weight:bold;
+    
+}
+
+.value {
+	padding-left:25px;
+}
+
 
 /* ==========================
    カード
@@ -111,7 +144,6 @@ main{
 .label{
     color:#ff5f8d;
     font-weight:bold;
-    margin-bottom:10px;
 }
 
 .value{
