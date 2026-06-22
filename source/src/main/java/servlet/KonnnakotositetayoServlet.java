@@ -1,7 +1,7 @@
 package servlet;
 
-import dao.KonnnakotositetayoDao;
-import dto.Konnnakotositetayo;
+import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.List;
+
+import dao.KonnnakotositetayoDao;
+import dto.Konnnakotositetayo;
 
 /**
  * こんなことしてたよ 画面のServlet
@@ -156,7 +157,8 @@ public class KonnnakotositetayoServlet extends HttpServlet {
             return;
         }
 
-        // 保存成功 → 画面をリダイレクト（再読み込みで重複送信を防ぐ）
-        response.sendRedirect("KonnnakotositetayoServlet");
+     // 保存成功 → メッセージ付きで自分自身（または指定の遷移先）にリダイレクト
+        response.sendRedirect("/c5/KonnnakotositetayoServlet?msg=success");
+        return;
     }
 }
