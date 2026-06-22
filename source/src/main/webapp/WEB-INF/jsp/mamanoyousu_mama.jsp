@@ -29,7 +29,7 @@
 	<div>
 		
 		<!-- ママのコンディションの入力項目 -->
-		<form action="MamanoyousuServlet" method="post">
+		<form id="mamaForm" action="MamanoyousuServlet" method="post">
    		<img src="<%=request.getContextPath()%>/img/mama_pic.png">
    		<div>
 	   		<h2>今日のママのコンディションを記録しましょう</h2>
@@ -174,6 +174,7 @@
 			
 			<div class="btn-area">	
 				<button type="submit" class="page-action-btn">登録する</button>
+				<div id="jsError" style="color:red;"></div>
 			</div>
 		</form>	
 	</div>
@@ -188,29 +189,30 @@ document.getElementById("mamaForm").addEventListener("submit", function(e) {
 
     let errorMsg = "";
 
-    // ① radioチェック
+    //radioチェック
     const physical = document.querySelector("input[name='physical_score']:checked");
     const mental = document.querySelector("input[name='mental_score']:checked");
     const stress = document.querySelector("input[name='stress']:checked");
 
-    // ② 数値入力取得
+    //数値入力取得
     const sleep = document.querySelector("input[name='sleep_hours']").value;
 
-    // ③ 未入力チェック
+    //未入力チェック
     if (!physical) {
-        errorMsg = "体調を選択してください";
+        errorMsg = "*体調を選択してください";
     } else if (!mental) {
-        errorMsg = "メンタル値を選択してください";
+        errorMsg = "*メンタル値を選択してください";
     } else if (!sleep) {
-        errorMsg = "睡眠時間を入力してください";
+        errorMsg = "*睡眠時間を入力してください";
     } else if (!stress) {
-        errorMsg = "ストレス値を選択してください";
+        errorMsg = "*ストレス値を選択してください";
     }
 
-    // ④ エラー表示
-    if (errorMsg !== "") {
-        e.preventDefault(); // 送信ストップ
-        document.getElementById("jsError").innerText = errorMsg;
+    //エラー表示 
+	if (errors.length > 0) {
+        e.preventDefault();
+        document.getElementById("jsError").innerHTML = errors.join("<br>");
+
     }
 
 });
