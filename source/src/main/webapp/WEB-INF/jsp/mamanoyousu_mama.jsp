@@ -16,6 +16,7 @@
 <%@ include file="header.jsp" %>
 
 <div class="page-container">
+	
 	<div class="page-header">
 		<h1 class="page-title">ママのようす</h1>
 		
