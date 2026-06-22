@@ -267,7 +267,6 @@
     <div class="modal-container success-container">
         
         <!-- 中央に表示されるチェックマークのイラスト -->
-        <!-- 後で画像のリンクちゃんと設定 -->
         <img src="/c5/img/tsuika.png" alt="追加完了マーク" class="success-image">
         <!-- メッセージ部分 -->
         <h2>追加しました！</h2>
