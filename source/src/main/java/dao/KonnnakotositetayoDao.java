@@ -186,5 +186,46 @@ public class KonnnakotositetayoDao {
 
         return result;
     }
-}
+/**
+ * ログイン中のfamily_idの記録をすべて削除する
+ *
+ * @param familyId 削除対象のfamily_id
+ * @return 成功:true / 失敗:false
+ */
+public boolean deleteAll(String familyId) {
 
+    Connection conn      = null;
+    PreparedStatement ps = null;
+    boolean result       = false;
+
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        conn = DriverManager.getConnection(URL, USER, PASSWORD);
+
+        // 自分のfamily_idの記録だけ削除する
+        String sql = "DELETE FROM konnnakotositetayo WHERE family_id = ?";
+
+        ps = conn.prepareStatement(sql);
+        ps.setString(1, familyId);
+
+        // 削除実行（1件以上消えたら成功）
+        int count = ps.executeUpdate();
+        if (count > 0) {
+            result = true;
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+
+    } finally {
+        try {
+            if (ps   != null) ps.close();
+            if (conn != null) conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    return result;
+}
+}
