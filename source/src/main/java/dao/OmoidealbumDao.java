@@ -52,7 +52,7 @@ public class OmoidealbumDao {
 		return list;
 		}
 	
-	//--------引数albumで指定されたレコードを削除し、成功したらtrueを返す--------
+	/*--------引数albumで指定されたレコードを削除し、成功したらtrueを返す※実装なし--------
 		public boolean delete(Omoidealbum album) {
 		Connection conn = null;
 		boolean result = false;
@@ -87,7 +87,7 @@ public class OmoidealbumDao {
 
 	// 結果を返す
 	return result;
-}
+}*/
 	
 	
 	//--------日記を登録する--------//
