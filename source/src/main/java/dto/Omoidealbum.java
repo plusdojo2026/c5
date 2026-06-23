@@ -1,4 +1,4 @@
-package dto;//aa
+package dto;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
