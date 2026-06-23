@@ -155,6 +155,11 @@ input[type="number"]{
 	font-size:20px;
 	text-align:center;
 	color:#555555;
+	outline: none;
+}
+
+input[type="number"]:focus {
+	border-color: #ff82a2;
 }
 
 /* ===== メモ ===== */
@@ -167,6 +172,11 @@ textarea{
 	font-size:18px;
 	resize:none;
 	background:#fff;
+	outline: none;
+}
+
+textarea:focus {
+	border-color: #ff82a2;
 }
 
 textarea::placeholder{
