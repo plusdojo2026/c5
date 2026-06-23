@@ -284,7 +284,24 @@
                 input.value = count - 1;
             }
         }
-
+     // ===== 記録するボタン押下時のバリデーション =====
+        // モーダル内のフォーム要素を取得する
+        var recordForm = document.querySelector(".modal form");
+        
+        // フォームが送信されようとした瞬間にチェック処理を実行
+        recordForm.addEventListener("submit", function(e) {
+            // 隠しフィールドに保存されているタスクIDを取得
+            var selectedTask = document.getElementById("selectedTask").value;
+            
+            // タスクIDが空の場合(何も選ばれていない場合)
+            if (selectedTask === "") {
+                // フォームの送信処理を中止する
+                e.preventDefault();
+                
+                // ユーザーに警告を表示する
+                alert("項目を選択してください");
+            }
+        });
     	//保存済みモーダル
     	document.addEventListener("DOMContentLoaded", () => {
     	    const successModal = document.getElementById("success-modal");
