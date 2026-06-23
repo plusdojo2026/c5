@@ -127,7 +127,7 @@
 <%@ include file="footer.jsp" %> 
 </footer>
 
-<!-- JavaScriptここからa -->
+<!-- JavaScriptここから -->
 <script>
 	'use strict';
 		//テキストの文字数をカウントする
@@ -137,11 +137,10 @@
 		const counter = document.getElementById("count");
 		
 		if(textarea && counter){
-			
 			counter.textContent = `0 / 200`;
-
 			textarea.addEventListener("input",()=>{
-			counter.textContent = `${textarea.value.length} / 200`;
+			const len = textarea.value.length;
+			counter.textContent = len + ` / 200`;
 			});
 			}
 		
@@ -151,28 +150,26 @@
 		document.getElementById("close").onclick = () => modal.style.display = "none";
 		document.getElementById("cancel").onclick = () => modal.style.display = "none";
 		
-		function previewImage(event){
+		//投稿前に写真をプレビュー
+		window.previewImage = function(event){
 			const file = event.target.files[0];
 			const reader = new FileReader();
 			
-		//投稿前に写真をプレビュー
 		reader.onload = function(e){
 			const preview = document.getElementById('preview');
 			preview.src = e.target.result;
 			preview.style.display = 'block';
-		}
+		};
+		
 		if(file){
 			reader.readAsDataURL(file);
 		}
-	}
-	window.previewImage = previewImage;
-	});
-	
+	};
+		
 		//記録完了モーダル
-		document.addEventListener("DOMContentLoaded", () => {
 		    const successModal = document.getElementById("success-modal");
 		    
-		    // サーブレットから処理完了後、URLに「?msg=success」が付いて戻ってきたらモーダルを表示
+		  // サーブレットから処理完了後、URLに「?msg=success」が付いて戻ってきたらモーダルを表示
 		    if (successModal && new URLSearchParams(window.location.search).get("msg") === "success") {
 		        successModal.style.display = "flex";
 		        setTimeout(() => {
@@ -181,26 +178,25 @@
 		            window.history.replaceState({}, document.title, window.location.pathname);
 		        }, 1000); // 1秒間表示する
 		    }
-		});
+		
+		
 
 		//写真ポップアップモーダル
-		document.addEventListener("DOMContentLoaded",()=>{
-			
+		
 			const photoModal = document.getElementById("photom");
 		    const modalImg = document.getElementById("modali");
-			
+		    if (photoModal && modalImg) {
 			document.querySelectorAll(".album_photo").forEach(img =>{
 				img.addEventListener("click",()=>{
 				photoModal.style.display = "flex";
 				modalImg.src = img.src;
 			});
-		});
+			});		
 			photoModal.addEventListener("click", (e) => {
 		        if (e.target === photoModal) {
 		            photoModal.style.display = "none";}
+		});}
 		});
-	});
-		
 </script>
 </body>
 </html>
