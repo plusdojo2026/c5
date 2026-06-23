@@ -4,12 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+<title>すくすく記録 | ふたりごと。</title>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sukusukukiroku.css">
 
-<meta charset="UTF-8">
 </head>
-<title>すくすく記録</title>
+
 
 
 <!-- ここからすくすく記録 -->
