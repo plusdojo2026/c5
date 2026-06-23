@@ -185,12 +185,16 @@ body{
 }
 
 /*  フッターを一番下に押し下げる */
-html, body {
-    height: 100%; 
+html,
+body{
+    min-height:100vh;
 }
 
-.page-container {
+body{
+    display:flex;
+    flex-direction:column;
+}
 
-    min-height: calc(100vh - 80px - 140px); 
-    box-sizing: border-box;
+main{
+    flex:1;
 }
