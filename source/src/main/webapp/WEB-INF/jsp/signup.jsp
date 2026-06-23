@@ -68,7 +68,7 @@
             
             <!-- パスワード入力の箱（form-group） -->
             <div class="form-group">
-                <label for="password">パスワード</label>    
+                <label for="password">パスワード（8桁以上）</label>    
                 <!--  左側の鍵イラストと入力欄をきれいに重ねるための箱 -->
                 <div class="password-input-wrapper">
                     <!-- 鍵のイラスト画像（後で画像のリンクちゃんと設定） -->
@@ -81,7 +81,7 @@
                     <input type="checkbox" id="show-password">
                     <label for="show-password" class="show-password-label">パスワードを表示する</label>
                 </div>
-            </div>
+            　</div>
 		     
             <!-- 新規登録送信ボタン -->
             <div class="form-actions">
@@ -100,25 +100,24 @@
 <!-- フッター -->
 <%@ include file="footer.jsp" %>
 
-<!-- JavaScript（ログイン画面と完全に同じ、パスワード表示切り替えのみ） -->
+<!-- JavaScript -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const passwordInput = document.getElementById("password");
-    const showPasswordCheckbox = document.getElementById("show-password");
-
-    if (showPasswordCheckbox && passwordInput) {
-        // チェックボックスの状態が変わった（change）瞬間を監視
-        showPasswordCheckbox.addEventListener("change", () => {
-            if (showPasswordCheckbox.checked) {
-                // チェックが入ったら、中身が見えるようにタイプを「text」に変える
-                passwordInput.type = "text";
-            } else {
-                // チェックが外れたら、隠れるようにタイプを「password」に戻す
-                passwordInput.type = "password";
-            }
-        });
-    }
-});
+		/* HTML要素をオブジェクトとして取得する */
+		const passwordInput = document.getElementById('password');
+		const showPasswordCheckbox = document.getElementById('show-password');
+		
+		/* [パスワードを表示する]チェックボックスを切り替えたときの処理 */
+		if (showPasswordCheckbox && passwordInput) {
+		  showPasswordCheckbox.onchange = function() {
+		    if (showPasswordCheckbox.checked) {
+		      // チェックが入ったら中身を見せる
+		      passwordInput.type = 'text';
+		    } else {
+		      // チェックが外れたら隠す
+		      passwordInput.type = 'password';
+		    }
+		  };
+		}
 </script>
 </body>
 </html>
