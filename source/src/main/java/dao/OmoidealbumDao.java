@@ -93,32 +93,6 @@ public class OmoidealbumDao {
     // 結果を返す
     return result;
 }
-
-		
-		
-		
-		/*if(pStmt.executeUpdate()==1) {
-				result = true;
-		}
-	}catch(SQLException e) {
-		e.printStackTrace();
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
-	} finally {
-		// データベースを切断
-		if (conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	// 結果を返す
-	return result;
-}*/
-	
 	
 	//--------日記を登録する--------//
 		//引数albumで指定されたレコードを登録し、成功したらtrueを返す//
