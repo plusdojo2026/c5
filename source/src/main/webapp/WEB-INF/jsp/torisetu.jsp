@@ -48,9 +48,12 @@
 				<img src="<%=request.getContextPath()%>/img/よろこぶ.png">
 				<h4>喜ぶこと</h4>
 			</div>
-				<input type="text" name="happy1" value="${torisetu.happy1}" placeholder="例) 「ありがとう」と言われること">
-				<input type="text" name="happy2" value="${torisetu.happy2}" placeholder="例) 家族でゆっくりする時間が大好き！">
-				<input type="text" name="happy3" value="${torisetu.happy3}" placeholder="例) サプライズも喜びます♡">
+				<input type="text" name="happy1" value="${torisetu.happy1}" placeholder="例) 「ありがとう」と言われること"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="happy2" value="${torisetu.happy2}" placeholder="例) 家族でゆっくりする時間が大好き！"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="happy3" value="${torisetu.happy3}" placeholder="例) サプライズも喜びます♡"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
 		</div>
 		
 		<div class="card angry">
@@ -58,9 +61,12 @@
 				<img src="<%=request.getContextPath()%>/img/怒る.png">
 				<h4>怒ること</h4>
 			</div>
-				<input type="text" name="angry1" value="${torisetu.angry1}" placeholder="例) 約束を忘れられること">
-				<input type="text" name="angry2" value="${torisetu.angry2}" placeholder="例) 話を聞いてもらえないこと">
-				<input type="text" name="angry3" value="${torisetu.angry3}" placeholder="例) 否定的な言葉を言われること">
+				<input type="text" name="angry1" value="${torisetu.angry1}" placeholder="例) 約束を忘れられること"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="angry2" value="${torisetu.angry2}" placeholder="例) 話を聞いてもらえないこと"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="angry3" value="${torisetu.angry3}" placeholder="例) 否定的な言葉を言われること"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
 		</div>
 		
 		<div class="card fun">
@@ -68,9 +74,12 @@
 				<img src="<%=request.getContextPath()%>/img/楽しむ.png">
 				<h4>楽しむこと</h4>
 			</div>
-				<input type="text" name="fun1" value="${torisetu.fun1}" placeholder="例) 音楽に没頭するのが好き！">
-				<input type="text" name="fun2" value="${torisetu.fun2}" placeholder="例) 旅行やおでかけの計画を立てるのも楽しい！">
-				<input type="text" name="fun3" value="${torisetu.fun3}" placeholder="例) ご褒美のアイス">
+				<input type="text" name="fun1" value="${torisetu.fun1}" placeholder="例) 音楽に没頭するのが好き！"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="fun2" value="${torisetu.fun2}" placeholder="例) 旅行やおでかけの計画を立てるのも楽しい！"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="fun3" value="${torisetu.fun3}" placeholder="例) ご褒美のアイス"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
 		</div>
 		
 		<div class="card sad">
@@ -78,9 +87,12 @@
 				<img src="<%=request.getContextPath()%>/img/悲しむ.png">
 				<h4>悲しむこと</h4>
 			</div>
-				<input type="text" name="sad1" value="${torisetu.sad1}" placeholder="例) 共感してくれないとき、、">
-				<input type="text" name="sad2" value="${torisetu.sad2}" placeholder="例) 話し合いを放棄されること">
-				<input type="text" name="sad3" value="${torisetu.sad3}" placeholder="例) 頑張れていないかもと不安になる">
+				<input type="text" name="sad1" value="${torisetu.sad1}" placeholder="例) 共感してくれないとき、、"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="sad2" value="${torisetu.sad2}" placeholder="例) 話し合いを放棄されること"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="sad3" value="${torisetu.sad3}" placeholder="例) 頑張れていないかもと不安になる"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
 		</div>	
 				
 		<div class="card charge">
@@ -88,9 +100,12 @@
 				<img src="<%=request.getContextPath()%>/img/充電方法.png">
 				<h4>充電方法</h4>
 			</div>
-				<input type="text" name="charge1" value="${torisetu.charge1}" placeholder="例) 映画鑑賞！！">
-				<input type="text" name="charge2" value="${torisetu.charge2}" placeholder="例) プリンをちゃんとお皿に出して食べる">
-				<input type="text" name="charge3" value="${torisetu.charge3}" placeholder="例) いっぱい寝られたら嬉しいな♪">
+				<input type="text" name="charge1" value="${torisetu.charge1}" placeholder="例) 映画鑑賞！！"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="charge2" value="${torisetu.charge2}" placeholder="例) プリンをちゃんとお皿に出して食べる"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
+				<input type="text" name="charge3" value="${torisetu.charge3}" placeholder="例) いっぱい寝られたら嬉しいな♪"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>
 		</div>
 	<!--『不機嫌かなと思ったら』は、テキストボックスを2列3行にする。-->
 	<!-- そのため、不機嫌カード内にグリッドを用意 -->
@@ -100,12 +115,18 @@
 				<h4>不機嫌かなと思ったら</h4>
 			</div>
 			<div class="bad_grid">
-				<textarea name="bad1" placeholder="状態(こんなときは...)">${torisetu.bad1}</textarea>				
-				<textarea name="badaction1" placeholder="対応方法(こうしてみてほしい)">${torisetu.badaction1}</textarea>				
-				<textarea name="bad2" placeholder="例) ため息が増えます">${torisetu.bad2}</textarea>
-				<textarea name="badaction2" placeholder="例) 気にかけて、話しかけてくれると嬉しいです。">${torisetu.badaction2}</textarea>				
-				<textarea name="bad3" placeholder="例) イライラして口調がきつくなります">${torisetu.bad3}</textarea>
-				<textarea name="badaction3" placeholder="例) 話し合いでゆっくり解決したいかも">${torisetu.badaction3}</textarea>
+				<textarea name="bad1" placeholder="状態(こんなときは...)"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>${torisetu.bad1}</textarea>				
+				<textarea name="badaction1" placeholder="対応方法(こうしてみてほしい)"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>${torisetu.badaction1}</textarea>				
+				<textarea name="bad2" placeholder="例) ため息が増えます"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>${torisetu.bad2}</textarea>
+				<textarea name="badaction2" placeholder="例) 気にかけて、話しかけてくれると嬉しいです。"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>${torisetu.badaction2}</textarea>				
+				<textarea name="bad3" placeholder="例) イライラして口調がきつくなります"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>${torisetu.bad3}</textarea>
+				<textarea name="badaction3" placeholder="例) 話し合いでゆっくり解決したいかも"
+					<c:if test = "${sessionScope.couple_id == 1}">readonly</c:if>>${torisetu.badaction3}</textarea>
 			</div>				
 		</div>
 		
