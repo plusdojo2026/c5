@@ -107,23 +107,22 @@
 
 <!-- JavaScript -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const passwordInput = document.getElementById("password");
-    const showPasswordCheckbox = document.getElementById("show-password");
-
-    if (showPasswordCheckbox && passwordInput) {
-        // チェックボックスの状態が変わった（change）瞬間を監視
-        showPasswordCheckbox.addEventListener("change", () => {
-            if (showPasswordCheckbox.checked) {
-                // チェックが入ったら、中身が見えるようにタイプを「text」に変える
-                passwordInput.type = "text";
-            } else {
-                // チェックが外れたら、隠れるようにタイプを「password」に戻す
-                passwordInput.type = "password";
-            }
-        });
-    }
-});
+		/* HTML要素をオブジェクトとして取得する */
+		const passwordInput = document.getElementById('password');
+		const showPasswordCheckbox = document.getElementById('show-password');
+		
+		/* [パスワードを表示する]チェックボックスを切り替えたときの処理 */
+		if (showPasswordCheckbox && passwordInput) {
+		  showPasswordCheckbox.onchange = function() {
+		    if (showPasswordCheckbox.checked) {
+		      // チェックが入ったら中身を見せる
+		      passwordInput.type = 'text';
+		    } else {
+		      // チェックが外れたら隠す
+		      passwordInput.type = 'password';
+		    }
+		  };
+		}
 </script>
 </body>
 </html>
