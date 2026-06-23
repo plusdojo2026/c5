@@ -92,6 +92,7 @@ public class MamanoyousuServlet extends HttpServlet {
             } catch (NumberFormatException e) {
                 error = "数値の入力形式が正しくありません";
             }
+        }
 
         
         //エラー時
@@ -127,7 +128,7 @@ public class MamanoyousuServlet extends HttpServlet {
 
         doGet(request, response);
         }
-    }
+
 
     // アドバイス
     private String createAdvice(Mamanoyousu m) {
