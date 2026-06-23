@@ -52,7 +52,7 @@ public class OmoidealbumDao {
 		return list;
 		}
 	
-	/*--------引数albumで指定されたレコードを削除し、成功したらtrueを返す※実装なし--------
+	//--------引数albumで指定されたレコードを削除し、成功したらtrueを返す--------
 		public boolean delete(Omoidealbum album) {
 		Connection conn = null;
 		boolean result = false;
@@ -62,12 +62,42 @@ public class OmoidealbumDao {
 		//DBに接続　※仮の入力
 		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
 		//SQLを準備
-		String sql = "DELETE FROM album WHERE album_id =? AND family_id AND couple_id=?";
+		String sql = "DELETE FROM album WHERE album_id =?";
+															//AND family_id AND couple_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		//SQLを完成
 		pStmt.setInt(1,album.getAlbumId());
+		
 		//SQLを実行
-		if(pStmt.executeUpdate()==1) {
+		int rowsDeleted = pStmt.executeUpdate();
+        if (rowsDeleted == 1) {
+            result = true;
+        }
+    } catch (java.sql.SQLException e) {
+        e.printStackTrace();
+        result = false;
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+        result = false;
+    } finally {
+        // データベースを切断
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (java.sql.SQLException e) {
+                e.printStackTrace();
+                result = false;
+            }
+        }
+    }
+    // 結果を返す
+    return result;
+}
+
+		
+		
+		
+		/*if(pStmt.executeUpdate()==1) {
 				result = true;
 		}
 	}catch(SQLException e) {
