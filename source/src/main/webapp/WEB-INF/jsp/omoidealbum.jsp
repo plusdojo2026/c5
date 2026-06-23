@@ -24,7 +24,7 @@
 	<div class="page-header">
 		<h1 class="page-title">おもいでアルバム</h1>
 			<!-- 登録追加ボタン -->
-			<button id="open_modal" class="page-action-btn">＋写真を追加</button>
+			<button id="open_modal" class="page-action-btn">＋おもいでを記録する</button>
 	</div>
 		
 	<!-- ソート機能保留ここから -->
@@ -59,6 +59,10 @@
 		<!-- 日付を表示(フォーマットを改善) -->
 		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy年MM月dd日"/></p>
 		
+	
+		
+		
+		
 	<!-- 削除。OmoidealbumServletにポスト  ※実装なし！！！-->
 		<form method="POST" action="OmoidealbumServlet">
 			<input type="hidden" name ="albumId" value="${album.albumId}">
@@ -69,6 +73,11 @@
 	</c:forEach>
 </div>
 </div>
+		
+<!-- 写真のポップアップモーダル -->	
+	<div id="photom" class="photomodal">
+		<img id="modali" class="modalimg">
+	</div>
 		
 <!-- モーダル制御 投稿画面-->
 <div id=album_modal class="album_modal">
@@ -88,7 +97,7 @@
 	<!-- テキストエリアの文字数カウント -->
 		<div class=album_textarea>
 			<textarea id="album_text" name="comment" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
-			<div id="count">0 /200文字まで入力出来ます。</div>
+			<div id="count">0 /200</div>
 		</div>
 		
 		<button type="button" id="cancel">キャンセル</button>
@@ -173,6 +182,24 @@
 		        }, 1000); // 1秒間表示する
 		    }
 		});
+
+		//写真ポップアップモーダル
+		document.addEventListener("DOMContentLoaded",()=>{
+			
+			const photoModal = document.getElementById("photom");
+		    const modalImg = document.getElementById("modali");
+			
+			document.querySelectorAll(".album_photo").forEach(img =>{
+				img.addEventListener("click",()=>{
+				photoModal.style.display = "flex";
+				modalImg.src = img.src;
+			});
+		});
+			photoModal.addEventListener("click", (e) => {
+		        if (e.target === photoModal) {
+		            photoModal.style.display = "none";}
+		});
+	});
 		
 </script>
 </body>
