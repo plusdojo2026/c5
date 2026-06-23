@@ -85,7 +85,7 @@
                 <p class="no-data">まだ記録がありません。</p>
 
             <% } else { %>
-                <!-- データがある場合はループで表示 -->
+                <!-- データがある場合はループで表示 拡張FOR文＝リストや配列の中身をひとつづつ取り出して処理をする。-->
                 <% for (Konnnakotositetayo bean : timelineList) { %>
                     <div class="timeline-item">
 
@@ -126,15 +126,7 @@
 
                         </div>
 
-                        <!-- 既読・未読 -->
-                        <div class="timeline-status">
-                            <% if (bean.getIsRead() == 1) { %>
-                                <span class="status-read">✓ 確認済み</span>
-                            <% } else { %>
-                                <span class="status-unread">未確認</span>
-                            <% } %>
-                        </div>
-
+                        
                     </div>
                 <% } %>
             <% } %>
