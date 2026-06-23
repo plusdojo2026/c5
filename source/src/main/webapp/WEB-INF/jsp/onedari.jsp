@@ -329,6 +329,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
+ // モーダルの背景（余白）クリックで閉じる
+    allModals.forEach(modal => {
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
 	 // キャンセルボタンが押されたらフォームをリセットして全てのモーダルを閉じる
 	    cancelBtns.forEach(btn => {
 	        btn.addEventListener("click", () => {
