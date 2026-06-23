@@ -41,7 +41,7 @@
             <!-- ファミリーコード入力の箱（form-group） -->
             <div class="form-group">
                 <label for="family_id">ファミリーコード（8桁以上）</label>
-                <input type="text" id="family_id" name="family_id" placeholder="例）KATO123456" maxlength="32" required>
+                <input type="text" id="family_id" name="family_id" placeholder="例）KATO123456" minlength="8" maxlength="32" required>
                 <!-- pタグをform-groupの箱の中に収める -->
                 <p class="form-help">夫婦で共通のファミリーコードを入力してください</p>
             </div>
@@ -74,7 +74,7 @@
                     <!-- 鍵のイラスト画像（後で画像のリンクちゃんと設定） -->
                     <img src="/c5/img/password.png" alt="鍵" class="password-icon">
                     <!-- パスワード入力欄 -->
-                    <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required>
+                    <input type="password" id="password" name="password" placeholder="パスワードを入力してください" minlength="8" maxlength="64" required>
                 </div>
                 <!-- パスワードを表示するボタン -->
                 <div class="show-password-wrapper">
