@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/mamanoyousu_mama.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/mamanoyousu_mama.css">
 <meta charset="UTF-8">
 <title>ママのようす</title>
 </head>
