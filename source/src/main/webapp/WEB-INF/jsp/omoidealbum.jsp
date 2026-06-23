@@ -38,7 +38,6 @@
 	<!-- ソート機能保留ここまで -->
 	
 
-
 <!-- アルバムの追加が無いときの画面 -->
 <c:if test="${empty albumList}">
 	<div class="empty_album">
@@ -58,10 +57,6 @@
 		<p class="album_message">${album.comment}</p>
 		<!-- 日付を表示(フォーマットを改善) -->
 		<p class="album_date"><fmt:formatDate value = "${album.createdAt}" pattern="yyyy年MM月dd日"/></p>
-		
-	
-		
-		
 		
 	<!-- 削除。OmoidealbumServletにポスト  ※実装なし！！！-->
 		<form method="POST" action="OmoidealbumServlet">
@@ -121,7 +116,6 @@
     </div>
 </div>
 
-
 <footer>
 <!-- フッターをインクルード -->
 <%@ include file="footer.jsp" %> 
@@ -149,6 +143,12 @@
 		document.getElementById("open_modal").onclick = () => modal.style.display = "block";
 		document.getElementById("close").onclick = () => modal.style.display = "none";
 		document.getElementById("cancel").onclick = () => modal.style.display = "none";
+		
+		modal.addEventListener('click', (e) => {
+		    if (e.target === modal) {
+		        modal.style.display = 'none';}
+		});
+		
 		
 		//投稿前に写真をプレビュー
 		window.previewImage = function(event){
@@ -179,8 +179,6 @@
 		        }, 1000); // 1秒間表示する
 		    }
 		
-		
-
 		//写真ポップアップモーダル
 		
 			const photoModal = document.getElementById("photom");
@@ -198,5 +196,6 @@
 		});}
 		});
 </script>
+<!-- JavaScriptここまで -->
 </body>
 </html>
