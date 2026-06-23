@@ -89,7 +89,7 @@
 	<!-- テキストエリアの文字数カウント -->
 		<div class=album_textarea>
 			<textarea id="album_text" name="comment" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
-			<div id="count">0 / 200</div>
+			<div id="count">0 /200文字まで入力出来ます。</div>
 		</div>
 		
 		<button type="button" id="cancel">キャンセル</button>
