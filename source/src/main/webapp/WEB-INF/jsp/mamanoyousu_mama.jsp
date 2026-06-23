@@ -225,9 +225,9 @@ document.getElementById("mamaForm").addEventListener("submit", function(e) {
     }
 
     //エラー表示 
-	if (errors.length > 0) {
+	if (errorMsg !=="") {
         e.preventDefault();
-        document.getElementById("jsError").innerHTML = errors.join("<br>");
+        document.getElementById("jsError").innerHTML = errorMsg;
 
     }
 
