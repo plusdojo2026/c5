@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/torisetu.css">
 <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 <title>ママのトリセツ</title>
 </head>
 
@@ -22,7 +24,7 @@
 </a>
 
 	<div class="page-header">
-		<h1 class="page-title">ママのトリセツ(取り扱い説明書)</h1>
+		<h1 class="page-title">ママのトリセツ</h1>
 		<p class="page-description">ママのことをもっと知って、もっと仲良く。</p>
 	</div>
 	
