@@ -119,7 +119,8 @@ public class MamanoyousuServlet extends HttpServlet {
         boolean result = dao.insert(m);
 
         if (result) {
-            request.setAttribute("message", "記録しました！");
+        	response.sendRedirect("/c5/MamanoyousuServlet?msg=success");
+            return;
         } else {
             request.setAttribute("message", "登録に失敗しました");
         }
