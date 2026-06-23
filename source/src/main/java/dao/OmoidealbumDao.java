@@ -1,4 +1,4 @@
-package dao;//aa
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -154,6 +154,4 @@ public class OmoidealbumDao {
 		//結果を返す
 		return result;
 	}
-	
-	
 }
