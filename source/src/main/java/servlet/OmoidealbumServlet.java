@@ -68,22 +68,22 @@ private static final long serialVersionUID = 1L;
  	
  	String action = request.getParameter("action");
  	
- 	/*---------削除する--------※実装なし！！！
+ 	//---------削除する--------※実装なし！！！
  	if("delete".equals(action)){
- 		int albumId = Integer.parseInt(request.getParameter("album_id"));
+ 		int albumId = Integer.parseInt(request.getParameter("albumId"));
  		
  		Omoidealbum album = new Omoidealbum();
  		album.setAlbumId(albumId);
- 		album.setFamilyId(familyId);
- 		album.setCoupleId(coupleId);
+ 		//album.setFamilyId(familyId);
+ 		//album.setCoupleId(coupleId);
  		
  		OmoidealbumDao dao = new OmoidealbumDao();
  		dao.delete(album);
  		
- 		//リダイレクトして、削除を確実に反映する
+ 	//リダイレクトして、削除を確実に反映する
  		response.sendRedirect("OmoidealbumServlet");
  		return;
- 	}*/
+ 	}
  	
  	//--------投稿する--------
  	if("insert".equals(action)){
