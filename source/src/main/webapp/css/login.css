@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 
-/* 1. メインコンテンツ全体の配置構造 */
+/* 1. メインコンテンツ全体の配置 */
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     
      /* 背景画像 */
     background-image: url("/c5/img/login_background.png"); 
-    background-size: cover;                  /* 画像を隙間なく画面いっぱいに広げる */
+    background-size: cover;                  /* 画像を広げる */
     background-position: center; 
 }
 
@@ -22,7 +22,7 @@
 .login-card {
     background: #ffffff;
     border-radius: 16px; /* 丸みのある角 */
-    box-shadow: 0 8px 24px rgba(255, 182, 193, 0.2); /* 柔らかいピンク系の影 */
+    box-shadow: 0 8px 24px rgba(255, 182, 193, 0.2); /* ピンク影 */
     width: 100%;
     max-width: 480px; /* カードの最大横幅 */
     padding: 24px 40px;
@@ -75,7 +75,7 @@
 /* 入力欄にカーソルが当たった時（フォーカス） */
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus {
-    border-color: #ff5a79; /* イメージ通りの鮮やかなピンク */
+    border-color: #ff5a79; 
     outline: none;
     background-color: #ffffff;
 }
@@ -92,7 +92,7 @@
     width: 100%;
 }
 
-/* 鍵アイコンの位置固定（入力欄の左側に浮かせる） */
+/* 鍵アイコンの位置固定 */
 .password-icon {
     position: absolute;
     left: 1px;
@@ -121,7 +121,7 @@
     flex: 1;
     display: flex;
     align-items: center;		/* 中身を真ん中に寄せる */
-    justify-content: center;   /* ★左右のジャスト中央に揃える */    
+    justify-content: center;   /* 左右の中央に揃える */    
     justify-content: center;
     gap: 8px;
     border: 1px solid #e0e0e0;
@@ -148,7 +148,7 @@
     object-fit: contain;
 }
 
-/* ラジオボタンにチェックが入ったら、親であるラベル（ボタン全体）の枠と背景をピンクにする */
+/* ラジオボタンにチェックが入ったら、ボタンの枠と背景をピンクにする */
 .user-type-btn:has(input[type="radio"]:checked) {
     border-color: #ff5a79;
     background-color: #fff5f7;
@@ -197,7 +197,7 @@
 }
 
 .login-btn:hover {
-    background-color: #e04865; /* ホバー時に少し濃いピンク */
+    background-color: #e04865; 
 }
 
 .login-btn:active {
