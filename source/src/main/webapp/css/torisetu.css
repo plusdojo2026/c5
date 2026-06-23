@@ -334,6 +334,12 @@ textarea::placeholder {
         padding:5px;
     }
 
+	/* 戻るボタン */
+    .back_home{
+        width:35px;
+        margin:15px 0;
+    }
+
     /* ページヘッダー */
     .page-header{
         margin:20px 0;
