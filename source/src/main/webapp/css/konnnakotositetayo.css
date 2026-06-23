@@ -46,22 +46,6 @@
     margin-bottom:14px;
 }
 
-/* ピンクの丸 */
-
-.timeline-item::before{
-    content:"";
-
-    position:absolute;
-
-    left:14px;
-    top:18px;
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-    background:#ff5d87;
-}
 
 /* ------------------------
  アイコン
@@ -187,9 +171,8 @@
 
     top:50%;
     left:50%;
-
-    transform:translate(-50%,-50%);
-
+	
+	transform: translate(-50%, -50%);
     width:650px;
 
     background:#fff;
@@ -205,6 +188,21 @@
 	
     max-height:90vh;
     overflow-y:hidden;
+    animation: fadeIn 0.25s ease-out;
+}
+
+/* ポップアップアニメーション */
+@keyframes fadeIn {
+	from { 
+        opacity: 0; 
+        /* 💡【超重要】from（スタート時）にも必ず真ん中配置の translate を書きます */
+        transform: translate(-50%, -50%) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        /* 💡【超重要】to（ゴール時）にも必ず真ん中配置の translate を書きます */
+        transform: translate(-50%, -50%) scale(1); 
+    }
 }
 
 .modal-content{
@@ -221,6 +219,7 @@
     font-size:24px;
     margin-bottom:30px;
 }
+
 
 /* ========================================
  フォーム
