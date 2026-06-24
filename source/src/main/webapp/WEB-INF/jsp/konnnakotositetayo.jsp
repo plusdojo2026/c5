@@ -42,7 +42,7 @@
 <body>
 
     
-
+<main>
     <!-- ===== メインコンテンツ ===== -->
     <div class="page-container">
     
@@ -216,7 +216,7 @@
     </div>
 </div>
 
-   
+</main>   
 
  <%@ include file="footer.jsp" %>
     <!-- ===== JavaScript ===== -->
@@ -317,5 +317,6 @@
     	    }
     	});
     </script>
+
 </body>
 </html>
