@@ -393,6 +393,65 @@ header{
         width:100%;
         border-radius:25px;
     }
+    
+    /*ママのようすアイコンパパ用*/
+    .mama-home-card{
+        width:100%;
+        max-width:150px;
+        height:100px;
+
+        padding:8px;
+        gap:8px;
+        border-radius:18px;
+    }
+
+    .mama-left{
+        width:50px;
+    }
+
+    .mama-home-image{
+        width:60px;
+    }
+
+    .mama-left-title{
+        font-size:10px;
+        margin-top:4px;
+    }
+
+    .mama-right{
+        width:auto;
+        gap:4px;
+    }
+
+    .mental-box,
+    .sleep-box{
+        height:36px;
+        padding:3.7px 8px;
+        border-radius:10px;
+    }
+
+    .mini-title{
+        font-size:7px;
+        margin-bottom:2px;
+    }
+
+    .heart-area{
+        font-size:11px;
+        gap:1px;
+    }
+
+    .sleep-value{
+        font-size:11px;
+    }
+
+    .sleep-value span{
+        font-size:7.5px;
+    }
+
+    .detail-link{
+        font-size:7px;
+    }
+    
 
     /* フッター */
     .footer{
@@ -418,7 +477,7 @@ header{
         border-radius:20px;
         box-sizing:border-box;
         
-        transform: translateY(-20vh);
+        
     }
 
     .mama-popup .popup-content,
