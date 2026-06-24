@@ -94,8 +94,8 @@ private static final long serialVersionUID = 1L;
 		//恐らく不要  Timestamp createdAt = Timestamp.valueOf(request.getParameter("createdAt"));
  
  	//エラー(写真かコメントが未入力)
- 	if(fileName == null || comment == null) {
- 		request.setAttribute("message","写真とコメントを入力してください");
+ 	if(fileName == null || fileName.isEmpty()) {
+ 		request.setAttribute("errorMessage","写真を追加してください");
  		doGet(request,response);
  		return;
  	}
