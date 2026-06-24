@@ -201,9 +201,40 @@ html, body {
 ========================== */
 @media (max-width:767px){
 	
-/* 戻るボタン */
+	/* 戻るボタン */
     .back_home{
         width:35px;
         margin:15px 0;
+    }
+    
+    /* ヘッダー */
+    header{
+        height:70px;
+        padding:10px 15px;
+    }
+
+    .logo-image{
+        height:50px;
+        width:auto;
+    }
+
+    .logout-btn{
+        padding:6px 10px;
+        font-size:12px;
+        white-space:nowrap;
+    }
+    
+    /* フッター */
+    .footer{
+        margin-top:20px;
+        padding:15px 0;
+    }
+
+    .footer-title{
+        font-size:16px;
+    }
+
+    .copyright{
+        font-size:10px;
     }
 }
