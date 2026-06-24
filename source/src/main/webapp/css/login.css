@@ -289,3 +289,120 @@ body {
     letter-spacing: 1px;
     color: #ff6f9d;
 }
+
+
+
+
+/* ==========================
+   モバイル対応
+========================== */
+@media (max-width:767px){
+
+    /* 全体 */
+    .wrapper{
+        padding:15px;
+        background-position:center;
+    }
+
+    /* ログインカード */
+    .login-card{
+        max-width:none;
+        width:75%;
+
+        padding:30px;
+        border-radius:12px;
+    }
+
+    .login-card h1{
+        font-size:20px;
+    }
+
+    .login-instruction{
+        font-size:12px;
+        margin-bottom:12px;
+    }
+
+    /* 入力欄 */
+    .form-group{
+        margin-bottom:15px;
+    }
+
+    .form-group label{
+        font-size:13px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"]{
+        padding:10px 12px;
+        font-size:14px;
+    }
+
+    /* 鍵アイコン */
+    .password-icon{
+        width:35px;
+        height:35px;
+    }
+
+    .password-input-wrapper input[type="password"],
+    .password-input-wrapper input[type="text"]{
+        padding-left:34px;
+    }
+
+    /* ママ・パパ選択 */
+    .user-type-options{
+        gap:8px;
+    }
+
+    .user-type-btn{
+        padding:8px;
+        font-size:12px;
+    }
+
+    .user-type-image{
+        width:20px;
+        height:20px;
+    }
+
+    /* パスワード表示 */
+    .show-password-label{
+        font-size:12px;
+    }
+
+    /* ボタン */
+    .login-btn{
+        margin-top:0 !important;
+        padding:12px;
+        font-size:15px;
+    }
+
+    /* メッセージ */
+    .login-error-msg,
+    .touroku-success-msg{
+        font-size:12px;
+        padding:10px 12px;
+        margin-bottom:15px;
+    }
+
+    /* ヘッダー */
+    header{
+        height:70px;
+        padding:10px 15px;
+    }
+
+    .logo-image{
+        height:55px;
+    }
+
+    /* フッター */
+    .footer{
+        padding:12px 0;
+    }
+
+    .footer-title{
+        font-size:14px;
+    }
+
+    .copyright{
+        font-size:10px;
+    }
+}
