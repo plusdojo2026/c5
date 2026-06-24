@@ -67,7 +67,8 @@
 	<!-- 削除。OmoidealbumServletにポスト  ※実装なし！！！-->
 		<form method="POST" action="OmoidealbumServlet">
 			<input type="hidden" name ="albumId" value="${album.albumId}">
-			<button type="submit" name="action" value="delete" class="delete_button">削除</button>
+			<button type="submit" name="action" value="delete" class="delete_button"><img src="/c5/img/gomibako.jpg">
+			</button>
 		</form> 
 		</div>
 		
