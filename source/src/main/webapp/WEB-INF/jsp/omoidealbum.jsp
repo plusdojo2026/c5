@@ -102,8 +102,10 @@
 			<div id="count">0 /200</div>
 		</div>
 		
-		<button type="button" id="cancel">キャンセル</button>
-		<button type="submit" id="regist">記録する</button>
+		<div class="button-container">
+			<button type="button" id="cancel">キャンセル</button>
+			<button type="submit" id="regist">記録する</button>
+		</div>
 		</form>
 	</div>
 
