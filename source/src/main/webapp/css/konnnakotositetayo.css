@@ -2,7 +2,9 @@
    こんなことしてたよ!
 ======================================== */
 
-
+main{
+	padding:0 100px;
+}
 
 
 
@@ -368,6 +370,12 @@
  
 }
 
+input[type="text"]:focus {
+    outline: none;
+    border-color: #ff7ea8;
+}
+
+
 /* ========================================
  モーダル下ボタン
 ======================================== */
@@ -487,3 +495,212 @@
   margin: 0;
 }
 
+
+
+/* ==========================
+   モバイル対応
+========================== */
+@media (max-width:767px){
+
+    /* 全体 */
+    main{
+        width:100%;
+        max-width:none;
+        margin:0;
+        padding:0 25px;
+        box-sizing:border-box;
+    }
+
+    .page-container{
+        min-height:auto;
+
+         padding:0 18px !important;
+    }
+
+
+    /* タイトル周り */
+    .page-header{
+        padding:0;
+        margin:20px 0;
+    }
+
+    .page-title{
+        font-size:24px;
+        line-height:1.2;
+        white-space:nowrap;
+    }
+
+    .page-description{
+        font-size:13px;
+    }
+
+    /* 記録ボタン */
+    .btn-area{
+        width:100%;
+        gap:8px;
+        
+        display:flex;
+        flex-direction:column;
+        align-items:flex-end;
+        gap:8px;
+    }
+
+    .btn-delete-all{
+        padding:6px 10px;     
+        font-size:8.5px;
+    }
+
+    .page-action-btn{
+        width:auto;
+    	padding:8px 8px;
+        font-size:10px;
+        width:82px;
+        
+    }
+    
+    /* タイムライン */
+    .timeline{
+        padding:15px;
+    }
+
+    .timeline::before{
+        left:32px;
+        top:70px;
+    }
+
+    .timeline-item{
+        gap:10px;
+    }
+
+    .timeline-icon{
+        width:35px;
+    }
+
+    .user-icon{
+        width:28px;
+        height:28px;
+    }
+
+    .timeline-content{
+        padding:10px 12px;
+    }
+
+    .timeline-task{
+        font-size:14px;
+    }
+
+    .timeline-memo{
+        font-size:12px;
+    }
+
+    .timeline-status{
+        min-width:auto;
+        font-size:11px;
+    }
+
+    /* モーダル */
+    .modal{
+        width:95%;
+        max-width:380px;
+    }
+
+    .modal-content{
+        padding:15px;
+    }
+
+    .modal-title{
+        font-size:20px;
+        margin-bottom:20px;
+    }
+
+    /* ラベル */
+    .form-label{
+        margin-left:0;
+        font-size:14px;
+    }
+
+    /* タスクボタン */
+    .task-buttons{
+        max-width:100%;
+        gap:8px;
+    }
+
+    .task-btn{
+        width:calc((100% - 8px) / 2);
+        height:80px;
+        font-size:13px;
+    }
+
+    .btn-icon{
+        width:32px;
+        height:32px;
+    }
+
+
+
+    /* 回数 */
+    .count-area{
+        max-width:100%;
+        gap:15px;
+    }
+
+    .count-input{
+        width:40px;
+        font-size:28px;
+    }
+
+    .btn-count{
+        width:40px;
+        height:40px;
+        font-size:22px;
+    }
+
+    /* テキスト入力 */
+    .input-text{
+        max-width:100%;
+        font-size:13px;
+    }
+
+    /* ボタン */
+    .modal-btn-area{
+        display:flex;
+        flex-direction:row;
+        gap:8px;
+    }
+    
+    .close-btn,
+    .submit-btn{
+        flex:1;
+        height:44px;
+        font-size:14px;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+        height:44px;
+    }
+
+    /* 完了モーダル */
+    .modal-container1{
+        width:85%;
+        max-width:280px;
+        padding:20px;
+    }
+
+    .success-image{
+        width:70px;
+        height:70px;
+    }
+
+    .modal-container1 h2{
+        font-size:18px;
+    }
+
+    .modal-container1 p{
+        font-size:13px;
+    }    
+    
+    
+}
+    
