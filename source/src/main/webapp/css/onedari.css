@@ -460,4 +460,68 @@
         font-size:14px;
         
     }
+    
+	/* 商品一覧 */
+	.item-list-container{
+	    padding:0;
+	    gap:10px;
+	}
+	
+	/* 商品カード */
+	.item-card{
+	    flex-direction:column;
+	    align-items:flex-start;
+	    gap:10px;
+	
+	    padding:12px;
+	}
+	
+	/* 左側 */
+	.item-card-left{
+	    width:100%;
+	    align-items:flex-start;
+	}
+	
+	/* 商品情報 */
+	.item-details{
+	    flex-wrap:wrap;
+	    gap:8px;
+	}
+	
+	.item-brand,
+	.item-spec,
+	.item-size{
+	    margin:0;
+	    font-size:14px;
+	}
+	
+	.item-size{
+	    word-spacing:normal;
+	}
+	
+	/* 右側 */
+	.item-card-right{
+	    width:100%;
+	
+	    justify-content:flex-end;
+	    gap:12px;
+	}
+	
+	/* アイコン */
+	.item-cat-icon{
+	    width:35px;
+	    height:35px;
+	}
+	
+	.item-thumb{
+	    width:45px;
+	    height:45px;
+	}
+	
+	/* チェック・削除 */
+	.check-box,
+	.delete-btn{
+	    width:20px;
+	    height:20px;
+	}
 }
