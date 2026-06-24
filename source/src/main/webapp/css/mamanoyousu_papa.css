@@ -5,10 +5,6 @@ main{
     padding:30px;
 }
 
-.page-title{
-    color:#ff6f9c;
-    margin-bottom:25px;
-}
 
 .banner{
     display:flex;
@@ -115,4 +111,119 @@ main{
     text-align:center;
     padding:80px;
     font-size:24px;
+}
+
+
+/* ==========================
+   モバイル対応
+========================== */
+@media (max-width:767px){
+
+	/* タイトル周り */
+    .page-header{
+        padding:0;
+        margin:20px 0;
+        align-items:center; 
+    }
+
+    .page-title{
+        font-size:24px;
+        line-height:1.2;
+        white-space:nowrap;
+    }
+	
+    
+    /* バナー */
+	.banner{
+	    display:grid;
+	    grid-template-columns:60px 1fr;
+	    gap:10px;
+	
+	    padding:15px;
+	    align-items:center;
+	}
+	
+	.mama-image{
+	    width:60px;
+	}
+	
+	.banner-text{
+	    display:flex;
+	    flex-direction:column;
+	}
+	
+	.banner-text h2{
+	    font-size:14px;
+	    margin:0 0 6px;
+	}
+	
+	.banner-text p{
+	    font-size:11px;
+	    line-height:1.5;
+	    margin:0;
+	}
+
+    /* 2カラム → 1カラム */
+    .content{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    /* カード */
+    .status-card,
+    .advice-card{
+        padding:15px;
+    }
+
+    .status-card h2,
+    .advice-card h2{
+        font-size:18px;
+    }
+
+    /* 項目 */
+    .row{
+        padding:12px 0;
+    }
+
+    .row span:first-child{
+        font-size:14px;
+    }
+
+    /* スコア */
+    .score-circle-area{
+        gap:5px;
+    }
+
+    .score-circle{
+        width:28px;
+        height:28px;
+        font-size:12px;
+    }
+
+    /* メモ */
+    .memo-box{
+        margin-top:15px;
+        padding:12px;
+    }
+
+    .memo-box h3{
+        font-size:15px;
+    }
+
+    .memo-box p{
+        font-size:13px;
+        line-height:1.6;
+    }
+
+    /* アドバイス */
+    .advice-card p{
+        font-size:13px;
+        line-height:1.8;
+    }
+
+    /* データなし */
+    .empty-box{
+        padding:40px 15px;
+        font-size:18px;
+    }
 }
