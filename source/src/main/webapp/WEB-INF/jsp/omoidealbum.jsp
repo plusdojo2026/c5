@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/omoidealbum.css">
 <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 <title>おもいでアルバム</title>
 
 <body>
@@ -95,7 +97,7 @@
 			<img id="preview" style = "max-width:250px; display:none;">
 		</div>
 		
-		<p>コメント(任意)</p>
+		<p class="comment">コメント(任意)</p>
 	<!-- テキストエリアの文字数カウント -->
 		<div class="album_textarea">
 			<textarea id="album_text" name="comment" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
