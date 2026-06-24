@@ -97,18 +97,17 @@ main{
 }
 
 .delete_button{
-    margin:0 15px 15px;
-
     border:none;
-    border-radius:6px;
-
-    background:#ff6f91;
-    color:white;
-
-    padding:8px 16px;
-
+    background:transparent;
+    padding:0;
     cursor:pointer;
 }
+.delete_button img{
+    height:35px;
+    width:auto;
+    margin-left:30px;
+}
+
 
 /* ==========================
    モーダル背景
