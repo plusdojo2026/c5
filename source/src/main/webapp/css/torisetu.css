@@ -7,9 +7,6 @@ main{
     padding: 20px;
 }
 
-body{
-    font-family: "Yu Gothic", sans-serif;
-}
 
 
 /* ==========================
@@ -424,6 +421,10 @@ textarea::placeholder {
     .bad_grid{
         grid-template-columns:1fr;
     }
+    
+    .bad_grid textarea{
+    	margin-bottom:5px;
+	}
 
     /* メッセージ */
     .papa-message{
