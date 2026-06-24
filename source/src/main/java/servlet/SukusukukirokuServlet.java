@@ -2,7 +2,11 @@ package servlet;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,12 +50,47 @@ public class SukusukukirokuServlet extends HttpServlet{
 	           
 	            //一覧取得
 	            List<Sukusukukiroku> list = dao.findByFamilyId(familyId);
+	            
 
+	            // 日付フォーマット
+	             DateTimeFormatter formatter =
+	                     DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+
+	             //  JSP用に加工
+	              List<Map<String, Object>> viewList = new ArrayList<>();
+
+	              for (Sukusukukiroku r : list) {
+	                  Map<String, Object> map = new HashMap<>();
+
+	                  map.put("sukusukuId", r.getSukusukuId());
+	                  map.put("weight", r.getWeight());
+	                  map.put("temperature", r.getTemperature());
+	                  map.put("note", r.getNote());
+	                  
+	                  
+
+	               // 日付整形
+
+	                  String date = r.getRecordedAt();
+	                  if (date != null && date.length() >= 16) {
+	                	  date = date.substring(0, 16).replace("T", " ");
+	                  }
+	                  map.put("recordedAt", date);
+	                  viewList.add(map);
+
+	                   }
+
+	              			
+	            
 	           //JSPにデータを渡す 
-	            request.setAttribute("recordList", list);
+	            request.setAttribute("recordList", viewList);
+	            
+
+	           
 
                // 日付（表示用）
-	            request.setAttribute("now", LocalDateTime.now().toString());
+	            request.setAttribute("now", LocalDateTime.now().format(formatter));
 	            
 	           //JSPに遷移
 	            request.getRequestDispatcher("WEB-INF/jsp/sukusukukiroku.jsp")
@@ -64,7 +103,7 @@ public class SukusukukirokuServlet extends HttpServlet{
 					
 					request.setCharacterEncoding("UTF-8");
 					
-String action = request.getParameter("action");
+					String action = request.getParameter("action");
 					
 					//---------削除する--------
 					if ("delete".equals(action)) {
