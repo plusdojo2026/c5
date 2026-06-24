@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 <title>おねだりリスト</title>
 <link rel="stylesheet" href="/c5/css/common.css">
 <link rel="stylesheet" href="/c5/css/onedari.css">
