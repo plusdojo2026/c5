@@ -33,9 +33,7 @@ public class FutarinobalanceServlet extends HttpServlet {
         // セッションからfamily_idを取得
         HttpSession session = request.getSession();
 
-//ログインサーブレットを経由せずにサーバーを実行するための仮のデータなので、本番では消す。
-//本番にこのデータがあると、誰が入ってもｆａｍｉｌｙ＿ｉｄ＝１のままとして扱われてしまうので。
-        session.setAttribute("couple_id", 0); 
+
         
 
         // セッションのfamily_idをString型で取得する
