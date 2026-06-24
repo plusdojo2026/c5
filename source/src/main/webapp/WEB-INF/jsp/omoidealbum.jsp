@@ -90,7 +90,7 @@
 		
 		<p>コメント(任意)</p>
 	<!-- テキストエリアの文字数カウント -->
-		<div class=album_textarea>
+		<div class="album_textarea">
 			<textarea id="album_text" name="comment" maxlength="200" placeholder="今日の出来事やひとことを記録しましょう"></textarea>
 			<div id="count">0 /200</div>
 		</div>
