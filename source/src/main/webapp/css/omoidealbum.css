@@ -467,27 +467,36 @@ main{
     /* アルバム一覧 */
     .album_list{
         grid-template-columns:1fr;
-        gap:15px;
+        gap:12px;
     }
+    
+    .album_item{
+    border-radius:10px;
+	}
 
     .album_photo{
         height:180px;
     }
 
     .album_message{
-        padding:12px;
-        font-size:13px;
-        line-height:1.6;
+        padding:10px 12px;
+        font-size:12px;
+        line-height:1.5;
+        min-height:10px;
     }
 
     .album_date{
-        padding:0 12px 12px;
+        padding:0 12px 8px;
         font-size:11px;
     }
+    
+    .delete_button{
+	    margin-right:10px;
+	    padding-bottom:5px;
+	}
 
     .delete_button img{
-        height:25px;
-        margin-left:10px;
+        height:22px;
     }
 
     /* 投稿モーダル */
