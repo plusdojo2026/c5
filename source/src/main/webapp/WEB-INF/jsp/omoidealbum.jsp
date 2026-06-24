@@ -37,6 +37,12 @@
 			</div>-->
 	<!-- ソート機能保留ここまで -->
 	
+<!-- 写真未追加時の処理 -->>
+<c:if test="${not empty errorMessage}">
+    <div class="error_message">
+        ${errorMessage}
+    </div>
+</c:if>
 
 <!-- アルバムの追加が無いときの画面 -->
 <c:if test="${empty albumList}">
@@ -149,6 +155,17 @@
 		        modal.style.display = 'none';}
 		});
 		
+
+		// 投稿時チェック
+		    document.querySelector(".photo_modal form").addEventListener("submit", function(e) {
+		        const fileInput = document.getElementById("album_photo");
+
+		        if (!fileInput.files.length) {
+		            alert("画像を追加してください！");
+		            e.preventDefault();
+		        }
+		    });
+
 		
 		//投稿前に写真をプレビュー
 		window.previewImage = function(event){
