@@ -222,6 +222,13 @@ body{
     box-sizing:border-box;
 }
 
+.album_textarea textarea:focus,
+#album_text:focus {
+    border-color: #ff82a2 !important; 
+    outline: none !important;
+}
+
+
 #count{
     text-align:right;
 
