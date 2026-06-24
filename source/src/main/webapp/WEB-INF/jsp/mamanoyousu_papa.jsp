@@ -4,10 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/mamanoyousu_papa.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/mamanoyousu_papa.css">
 
 <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 <title>ママのようす</title>
 </head>
 <body>
