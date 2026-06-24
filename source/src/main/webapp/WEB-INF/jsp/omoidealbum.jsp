@@ -37,7 +37,7 @@
 			</div>-->
 	<!-- ソート機能保留ここまで -->
 	
-<!-- 写真未追加時の処理 -->>
+<!-- 写真未追加時の処理 -->
 <c:if test="${not empty errorMessage}">
     <div class="error_message">
         ${errorMessage}
