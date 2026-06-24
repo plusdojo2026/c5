@@ -87,6 +87,8 @@ main{
 
     font-size:15px;
     line-height:1.8;
+    
+    min-height:40px;
 }
 
 .album_date{
@@ -101,11 +103,15 @@ main{
     background:transparent;
     padding:0;
     cursor:pointer;
+    
+    display:block;
+    margin-left:auto;
+    margin-right:15px;
+    padding-bottom:8px;
 }
 .delete_button img{
-    height:35px;
+    height:30px;
     width:auto;
-    margin-left:30px;
 }
 
 
@@ -398,4 +404,154 @@ main{
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+
+/* ==========================
+   モバイル対応
+========================== */
+@media (max-width:767px){
+
+    main{
+        width:100%;
+        max-width:none;
+        margin:0;
+        padding:0 25px;
+        box-sizing:border-box;
+    }
+    
+    .page-container{
+        min-height:auto;
+    
+    }
+    
+	/* タイトル周り */
+    .page-header{
+        padding:0;
+        margin:20px 0;
+    }
+
+    .page-title{
+        font-size:24px;
+        line-height:1.2;
+        white-space:nowrap;
+    }
+    
+    .page-action-btn{
+        width:auto;
+    	padding:8px 14px;
+        font-size:12px;
+        
+    }
+
+    /* 空状態 */
+    .empty_album{
+        min-height:300px;
+        padding:20px;
+    }
+
+    .gazou_arimasenn{
+        width:120px;
+    }
+
+    .empty_title{
+        font-size:22px;
+        margin-bottom:10px;
+    }
+
+    .empty_text{
+        font-size:13px;
+        line-height:1.6;
+    }
+
+    /* アルバム一覧 */
+    .album_list{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .album_photo{
+        height:180px;
+    }
+
+    .album_message{
+        padding:12px;
+        font-size:13px;
+        line-height:1.6;
+    }
+
+    .album_date{
+        padding:0 12px 12px;
+        font-size:11px;
+    }
+
+    .delete_button img{
+        height:25px;
+        margin-left:10px;
+    }
+
+    /* 投稿モーダル */
+    .photo_modal{
+        width:90%;
+        max-width:350px;
+        padding:20px;
+        box-sizing:border-box;
+    }
+
+    .photobox{
+        padding:20px;
+    }
+
+    .photobox label{
+        font-size:14px;
+    }
+    
+    .comment {
+     	font-size:13.4px
+     }
+
+    .album_textarea textarea{
+        height:100px;
+        font-size:11px;
+    }
+
+    /* ボタン */
+    #cancel,
+    #regist{
+        height:42px;
+        font-size:14px;
+    }
+
+    /* 完了モーダル */
+    .modal-container{
+        width:85%;
+        max-width:280px;
+        padding:20px;
+    }
+
+    .success-image{
+        width:70px;
+        height:70px;
+        margin-bottom:10px;
+    }
+
+    .modal-container h2{
+        font-size:18px;
+    }
+
+    .modal-container p{
+        font-size:13px;
+    }
+
+    /* 写真拡大モーダル */
+    .photomodal .modalimg{
+        max-width:90vw;
+        max-height:80vh;
+        padding:10px;
+    }
+
+    .photomodal .modalimg img{
+        max-width:100%;
+        height:auto;
+    }
 }
