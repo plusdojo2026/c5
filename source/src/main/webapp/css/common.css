@@ -194,3 +194,16 @@ html, body {
     min-height: calc(100vh - 80px - 140px); 
     box-sizing: border-box;
 }
+
+
+/* ==========================
+   モバイル対応
+========================== */
+@media (max-width:767px){
+	
+/* 戻るボタン */
+    .back_home{
+        width:35px;
+        margin:15px 0;
+    }
+}
