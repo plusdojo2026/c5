@@ -178,6 +178,13 @@
 	//モーダルの非表示
 	document.getElementById("closeModal").onclick = () => modal.style.display="none";
 	
+	//背景（モーダルの外側）クリックで閉じる
+	modal.addEventListener("click", (e) => {
+		// クリックされたのが modal 自身（＝背景部分）なら閉じる
+		if (e.target === modal) {
+			modal.style.display = "none";
+		}
+	});
 	
 	//保存済みモーダル
 	document.addEventListener("DOMContentLoaded", () => {
