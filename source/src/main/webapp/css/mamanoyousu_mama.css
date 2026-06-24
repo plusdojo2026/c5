@@ -235,3 +235,128 @@ textarea::placeholder{
   color: #666666;
   margin: 0;
 }
+
+
+
+
+/* ==========================
+   モバイル対応
+========================== */
+@media (max-width:767px){
+
+	/* タイトル周り */
+    .page-header{
+        padding:0;
+        margin:20px 0;
+        align-items:center; 
+    }
+
+    .page-title{
+        font-size:24px;
+        line-height:1.2;
+        white-space:nowrap;
+    }
+	
+    /* フォーム */
+    form{
+        padding:15px;
+        margin:0 auto 30px;
+    }
+
+    /* 上部説明 */
+    form > img:first-of-type{
+        width:60px;
+        margin-right:10px;
+    }
+
+    form > div:first-of-type h2{
+        font-size:14px;
+    }
+
+    form > div:first-of-type p{
+        font-size:11px;
+        margin-bottom:15px;
+    }
+
+    /* 各項目 */
+    .condition-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+        padding:15px;
+    }
+
+    /* 左側 */
+    .condition-label{
+        width:100%;
+        gap:12px;
+    }
+
+    .condition-label img{
+        width:45px;
+        height:45px;
+    }
+
+    .condition-label h3{
+        font-size:14px;
+    }
+
+    .condition-label p{
+        font-size:10px;
+    }
+
+    /* ラジオボタン */
+    .radio-group{
+        width:100%;
+        justify-content:space-between;
+        gap:3px;
+    }
+
+    .radio-group span{
+        width:36px;
+        height:36px;
+        font-size:14px;
+    }
+
+    /* 睡眠時間 */
+    input[type="number"]{
+        width:100%;
+        max-width:120px;
+        height:40px;
+        font-size:15px;
+    }
+
+    /* メモ */
+    textarea{
+        width:100%;
+        max-width:100%;
+    	box-sizing:border-box;
+        height:100px;
+        font-size:14px;
+    }
+
+    /* ボタン */
+    .btn-area{
+        margin-top:20px;
+    }
+
+    /* 完了モーダル */
+    .modal-container{
+        width:85%;
+        max-width:280px;
+        padding:20px;
+    }
+
+    .success-image{
+        width:70px;
+        height:70px;
+    }
+
+    .modal-container h2{
+        font-size:18px;
+    }
+
+    .modal-container p{
+        font-size:13px;
+    }
+}
