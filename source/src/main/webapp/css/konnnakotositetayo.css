@@ -20,18 +20,7 @@ main{
     padding:30px;
 }
 
-/* 縦線 */
 
-.timeline::before{
-    content:"";
-    position:absolute;
-    left:52px;
-    top:90px;
-    bottom:30px;
-
-    width:2px;
-    background:#ffd1dc;
-}
 
 /* ------------------------
  1件
