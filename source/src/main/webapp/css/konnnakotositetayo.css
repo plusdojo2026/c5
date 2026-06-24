@@ -186,12 +186,10 @@ main{
 @keyframes fadeIn {
 	from { 
         opacity: 0; 
-        /* 💡【超重要】from（スタート時）にも必ず真ん中配置の translate を書きます */
         transform: translate(-50%, -50%) scale(0.95); 
     }
     to { 
         opacity: 1; 
-        /* 💡【超重要】to（ゴール時）にも必ず真ん中配置の translate を書きます */
         transform: translate(-50%, -50%) scale(1); 
     }
 }
@@ -384,16 +382,17 @@ input[type="text"]:focus {
     flex:1;
 
     height:48px;
-
+	font-size:16px;
     border:1px solid #ddd;
     border-radius:10px;
-
-    background:#fff;
+	color:#555555;
+    background-color: #f2f2f2;
+    font-weight: bold;
 }
 
 .btn-primary{
     flex:1;
-
+	font-size:16px;
     height:48px;
 
     border:none;
