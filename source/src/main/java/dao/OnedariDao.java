@@ -22,7 +22,7 @@ public class OnedariDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // データベースに接続する
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
 
             // SELECT文を準備する
             String sql = """
@@ -91,7 +91,7 @@ public class OnedariDao {
      // JDBCドライバを読み込む
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
 
             // INSERT文を準備する
             String sql = "INSERT INTO onedari (family_id, couple_id, category_id, product_name, image_path) VALUES (?, ?, ?, ?, ?)";
@@ -136,7 +136,7 @@ public class OnedariDao {
      // JDBCドライバを読み込む
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
             
          // UPDATE文を準備する
             String sql = "UPDATE onedari SET updated_at = NOW() WHERE onedari_id = ?";
@@ -177,7 +177,7 @@ public class OnedariDao {
      // JDBCドライバを読み込む
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
 
             // UPDATE文を準備する
             String sql = "UPDATE onedari SET updated_at = NULL WHERE onedari_id = ?";
@@ -209,5 +209,48 @@ public class OnedariDao {
      // 結果を返す
         return updateResult;
     }
-}
 
+
+	// ５．おねだりを削除するメゾット	
+	public boolean deleteOnedari(int onedariId) {
+		Connection conn = null;
+        boolean deleteResult = false;
+        
+        try {
+            // JDBCドライバを読み込む
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            // データベースに接続する
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
+
+            // DELETE文を準備する
+            String sql = "DELETE FROM onedari WHERE onedari_id = ?";
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setInt(1, onedariId);
+
+            // DELETE文を実行し、結果を取得する
+            int rowsDeleted = pStmt.executeUpdate();
+            if (rowsDeleted == 1) {
+                deleteResult = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            deleteResult = false;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            deleteResult = false;
+        } finally {
+            // データベースを切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    deleteResult = false;
+                }
+            }
+        }
+        // 結果を返す
+        return deleteResult;
+	}
+}
