@@ -44,6 +44,15 @@
 		</div>
 	</div>
 	
+	<!-- 条件分岐：リストが空の場合 -->
+	<c:if test="${empty recordList}">
+	<div class ="empty-list">
+	    <img src="/c5/img/weight.png"  class="empty-image">
+	     <h2>まだ記録がありません</h2>
+	     <p>右上の「＋記録する」から、成長を記録しましょう！</p>
+	</div>
+	</c:if>
+
 	 <!-- 記録のモーダル表示 -->
 		<div id="modal" class="modal">
 			<div class="modal-content">
@@ -81,6 +90,8 @@
 			</div>
 		</div>
 		
+		
+		<c:if test="${not empty recordList}">
 		
 		<h2>記録一覧</h2>	
 		
@@ -138,6 +149,8 @@
 			</c:forEach>
 
 		</div>	
+		</c:if>
+	
 </div>			
 </main>		
 
