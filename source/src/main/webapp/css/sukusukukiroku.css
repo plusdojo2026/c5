@@ -246,17 +246,29 @@ main{
     left:50%;
 
     transform:translate(-50%,-50%);
-
+	animation: fadeIn 0.25s ease-out;
     box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
 .modal-content h3{
     margin-top:0;
     margin-bottom:30px;
-
+	color:#333333;
     font-size:32px;
 }
 
+/* ポップアップアニメーション */
+@keyframes fadeIn {
+	 from { 
+	opacity: 0; 
+	transform: translate(-50%, -50%) scale(0.95); 
+	}
+	to { 
+	opacity: 1; 
+	transform: translate(-50%, -50%) scale(1); 
+	}
+}
+                                                    
 /* ==========================
    フォーム
 ========================== */
@@ -268,7 +280,7 @@ main{
 }
 
 .modal-content label{
-    font-weight:bold;
+    
     margin-top:10px;
 }
 
@@ -344,10 +356,10 @@ textarea:focus {
     border:none;
     border-radius:12px;
 
-    background:white;
+    background-color: #f2f2f2;
 
     font-size:18px;
-    font-weight:bold;
+	color:#666666;
 	border:1px solid #ccc;
     cursor:pointer;
 }
@@ -369,7 +381,7 @@ textarea:focus {
     color:white;
 
     font-size:18px;
-    font-weight:bold;
+
 
     cursor:pointer;
 }
