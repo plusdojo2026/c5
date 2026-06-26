@@ -17,7 +17,7 @@
          couple_id             INT         NOT NULL,
          task_id               INT         NOT NULL,
          count                 INT         NOT NULL DEFAULT 1,
-         memo                  VARCHAR(20)          DEFAULT NULL,
+         memo                  VARCHAR(100)          DEFAULT NULL,
          display_order         INT         NOT NULL DEFAULT 0,
          is_read               INT         NOT NULL DEFAULT 0,
          recorded_date         DATE        NOT NULL,
