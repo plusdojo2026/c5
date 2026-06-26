@@ -20,11 +20,7 @@ public class SukusukukirokuDao {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				
 				//DB接続
-				conn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8",//接続するデータベース名
-			            "root",//MySQLにログインするユーザー名 //⚠root は 管理者ユーザー
-			            "password"
-						);	
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 				//SQL文
 				String sql ="""
 						SELECT*

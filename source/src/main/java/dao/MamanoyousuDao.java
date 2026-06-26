@@ -9,10 +9,9 @@ import dto.Mamanoyousu;
 
 public class MamanoyousuDao {
 	//データベース接続
-	private static final String URL= "jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8";//接続するデータベース名
-	private static final String USER     = "root";//1MySQLにログインするユーザー名
-											      //⚠root は 管理者ユーザー
-    private static final String PASSWORD = "password";//上記ユーザーのパスワード
+	private static final String URL= "jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000";
+	private static final String USER     = "c5";
+    private static final String PASSWORD = "xMN3sWVGp4WNhyCz";
     
     //データ登録、SQL準備
     public boolean insert(Mamanoyousu m) {
