@@ -21,7 +21,7 @@ public class OmoidealbumDao {
 		//JDBCドライバを読み込む
 			try {Class.forName("com.mysql.cj.jdbc.Driver");
 		//DBに接続 ※仮の入力
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 		//SQLを準備
 			String sql = "SELECT * FROM album WHERE family_id=? ORDER BY album_id DESC";
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class OmoidealbumDao {
 		//JDBCドライバを読み込む
 		try {Class.forName("com.mysql.cj.jdbc.Driver");
 		//DBに接続　※仮の入力
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 		//SQLを準備
 		String sql = "DELETE FROM album WHERE album_id =?";
 															//AND family_id AND couple_id=?";
@@ -103,7 +103,7 @@ public class OmoidealbumDao {
 		//JDBCをドライバ読み込む
 		try {Class.forName("com.mysql.cj.jdbc.Driver");
 		//DBに接続
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 		//SQLを準備
 		String sql = "INSERT INTO album (family_id, couple_id, photo_path, comment, created_at) VALUES(?,?,?,?,NOW())";
 		PreparedStatement ps = conn.prepareStatement(sql);
