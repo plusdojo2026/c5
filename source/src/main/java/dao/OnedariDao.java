@@ -22,8 +22,7 @@ public class OnedariDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // データベースに接続する
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
-
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
             // SELECT文を準備する
             String sql = """
                 SELECT 
@@ -91,7 +90,7 @@ public class OnedariDao {
      // JDBCドライバを読み込む
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
             // INSERT文を準備する
             String sql = "INSERT INTO onedari (family_id, couple_id, category_id, product_name, image_path) VALUES (?, ?, ?, ?, ?)";
@@ -136,7 +135,7 @@ public class OnedariDao {
      // JDBCドライバを読み込む
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
             
          // UPDATE文を準備する
             String sql = "UPDATE onedari SET updated_at = NOW() WHERE onedari_id = ?";
@@ -177,7 +176,7 @@ public class OnedariDao {
      // JDBCドライバを読み込む
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
             // UPDATE文を準備する
             String sql = "UPDATE onedari SET updated_at = NULL WHERE onedari_id = ?";
@@ -221,7 +220,7 @@ public class OnedariDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // データベースに接続する
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "Mikan0729");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
             // DELETE文を準備する
             String sql = "DELETE FROM onedari WHERE onedari_id = ?";
