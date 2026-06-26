@@ -19,7 +19,7 @@ public class TorisetuDao {
     //JDBCドライバ読み込み
     	try {Class.forName("com.mysql.cj.jdbc.Driver");
     //DBに接続　※仮の入力
-    	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
+    	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
     //SQLを準備
     	String sql = "SELECT * FROM torisetu WHERE family_id=?";
     	PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class TorisetuDao {
 	//JDBCドライバ読み込み
 	try {Class.forName("com.mysql.cj.jdbc.Driver");
 	//DBに接続　※仮の入力
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 	//SQLを準備
 	String sql = "INSERT INTO torisetu("
 										+ "family_id,"
@@ -226,7 +226,7 @@ public class TorisetuDao {
 	//JDBCドライバ読み込み
 	try {Class.forName("com.mysql.cj.jdbc.Driver");
 	//DBに接続　※仮の入力
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8","root","password");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 	//SQLを準備
 		String sql = "UPDATE torisetu SET happy1=?,happy2=?,happy3=?,"
 											+ "angry1=?,angry2=?,angry3=?,"
