@@ -70,9 +70,7 @@ public class SukusukukirokuDao {
 			// JDBCドライバを読み込む
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			// DBに接続する
-			conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8",
-					"root",
-					"password");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 		
 		//SQL文
 		String sql ="""
@@ -115,7 +113,7 @@ public class SukusukukirokuDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // データベースに接続する
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8", "root", "password");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
             // DELETE文を準備する
             String sql = "DELETE FROM sukusukukiroku WHERE sukusuku_id = ?";
