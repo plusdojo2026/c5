@@ -15,10 +15,9 @@ import java.util.List;
 public class FutarinobalanceDao {
 
     // DB接続情報
-    // ※ futarigoto_db は futarigoto_db.sql で作成したデータベース名
-    private static final String URL      = "jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8";
-    private static final String USER     = "root";
-    private static final String PASSWORD = "password";
+    private static final String URL      = "jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000";
+    private static final String USER     = "c5";
+    private static final String PASSWORD = "xMN3sWVGp4WNhyCz";
 
     /**
      * 指定したfamilyIdのタスク一覧を全件取得する
