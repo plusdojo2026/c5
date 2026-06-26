@@ -41,7 +41,7 @@ public class KonnnakotositetayoDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // DB接続
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000", "c5", "xMN3sWVGp4WNhyCz");
 
             // SQL文（同じfamily_idのデータを新しい順に取得）
          // SQL文（tasksとJOINしてタスク名も取得）
