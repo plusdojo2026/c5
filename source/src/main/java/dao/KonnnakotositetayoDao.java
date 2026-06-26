@@ -15,9 +15,9 @@ import java.util.List;
 public class KonnnakotositetayoDao {
 
     // DB接続情報
-    private static final String URL      = "jdbc:mysql://localhost:3306/c5?characterEncoding=UTF-8";
-    private static final String USER     = "root";
-    private static final String PASSWORD = "password";
+    private static final String URL      = "jdbc:mysql://localhost:3306/c5?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Tokyo&connectTimeout=30000";
+    private static final String USER     = "c5";
+    private static final String PASSWORD = "xMN3sWVGp4WNhyCz";
 
     /**
      * タイムライン一覧を取得する
