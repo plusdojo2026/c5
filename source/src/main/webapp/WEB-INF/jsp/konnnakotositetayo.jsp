@@ -188,7 +188,7 @@
                 <!-- 補足メモ（その他選択時に使用） -->
                 <div class="form-group">
                     <label class="form-label">メモ（任意）</label>
-                    <input type="text" name="memo" class="input-text" placeholder="メモを入力（任意）" maxlength="20">
+                    <input type="text" name="memo" class="input-text" placeholder="メモを入力（任意）" maxlength="100">
                 </div>
 
                 <!-- ボタンエリア -->
